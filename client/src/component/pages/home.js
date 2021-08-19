@@ -5,11 +5,7 @@ function home() {
         <div>
             This is Home page
             I don't know what will I do in here
-
-            Hello Theeban
-
-            hello
-
+            <a href="http://localhost:3001/">Dashboard</a>
         </div>
     )
 }
