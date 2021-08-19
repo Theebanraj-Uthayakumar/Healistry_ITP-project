@@ -1,3 +1,4 @@
+![Healistry](https://user-images.githubusercontent.com/69495468/130131957-51aee587-b98e-4d84-9b2c-2f5db1f544ca.png)
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
