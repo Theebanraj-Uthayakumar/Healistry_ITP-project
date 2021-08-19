@@ -1,4 +1,6 @@
-![Healistry](https://user-images.githubusercontent.com/69495468/130131957-51aee587-b98e-4d84-9b2c-2f5db1f544ca.png)
+![Healistry](https://user-images.githubusercontent.com/69495468/130131957-51aee587-b98e-4d84-9b2c-2f5db1f544ca.png)<img width="1440" alt="Screenshot 2021-08-20 at 00 58 22" src="https://user-images.githubusercontent.com/69495468/130132317-db603555-91ba-413e-9f68-126cfc5f1bf4.png">
+<img width="1441" alt="Screenshot 2021-08-20 at 00 58 29" src="https://user-images.githubusercontent.com/69495468/130132321-22be4d33-a771-40aa-b41b-2925782486dd.png">
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
