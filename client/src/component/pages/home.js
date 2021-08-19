@@ -5,7 +5,11 @@ function home() {
         <div>
             This is Home page
             I don't know what will I do in here
+
+            Hello Theeban
+
             hello
+
         </div>
     )
 }
