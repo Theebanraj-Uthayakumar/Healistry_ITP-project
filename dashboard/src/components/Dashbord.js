@@ -253,6 +253,69 @@ function Dashbord() {
                                         </ul>
                                     </li>
                                     <li>
+                                    <a href="#">
+                                        <i className="metismenu-icon pe-7s-diamond" />
+                                       Ambulance Details
+                                        <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
+                                    </a>
+                                    <ul>
+                                        <li>
+                                            <a href="/Ambulance_Add">
+                                                <i className="metismenu-icon" />
+                                                Ambulance | Add
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/Ambulance_update">
+                                                <i className="metismenu-icon"></i> Ambulance | Edit,Delete
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                               
+                                <li>
+                                    <a href="#">
+                                        <i className="metismenu-icon pe-7s-diamond" />
+                                       Camping Details
+                                        <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
+                                    </a>
+                                    <ul>
+                                        <li>
+                                            <a href="/Camping_add">
+                                                <i className="metismenu-icon" />
+                                                Camping | Add
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/Camping_update">
+                                                <i className="metismenu-icon"></i> Camping | Edit,Delete
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i className="metismenu-icon pe-7s-diamond" />
+                                       Blood Bank Details
+                                        <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
+                                    </a>
+                                    <ul>
+                                        <li>
+                                            <a href="/Blood_bank_add">
+                                                <i className="metismenu-icon" />
+                                                Blood Bank | Add
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/blood_bank_update">
+                                                <i className="metismenu-icon"></i> Blood Bank | Edit,Delete
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                               
+
+                                    <li>
                                         <a href="#">
                                             <i className="metismenu-icon pe-7s-display2" />
                                             Tables
