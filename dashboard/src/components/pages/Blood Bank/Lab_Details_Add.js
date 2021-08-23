@@ -6,7 +6,7 @@ import Row from 'react-bootstrap/esm/Row';
 import Form from 'react-bootstrap/Form';
 import logo from "../../../Healistry.png"
 
-function blood_bank_update() {
+function Lab_Details_Add() {
     return (
         <div>
         <div className="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
@@ -316,16 +316,16 @@ function blood_bank_update() {
                                         <i className="pe-7s-car icon-gradient bg-mean-fruit"></i>
                                     </div>
                                     <div>
-                                        Update Blood Bank Details
+                                        Add Laboratory Details
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <h1>Blood Bank Info | Update</h1>
+                        <h1>Lab Test Info | Add</h1>
                         <Form>
                                 <Form.Group as={Row} className="mb-3" controlId="">
                                     <Form.Label column sm={3}>  
-                                             Contact Number
+                                             Test Name
                                     </Form.Label>
                                     <Col sm={5}>
                                         <Form.Control type="text" />
@@ -333,7 +333,7 @@ function blood_bank_update() {
                                  </Form.Group>
                                  <Form.Group as={Row} className="mb-3" controlId="">
                                     <Form.Label column sm={3}>
-                                             A+ Blood Availability
+                                             Procedure
                                     </Form.Label>
                                     <Col sm={5}>
                                         <Form.Control type="text" />
@@ -341,7 +341,7 @@ function blood_bank_update() {
                                  </Form.Group>
                                  <Form.Group as={Row} className="mb-3" controlId="">
                                     <Form.Label column sm={3}>
-                                             A- Blood Availability
+                                             Test Fee
                                     </Form.Label>
                                     <Col sm={5}>
                                         <Form.Control type="text" />
@@ -349,7 +349,7 @@ function blood_bank_update() {
                                  </Form.Group>
                                  <Form.Group as={Row} className="mb-3" controlId="">
                                     <Form.Label column sm={3}>
-                                             B+ Blood Availability
+                                             Report generated time
                                     </Form.Label>
                                     <Col sm={5}>
                                         <Form.Control type="text" />
@@ -357,7 +357,23 @@ function blood_bank_update() {
                                  </Form.Group>
                                  <Form.Group as={Row} className="mb-3" controlId="">
                                     <Form.Label column sm={3}>
-                                             B- Blood Availability
+                                             Image
+                                    </Form.Label>
+                                    <Col sm={5}>
+                                        <Button type="submit">Choose</Button>
+                                    </Col>
+                                 </Form.Group>
+                                 <Form.Group as={Row} className="mb-3">
+                                    <Col sm={{ span: 25, offset: 8 }}>
+                                        <Button type="submit">SUBMIT</Button>
+                                    </Col>
+                                </Form.Group>
+                        </Form>
+                        <h1>Lab Eqipment Info | Add</h1>
+                        <Form>
+                                <Form.Group as={Row} className="mb-3" controlId="">
+                                    <Form.Label column sm={3}>  
+                                             Equipment Name
                                     </Form.Label>
                                     <Col sm={5}>
                                         <Form.Control type="text" />
@@ -365,7 +381,7 @@ function blood_bank_update() {
                                  </Form.Group>
                                  <Form.Group as={Row} className="mb-3" controlId="">
                                     <Form.Label column sm={3}>
-                                             O+ Blood Availability
+                                             Description
                                     </Form.Label>
                                     <Col sm={5}>
                                         <Form.Control type="text" />
@@ -373,7 +389,7 @@ function blood_bank_update() {
                                  </Form.Group>
                                  <Form.Group as={Row} className="mb-3" controlId="">
                                     <Form.Label column sm={3}>
-                                             O- Blood Availability
+                                             Purpose
                                     </Form.Label>
                                     <Col sm={5}>
                                         <Form.Control type="text" />
@@ -381,7 +397,7 @@ function blood_bank_update() {
                                  </Form.Group>
                                  <Form.Group as={Row} className="mb-3" controlId="">
                                     <Form.Label column sm={3}>
-                                             AB+ Blood Availability
+                                             Manufacturer
                                     </Form.Label>
                                     <Col sm={5}>
                                         <Form.Control type="text" />
@@ -389,22 +405,21 @@ function blood_bank_update() {
                                  </Form.Group>
                                  <Form.Group as={Row} className="mb-3" controlId="">
                                     <Form.Label column sm={3}>
-                                             AB- Blood Availability
+                                             Manufactured year 
                                     </Form.Label>
                                     <Col sm={5}>
                                         <Form.Control type="text" />
                                      </Col>
                                  </Form.Group>
-                                <Form.Group as={Row} className="mb-3"controlId="" >
+                                 <Form.Group as={Row} className="mb-3" controlId="">
                                     <Form.Label column sm={3}>
-                                             Note
+                                             Image
                                     </Form.Label>
                                     <Col sm={5}>
-                                        <Form.Control type="text-area" />
-                                     </Col>
+                                        <Button type="submit">Choose</Button>
+                                    </Col>
                                  </Form.Group>
-                                
-                                <Form.Group as={Row} className="mb-3">
+                                 <Form.Group as={Row} className="mb-3">
                                     <Col sm={{ span: 25, offset: 8 }}>
                                         <Button type="submit">SUBMIT</Button>
                                     </Col>
@@ -457,4 +472,4 @@ function blood_bank_update() {
     )
 }
 
-export default blood_bank_update
+export default Lab_Details_Add

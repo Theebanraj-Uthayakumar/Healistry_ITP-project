@@ -313,6 +313,26 @@ function Dashbord() {
                                         </li>
                                     </ul>
                                 </li>
+                                <li>
+                                    <a href="#">
+                                        <i className="metismenu-icon pe-7s-diamond" />
+                                       Laboratory Details
+                                        <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
+                                    </a>
+                                    <ul>
+                                        <li>
+                                            <a href="/Lab_Details_Add">
+                                                <i className="metismenu-icon" />
+                                                Laboratory | Add
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/Lab_Details_Update">
+                                                <i className="metismenu-icon"></i> Laboratory | Edit,Delete
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
                                
 
                                     <li>
