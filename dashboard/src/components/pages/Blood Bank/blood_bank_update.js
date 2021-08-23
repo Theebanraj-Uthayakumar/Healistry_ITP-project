@@ -322,94 +322,38 @@ function blood_bank_update() {
                             </div>
                         </div>
                         <h1>Blood Bank Info | Update</h1>
-                        <Form>
-                                <Form.Group as={Row} className="mb-3" controlId="">
-                                    <Form.Label column sm={3}>  
-                                             Contact Number
-                                    </Form.Label>
-                                    <Col sm={5}>
-                                        <Form.Control type="text" />
-                                     </Col>
-                                 </Form.Group>
-                                 <Form.Group as={Row} className="mb-3" controlId="">
-                                    <Form.Label column sm={3}>
-                                             A+ Blood Availability
-                                    </Form.Label>
-                                    <Col sm={5}>
-                                        <Form.Control type="text" />
-                                     </Col>
-                                 </Form.Group>
-                                 <Form.Group as={Row} className="mb-3" controlId="">
-                                    <Form.Label column sm={3}>
-                                             A- Blood Availability
-                                    </Form.Label>
-                                    <Col sm={5}>
-                                        <Form.Control type="text" />
-                                     </Col>
-                                 </Form.Group>
-                                 <Form.Group as={Row} className="mb-3" controlId="">
-                                    <Form.Label column sm={3}>
-                                             B+ Blood Availability
-                                    </Form.Label>
-                                    <Col sm={5}>
-                                        <Form.Control type="text" />
-                                     </Col>
-                                 </Form.Group>
-                                 <Form.Group as={Row} className="mb-3" controlId="">
-                                    <Form.Label column sm={3}>
-                                             B- Blood Availability
-                                    </Form.Label>
-                                    <Col sm={5}>
-                                        <Form.Control type="text" />
-                                     </Col>
-                                 </Form.Group>
-                                 <Form.Group as={Row} className="mb-3" controlId="">
-                                    <Form.Label column sm={3}>
-                                             O+ Blood Availability
-                                    </Form.Label>
-                                    <Col sm={5}>
-                                        <Form.Control type="text" />
-                                     </Col>
-                                 </Form.Group>
-                                 <Form.Group as={Row} className="mb-3" controlId="">
-                                    <Form.Label column sm={3}>
-                                             O- Blood Availability
-                                    </Form.Label>
-                                    <Col sm={5}>
-                                        <Form.Control type="text" />
-                                     </Col>
-                                 </Form.Group>
-                                 <Form.Group as={Row} className="mb-3" controlId="">
-                                    <Form.Label column sm={3}>
-                                             AB+ Blood Availability
-                                    </Form.Label>
-                                    <Col sm={5}>
-                                        <Form.Control type="text" />
-                                     </Col>
-                                 </Form.Group>
-                                 <Form.Group as={Row} className="mb-3" controlId="">
-                                    <Form.Label column sm={3}>
-                                             AB- Blood Availability
-                                    </Form.Label>
-                                    <Col sm={5}>
-                                        <Form.Control type="text" />
-                                     </Col>
-                                 </Form.Group>
-                                <Form.Group as={Row} className="mb-3"controlId="" >
-                                    <Form.Label column sm={3}>
-                                             Note
-                                    </Form.Label>
-                                    <Col sm={5}>
-                                        <Form.Control type="text-area" />
-                                     </Col>
-                                 </Form.Group>
-                                
-                                <Form.Group as={Row} className="mb-3">
-                                    <Col sm={{ span: 25, offset: 8 }}>
-                                        <Button type="submit">SUBMIT</Button>
-                                    </Col>
-                                </Form.Group>
-                        </Form>
+                        <div className="card mb-3" style={{width: '80%', margin:'5%', marginLeft:'10%' }}>
+                                <div className="row no-gutters">
+                                    <div className="col-md-4">
+                                        <svg
+                                            className="bd-placeholder-img"
+                                            width="80%"
+                                            height="250"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            aria-label="Placeholder: Image"
+                                            preserveAspectRatio="xMidYMid slice"
+                                            role="img"
+                                        >
+                                            <title>Placeholder</title>
+                                            <rect width="100%" height="100%" fill="#868e96" />
+                                            <text x="50%" y="50%" fill="#dee2e6" dy=".3em">
+                                                Image
+                                            </text>
+                                        </svg>
+                                    </div>
+                                    <div className="col-md-8">
+                                            <div className="card-body">
+                                                <h5 className="card-title">Card title</h5>
+                                                <p className="card-text">
+                                                        Card Text
+                                                </p>
+                                                <p className="card-text">
+                                                    <small className="text-muted">Card Text 2</small>
+                                                </p>
+                                            </div>
+                                    </div>
+                                </div>
+                        </div>
                         {/* Body Part */}
                     </div >
                     <div className="app-wrapper-footer">

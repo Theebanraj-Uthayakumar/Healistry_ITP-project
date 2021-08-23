@@ -294,6 +294,26 @@ function Lab_Details_Add() {
                                         </li>
                                     </ul>
                                 </li>
+                                <li>
+                                    <a href="#">
+                                        <i className="metismenu-icon pe-7s-diamond" />
+                                       Laboratory Details
+                                        <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
+                                    </a>
+                                    <ul>
+                                        <li>
+                                            <a href="/Blood_bank_add">
+                                                <i className="metismenu-icon" />
+                                                Laboratory detail | Add
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/blood_bank_update">
+                                                <i className="metismenu-icon"></i> Laboratory detail | Edit,Delete
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
                                
                                
                                 <li>
@@ -322,7 +342,7 @@ function Lab_Details_Add() {
                             </div>
                         </div>
                         <h1>Lab Test Info | Add</h1>
-                        <Form>
+                        <Form style={{marginLeft:'5%',marginTop:'3%', marginBottom:'3%'}}>
                                 <Form.Group as={Row} className="mb-3" controlId="">
                                     <Form.Label column sm={3}>  
                                              Test Name
@@ -357,20 +377,20 @@ function Lab_Details_Add() {
                                  </Form.Group>
                                  <Form.Group as={Row} className="mb-3" controlId="">
                                     <Form.Label column sm={3}>
-                                             Image
+                                            Image
                                     </Form.Label>
                                     <Col sm={5}>
-                                        <Button type="submit">Choose</Button>
+                                        <Form.Control type="file"  />
                                     </Col>
-                                 </Form.Group>
+                                </Form.Group>
                                  <Form.Group as={Row} className="mb-3">
                                     <Col sm={{ span: 25, offset: 8 }}>
-                                        <Button type="submit">SUBMIT</Button>
+                                        <Button type="submit" className = "subbtn" >SUBMIT</Button>
                                     </Col>
                                 </Form.Group>
                         </Form>
                         <h1>Lab Eqipment Info | Add</h1>
-                        <Form>
+                        <Form style={{marginLeft:'5%',marginTop:'3%', marginBottom:'3%'}}>
                                 <Form.Group as={Row} className="mb-3" controlId="">
                                     <Form.Label column sm={3}>  
                                              Equipment Name
@@ -413,15 +433,15 @@ function Lab_Details_Add() {
                                  </Form.Group>
                                  <Form.Group as={Row} className="mb-3" controlId="">
                                     <Form.Label column sm={3}>
-                                             Image
+                                            Image
                                     </Form.Label>
                                     <Col sm={5}>
-                                        <Button type="submit">Choose</Button>
+                                        <Form.Control type="file"  />
                                     </Col>
-                                 </Form.Group>
+                                </Form.Group>
                                  <Form.Group as={Row} className="mb-3">
                                     <Col sm={{ span: 25, offset: 8 }}>
-                                        <Button type="submit">SUBMIT</Button>
+                                        <Button type="submit" className = "subbtn">SUBMIT</Button>
                                     </Col>
                                 </Form.Group>
                         </Form>

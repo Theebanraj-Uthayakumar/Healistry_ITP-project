@@ -322,7 +322,7 @@ function Blood_bank_add() {
                             </div>
                         </div>
                         <h1>Blood Bank Info | Add</h1>
-                        <Form>
+                        <Form style={{marginLeft:'5%',marginTop:'3%', marginBottom:'3%'}}>
                                 <Form.Group as={Row} className="mb-3" controlId="">
                                     <Form.Label column sm={3}>  
                                              Contact Number
@@ -400,13 +400,13 @@ function Blood_bank_add() {
                                              Note
                                     </Form.Label>
                                     <Col sm={5}>
-                                        <Form.Control type="text-area" />
+                                    <Form.Control as="textarea"  rows={3} />
                                      </Col>
                                  </Form.Group>
                                 
                                 <Form.Group as={Row} className="mb-3">
                                     <Col sm={{ span: 25, offset: 8 }}>
-                                        <Button type="submit">SUBMIT</Button>
+                                        <Button type="submit" className = "subbtn">SUBMIT</Button>
                                     </Col>
                                 </Form.Group>
                         </Form>
