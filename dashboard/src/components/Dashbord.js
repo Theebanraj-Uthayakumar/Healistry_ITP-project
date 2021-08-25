@@ -7,7 +7,9 @@ function Dashbord() {
             <div className="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
                 <div className="app-header header-shadow">
                     <div className="app-header__logo">
+                        {/* <div className="logo-src" /> */}
                         <img src={logo} style={{ width: 110 }} />
+                        {/* <div style={{ fontFamily: "lyncer", fontSize: "10" }}>Healistry</div> */}
                         <div className="header__pane ml-auto">
                             <div>
                                 <button
