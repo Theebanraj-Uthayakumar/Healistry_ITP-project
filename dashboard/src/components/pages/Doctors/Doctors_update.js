@@ -1,7 +1,31 @@
 import React from 'react'
 import logo from "../../../Healistry.png"
+import Table from 'react-bootstrap/Table'
+import Paper from '@material-ui/core/Paper';
+import { makeStyles } from '@material-ui/core/styles';
+import Accordion from '@material-ui/core/Accordion';
+import AccordionSummary from '@material-ui/core/AccordionSummary';
+import AccordionDetails from '@material-ui/core/AccordionDetails';
+import Typography from '@material-ui/core/Typography';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import Button from '@material-ui/core/Button';
+
+
+
+
+const useStyles = makeStyles((theme) => ({
+    root: {
+        width: '100%',
+    },
+    heading: {
+        fontSize: theme.typography.pxToRem(15),
+        fontWeight: theme.typography.fontWeightRegular,
+    },
+}));
 
 function Doctors_update() {
+    const classes = useStyles();
+
     return (
         <div>
             <div className="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
@@ -230,6 +254,26 @@ function Doctors_update() {
                                     </li>
                                     <li>
                                         <a href="#">
+                                            <i className="metismenu-icon pe-7s-diamond" />
+                                            Cleaning Company
+                                            <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
+                                        </a>
+                                        <ul>
+                                            <li>
+                                                <a href="cleaning_add">
+                                                    <i className="metismenu-icon" />
+                                                    Cleaning Company | Add
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="cleaning_update">
+                                                    <i className="metismenu-icon"></i> Cleaning Co... | Update
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#">
                                             <i className="metismenu-icon pe-7s-display2" />
                                             Tables
                                         </a>
@@ -247,7 +291,7 @@ function Doctors_update() {
                                             <i className="pe-7s-car icon-gradient bg-mean-fruit"></i>
                                         </div>
                                         <div>
-                                            Add Doctors Details
+                                            Doctors Details Edit and Delete
                                             <div className="page-title-subheading">
                                                 This is an example dashboard created using build-in elements
                                                 and components.
@@ -257,8 +301,148 @@ function Doctors_update() {
                                 </div>
                             </div>
                             {/* Add Form Here */}
-                            <h1>Doctors Details Edit and Delete</h1>
-                            {/* Body Part */}
+                            <div className={classes.root}>
+                                <Accordion>
+                                    <AccordionSummary
+                                        expandIcon={<ExpandMoreIcon />}
+                                        aria-controls="panel1a-content"
+                                        id="panel1a-header"
+                                    >
+                                        <Typography className={classes.heading}>Theebanraj Uthayakumar</Typography>
+                                    </AccordionSummary>
+                                    <AccordionDetails>
+                                        <table>
+                                            <tr>
+                                                <th>Full Name </th>
+                                                <td> - Theebanraj U.</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Specialization </th>
+                                                <td> - BSc(Hons) in Information Techonology</td>
+                                            </tr>
+                                            <tr>
+                                                <th>SLNC </th>
+                                                <td> - 1963324</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Experience </th>
+                                                <td> - Jan 2021 to Present, Full-Stack Developer at AathyHqC</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Gender </th>
+                                                <td> - Male</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Current Position </th>
+                                                <td> - Full-Stack Developer at AathyHqC</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Working Hospital </th>
+                                                <td> - AathyHqC</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Working History </th>
+                                                <td> - Freelancer</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Image </th>
+                                                <td> - image.jpg</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Likes </th>
+                                                <td> - 112</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Created At </th>
+                                                <td> - 26th Aug 2021</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <Button variant="outlined" color="primary">
+                                                        Edit
+                                                    </Button>
+                                                </td>
+                                                <td>
+                                                    <Button variant="outlined" color="secondary">
+                                                        Delete
+                                                    </Button>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </AccordionDetails>
+                                </Accordion>
+                                <Accordion>
+                                    <AccordionSummary
+                                        expandIcon={<ExpandMoreIcon />}
+                                        aria-controls="panel2a-content"
+                                        id="panel2a-header"
+                                    >
+                                        <Typography className={classes.heading}>Seththa pajalugala</Typography>
+                                    </AccordionSummary>
+                                    <AccordionDetails>
+                                        <AccordionDetails>
+                                            <table>
+                                                <tr>
+                                                    <th>Full Name </th>
+                                                    <td> - Theebanraj U.</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Specialization </th>
+                                                    <td> - BSc(Hons) in Information Techonology</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>SLNC </th>
+                                                    <td> - 1963324</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Experience </th>
+                                                    <td> - Jan 2021 to Present, Full-Stack Developer at AathyHqC</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Gender </th>
+                                                    <td> - Male</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Current Position </th>
+                                                    <td> - Full-Stack Developer at AathyHqC</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Working Hospital </th>
+                                                    <td> - AathyHqC</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Working History </th>
+                                                    <td> - Freelancer</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Image </th>
+                                                    <td> - image.jpg</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Likes </th>
+                                                    <td> - 112</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Created At </th>
+                                                    <td> - 26th Aug 2021</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <Button variant="outlined" color="primary">
+                                                            Edit
+                                                        </Button>
+                                                    </td>
+                                                    <td>
+                                                        <Button variant="outlined" color="secondary">
+                                                            Delete
+                                                        </Button>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </AccordionDetails>
+                                    </AccordionDetails>
+                                </Accordion>
+                            </div>
                         </div >
                         <div className="app-wrapper-footer">
                             <div className="app-footer">
