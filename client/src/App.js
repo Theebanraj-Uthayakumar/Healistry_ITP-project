@@ -7,6 +7,8 @@ import doctor from './component/pages/doctor';
 import about from './component/pages/about';
 import contact from './component/pages/contact';
 import cleaning from './component/pages/cleaning';
+import bloodbank from './component/pages/bloodbank';
+import bloodbank_details from './component/pages/bloodbank_details';
 
 // All routing routes ddefined here
 const Routing = () => {
@@ -17,6 +19,8 @@ const Routing = () => {
       <Route exact path="/about" component={about} />
       <Route exact path="/contact" component={contact} />
       <Route exact path="/cleaning" component={cleaning} />
+      <Route exact path="/BloodBank" component={bloodbank} />
+      <Route exact path="/BloodBank_Details" component={bloodbank_details} />
     </Switch >
   )
 }

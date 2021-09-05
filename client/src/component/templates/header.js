@@ -30,10 +30,13 @@ export default function header() {
                                                             <a href="/doctors">Doctors</a>
                                                         </li>
                                                         <li>
-                                                            <a href="404.html">Hospitals</a>
+                                                            <a href="/BloodBank">Blood Bank</a>
                                                         </li>
                                                         <li>
-                                                            <a href="cleaning">Cleaning Service</a>
+                                                            <a href="/cleaning">Cleaning Service</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/BloodBank_Details">BloodBank Details</a>
                                                         </li>
                                                     </ul>
                                                 </li>

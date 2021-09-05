@@ -2394,3 +2394,30 @@ color: #170030;
     padding-top: 20px;
     padding-bottom: 20px;
 }
+.column_bloodbank {
+	float: left;
+	width: 50%;
+	padding: 10px;
+	height: 300px; /* Should be removed. Only for demonstration */
+  }
+  
+  /* Clear floats after the columns */
+  .row_bloodbank:after {
+	content: "";
+	display: table;
+	clear: both;
+  }
+
+  .column_meltri01 {
+	float: left;
+	width: 25%;
+	padding: 10px;
+	height: 300px; /* Should be removed. Only for demonstration */
+  }
+  
+  /* Clear floats after the columns */
+  .row_meltri01:after {
+	content: "";
+	display: table;
+	clear: both;
+  }
