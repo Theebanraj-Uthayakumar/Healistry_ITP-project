@@ -1,5 +1,4 @@
-// import React from 'react'
-import React, { useState, useEffect } from "react";
+import React from 'react'
 import logo from "../../../Healistry.png"
 import Form from 'react-bootstrap/Form'
 import Paper from '@material-ui/core/Paper';
@@ -29,13 +28,15 @@ function Doctors_add() {
     }));
 
     const classes = useStyles();
-
+  
     return (
         <div>
             <div className="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
                 <div className="app-header header-shadow">
                     <div className="app-header__logo">
+                        {/* <div className="logo-src" /> */}
                         <img src={logo} style={{ width: 110 }} />
+                        {/* <div style={{ fontFamily: "lyncer", fontSize: "10" }}>Healistry</div> */}
                         <div className="header__pane ml-auto">
                             <div>
                                 <button
@@ -435,4 +436,5 @@ function Doctors_add() {
         </div >
     )
 }
+
 export default Doctors_add
