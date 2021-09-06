@@ -1,21 +1,42 @@
-// import React from 'react'
-import React, { useState, useEffect } from "react";
+import React from 'react'
 import logo from "../../../Healistry.png"
 import Form from 'react-bootstrap/Form'
-import Button from 'react-bootstrap/Button';
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Row'
-import InputGroup from 'react-bootstrap/Row'
-import FormExample from 'react-bootstrap/Row'
+import Paper from '@material-ui/core/Paper';
+import { makeStyles } from '@material-ui/core/styles';
+import Radio from '@material-ui/core/Radio';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Col from 'react-bootstrap/esm/Col';
+import Button from '@restart/ui/esm/Button';
+import Row from 'react-bootstrap/esm/Row';
+// import Form from 'react-bootstrap/Form';
+
 
 function Doctors_add() {
 
+    const useStyles = makeStyles((theme) => ({
+        root: {
+            flexGrow: 1,
+            margin: 50
+        },
+        paper: {
+            padding: theme.spacing(5),
+            margin: 'auto',
+            maxWidth: 1000,
+        },
+    }));
+
+    const classes = useStyles();
+  
     return (
         <div>
             <div className="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
                 <div className="app-header header-shadow">
                     <div className="app-header__logo">
+                        {/* <div className="logo-src" /> */}
                         <img src={logo} style={{ width: 110 }} />
+                        {/* <div style={{ fontFamily: "lyncer", fontSize: "10" }}>Healistry</div> */}
                         <div className="header__pane ml-auto">
                             <div>
                                 <button
@@ -236,6 +257,26 @@ function Doctors_add() {
                                     </li>
                                     <li>
                                         <a href="#">
+                                            <i className="metismenu-icon pe-7s-diamond" />
+                                            Cleaning Company
+                                            <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
+                                        </a>
+                                        <ul>
+                                            <li>
+                                                <a href="cleaning_add">
+                                                    <i className="metismenu-icon" />
+                                                    Cleaning Company | Add
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="cleaning_update">
+                                                    <i className="metismenu-icon"></i> Cleaning Co... | Update
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#">
                                             <i className="metismenu-icon pe-7s-display2" />
                                             Tables
                                         </a>
@@ -263,15 +304,92 @@ function Doctors_add() {
                                 </div>
                             </div>
                             {/* Add Form Here */}
-                            <h1>Doctors Details Add Form</h1>
-                            <div>
-                                <div className="card widget-content">
-                                    <div className="widget-content-outer">
-                                        <div className="widget-content-wrapper">
-                                            Theebanraj
-                                        </div>
-                                    </div>
-                                </div>
+                            <div className={classes.root}>
+                                <Paper className={classes.paper}>
+                                    <h2 className="Login_heading">Add Details</h2>
+                                    <Form>
+                                        <Form.Group as={Row} className="mb-3" controlId="" >
+                                            <Form.Label column sm={3}>
+                                                Full Name
+                                            </Form.Label>
+                                            <Col sm={9}>
+                                                <Form.Control type="text" placeholder="Full Name" />
+                                            </Col>
+                                        </Form.Group>
+                                        <Form.Group as={Row} className="mb-3" controlId="">
+                                            <Form.Label column sm={3}>
+                                                SLNC Registation Number
+                                            </Form.Label>
+                                            <Col sm={9}>
+                                                <Form.Control type="number" placeholder="SLNC Registation Number" />
+                                            </Col>
+                                        </Form.Group>
+                                        <Form.Group as={Row} className="mb-3" controlId="">
+                                            <Form.Label column sm={3}>
+                                                Specialization
+                                            </Form.Label>
+                                            <Col sm={9}>
+                                                <Form.Control type="number" placeholder="Specialization" />
+                                            </Col>
+                                        </Form.Group>
+                                        <Form.Group as={Row} className="mb-3" controlId="">
+                                            <Form.Label column sm={3}>
+                                                Current Position
+                                            </Form.Label>
+                                            <Col sm={9}>
+                                                <Form.Control type="text" placeholder="Current Position" />
+                                            </Col>
+                                        </Form.Group>
+                                        <Form.Group as={Row} className="mb-3" controlId="">
+                                            <Form.Label column sm={3}>
+                                                Working Hospital
+                                            </Form.Label>
+                                            <Col sm={9}>
+                                                <Form.Control type="text" placeholder="Working Hospital" />
+                                            </Col>
+                                        </Form.Group>
+                                        <Form.Group as={Row} className="mb-3" controlId="">
+                                            <Form.Label column sm={3}>
+                                                Gender
+                                            </Form.Label>
+                                            <Col sm={9}>
+                                                <RadioGroup row aria-label="position" name="position" defaultValue="top">
+                                                    <FormControlLabel value="Male" control={<Radio color="primary" />} label="Male" />
+                                                    <FormControlLabel value="Female" control={<Radio color="primary" />} label="Female" />
+                                                </RadioGroup>
+                                            </Col>
+                                        </Form.Group>
+                                        <Form.Group as={Row} className="mb-3" controlId="">
+                                            <Form.Label column sm={3}>
+                                                Working History
+                                            </Form.Label>
+                                            <Col sm={9}>
+                                                <Form.Control type="text" placeholder="Working History" />
+                                            </Col>
+                                        </Form.Group>
+                                        <Form.Group as={Row} className="mb-3" controlId="">
+                                            <Form.Label column sm={3}>
+                                                Experience
+                                            </Form.Label>
+                                            <Col sm={9}>
+                                                <Form.Control type="text" placeholder="Experience" />
+                                            </Col>
+                                        </Form.Group>
+                                        <Form.Group as={Row} className="mb-3" controlId="">
+                                            <Form.Label column sm={3}>
+                                                Image
+                                            </Form.Label>
+                                            <Col sm={9}>
+                                                <Form.Control type="file" />
+                                            </Col>
+                                        </Form.Group>
+                                        <center>
+                                            <div className="button">
+                                                <input type="button" className="Login-Button" value="Submit" className="btn btn-block app-sidebar__heading" />
+                                            </div>
+                                        </center>
+                                    </Form>
+                                </Paper>
                             </div>
                         </div >
                         <div className="app-wrapper-footer">
@@ -318,4 +436,5 @@ function Doctors_add() {
         </div >
     )
 }
+
 export default Doctors_add

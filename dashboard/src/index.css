@@ -1,3 +1,4 @@
+
 .subbtn{
     padding: 5px;
     text-align: center;
@@ -9,3 +10,8 @@
     border: none;
     border-radius: 15px;
 }
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+

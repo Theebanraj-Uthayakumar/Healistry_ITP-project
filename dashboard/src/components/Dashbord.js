@@ -7,7 +7,9 @@ function Dashbord() {
             <div className="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
                 <div className="app-header header-shadow">
                     <div className="app-header__logo">
+                        {/* <div className="logo-src" /> */}
                         <img src={logo} style={{ width: 110 }} />
+                        {/* <div style={{ fontFamily: "lyncer", fontSize: "10" }}>Healistry</div> */}
                         <div className="header__pane ml-auto">
                             <div>
                                 <button
@@ -206,7 +208,7 @@ function Dashbord() {
                                 <ul className="vertical-nav-menu">
                                     <li className="app-sidebar__heading">Dashboards</li>
                                     <li>
-                                        <a href="index.html" className="mm-active">
+                                        <a href="#" className="mm-active">
                                             <i className="metismenu-icon pe-7s-rocket" />
                                             Dashboard
                                         </a>
@@ -248,6 +250,26 @@ function Dashbord() {
                                             <li>
                                                 <a href="#">
                                                     <i className="metismenu-icon"></i> Hospitals | Edit,Delete
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i className="metismenu-icon pe-7s-diamond" />
+                                            Cleaning Company
+                                            <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
+                                        </a>
+                                        <ul>
+                                            <li>
+                                                <a href="cleaning_add">
+                                                    <i className="metismenu-icon" />
+                                                    Cleaning Company | Add
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="cleaning_update">
+                                                    <i className="metismenu-icon"></i> Cleaning Co... | Update
                                                 </a>
                                             </li>
                                         </ul>
