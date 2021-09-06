@@ -230,6 +230,28 @@ function Doctors_update() {
                                     </li>
                                     <li>
                                         <a href="#">
+                                            <i className="metismenu-icon pe-7s-diamond" />
+                                           Ambulance Details
+                                            <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
+                                        </a>
+                                        <ul>
+                                            <li>
+                                                <a href="/Ambulance_Add">
+                                                    <i className="metismenu-icon" />
+                                                    Ambulance | Add
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <i className="metismenu-icon"></i> Ambulance | Edit,Delete
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                   
+                                    <li>
+
+                                        <a href="#">
                                             <i className="metismenu-icon pe-7s-display2" />
                                             Tables
                                         </a>
