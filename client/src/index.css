@@ -160,10 +160,10 @@ img {
   display: table;
   clear: both;
 }
-.img {
+/* .img {
   height: 50%;
   width: 20%;
-}
+} */
 
 input.form-control {
   width: 200px;

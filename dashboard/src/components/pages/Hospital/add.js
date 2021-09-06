@@ -1,6 +1,7 @@
 import React from 'react'
 import logo from "../../../Healistry.png"
 import './add.css'
+import Form from 'react-bootstrap/Form'
 function Dashbord() {
     return (
         <div>
@@ -144,7 +145,7 @@ function Dashbord() {
                                             </div>
                                         </div>
                                         <div className="widget-content-left  ml-3 header-user-info">
-                                            <div className="widget-heading">Theebanraj U.</div>
+                                            <div className="widget-heading">Abinaya.T</div>
                                             <div className="widget-subheading">Full-Stack Developer</div>
                                         </div>
                                         <div className="widget-content-right header-user-info ml-3">
@@ -265,8 +266,8 @@ function Dashbord() {
                             
                         </div>
                     </div>
-                    
-                    <div className="form">
+                    {/* <Form> */}
+                    <div className="formabi">
                     <div className = "Details">
                             ADD DETAILS
                         </div>
@@ -281,6 +282,7 @@ function Dashbord() {
                     <input type="file" id="myFile" className="filename  "/>
                     </div>
                     </div>
+
                     
                     <div class="form-group">
     
@@ -297,8 +299,9 @@ function Dashbord() {
  
       <input type="text" id="count" placeholder="Staff Count"/>
   </div>
-  <button type="ADD" class="btn btn-primary"  >ADD</button>
+  <button type="ADD" class="hosaddbtn"  >ADD</button>
                         </div>
+                        {/* </Form> */}
                       
                         
 

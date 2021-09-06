@@ -13,20 +13,18 @@ textarea {
   text-decoration: underline;
 }
 
-.form {
+.formabi {
   margin-left: 30%;
   padding-top: 10%;
 }
-
-.details {
+*/ .details {
   display: inline;
 }
 
 .form-group {
   display: inline-block;
 }
-
-#name {
+*/ #name {
   width: 500px;
   margin-bottom: 4%;
   border-radius: 10px;
@@ -61,11 +59,13 @@ textarea {
   text-align: center;
 }
 
-.btn {
+.hosaddbtn {
   margin-left: 85%;
   border-radius: 10px;
   margin-top: 8%;
   width: 100px;
+  background-color: #001730;
+  color: white;
 }
 .searchit {
   display: block;

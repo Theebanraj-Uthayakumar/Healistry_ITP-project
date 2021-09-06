@@ -9,7 +9,8 @@ function Hospital() {
     return (
         <div>
           <Container>
-            <div class="row_hospital">
+          <div class="row_hospital">
+            
               <div class="column_hospital">
                 <h2>Hospital Details Management</h2>
                   Features,Benefits and Working Process
