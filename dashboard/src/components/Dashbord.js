@@ -208,7 +208,7 @@ function Dashbord() {
                                 <ul className="vertical-nav-menu">
                                     <li className="app-sidebar__heading">Dashboards</li>
                                     <li>
-                                        <a href="index.html" className="mm-active">
+                                        <a href="#" className="mm-active">
                                             <i className="metismenu-icon pe-7s-rocket" />
                                             Dashboard
                                         </a>
@@ -250,6 +250,26 @@ function Dashbord() {
                                             <li>
                                                 <a href="#">
                                                     <i className="metismenu-icon"></i> Hospitals | Edit,Delete
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i className="metismenu-icon pe-7s-diamond" />
+                                            Cleaning Company
+                                            <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
+                                        </a>
+                                        <ul>
+                                            <li>
+                                                <a href="cleaning_add">
+                                                    <i className="metismenu-icon" />
+                                                    Cleaning Company | Add
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="cleaning_update">
+                                                    <i className="metismenu-icon"></i> Cleaning Co... | Update
                                                 </a>
                                             </li>
                                         </ul>
