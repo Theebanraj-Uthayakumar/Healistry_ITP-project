@@ -6,8 +6,9 @@ function home() {
             This is Home page
             I don't know what will I do in here
             <a href="http://localhost:3001/">Dashboard</a>
-        </div>
-    )
+        
+            <a href="/Hospital">Hospital</a>
+            </div>    )
 }
 
 export default home

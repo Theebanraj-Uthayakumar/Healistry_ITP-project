@@ -1,0 +1,12 @@
+.row_hospital:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.img {
+  height: 50%;
+  width: 20%;
+}
+.column_hospital{
+    
+}
