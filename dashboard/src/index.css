@@ -1,3 +1,16 @@
+
+.subbtn{
+    padding: 5px;
+    text-align: center;
+    height: 40px;
+    width: 100px;
+    background-color: #001730;
+    color: white;
+    outline: none;
+    border: none;
+    border-radius: 15px;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

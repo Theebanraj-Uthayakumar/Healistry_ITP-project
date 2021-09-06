@@ -251,3 +251,42 @@ img {
 	text-align: right;
 	align-items: right;
 }
+
+.ambulance{
+	height: 250px;
+	width: 250px;
+	/* margin:5px 5px 5px -5px; */
+}
+.text{
+	/* margin-left: -80px; */
+}
+.ambtitle{
+	font-size: 20px;
+	font-weight: bold;
+	font-family: 'Times New Roman', Times, serif;
+}
+ .ambtable{
+	padding: 5%;
+	border-collapse: collapse;
+}
+.ambform{
+	right: 0%;
+	margin-left: 60%;
+}
+.searchbtn{
+	padding: 5px;
+    text-align: center;
+    height: 40px;
+    width: 90px;
+    background-color: #001730;
+    color: white;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+}
+@media (max-width: 100px) {
+	.ambform, .pagi {
+	  display: 20%;
+	}
+  }
+

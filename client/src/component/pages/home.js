@@ -253,6 +253,7 @@ function home() {
                     </tr>
                 </table>
             </Container>
+
         </div>
     )
 }
