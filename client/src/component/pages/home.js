@@ -163,7 +163,7 @@ function home() {
                         <div className="contact-info-content">
                             <h5>Operation History</h5>
                             <p>
-                                W898 RTower Stat, Suite 56 Brockland, CA 9622 United States
+                                Lorem ipsum dolor sit amet
                             </p>
                         </div>
                     </div>
