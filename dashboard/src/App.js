@@ -18,6 +18,10 @@ import Facility from "./components/pages/facility/Facility";
 import FacilityEdit from "./components/pages/facility/FacilityEdit";
 import Technology from "./components/pages/technology/Technology";
 import TechnologyEdit from "./components/pages/technology/TechnologyEdit";
+import Blood_bank_add from "./components/pages/Blood Bank/Blood_bank_add";
+import blood_bank_update from "./components/pages/Blood Bank/blood_bank_update";
+import Lab_Details_Add from "./components/pages/Laboratory/Lab_Details_Add";
+import Lab_Details_Update from "./components/pages/Laboratory/Lab_Details_Update";
 
 
 // All routing routes ddefined here
@@ -25,6 +29,8 @@ const Routing = () => {
   return (
     <Switch>
       <Route exact path="/" component={Dashbord} />
+      <Route exact path="/Doctors_update" component={Doctors_update} />
+      <Route exact path="/Doctors_add" component={Doctors_add} />
       <Route exact path="/Ambulance_Add" component={Ambulance_add}/>
       <Route exact path="/Camping_add" component={Camping_add}/>
       <Route exact path="/Ambulance_update" component={Ambulance_update}/>
@@ -37,6 +43,10 @@ const Routing = () => {
       <Route exact path="/facility/add" component={FacilitiesAdd} />
       <Route exact path="/facility/update" component={Facility} />
       <Route exact path="/facility/:id" component={FacilityEdit} />
+      <Route exact path="/Blood_bank_add" component={Blood_bank_add}/>
+      <Route exact path="/blood_bank_update" component={blood_bank_update} />
+      <Route exact path="/Lab_Details_Update" component={Lab_Details_Update} />
+      <Route exact path="/Lab_Details_Add" component={Lab_Details_Add} />
     </Switch>
   );
 };
