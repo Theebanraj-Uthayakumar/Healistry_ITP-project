@@ -299,7 +299,7 @@ function Dashbord() {
  
       <input type="text" id="count" placeholder="Staff Count"/>
   </div>
-  <button type="ADD" class="hosaddbtn"  >SUBMIT</button>
+  <button type="ADD" class="hosaddbtn"  >ADD</button>
                         </div>
                         {/* </Form> */}
                       
