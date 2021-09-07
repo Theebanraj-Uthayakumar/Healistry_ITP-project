@@ -123,7 +123,7 @@ function blood_bank_update() {
                                         </div>
                                     </div>
                                     <div className="widget-content-left  ml-3 header-user-info">
-                                        <div className="widget-heading">Thuvaraka T.</div>
+                                        <div className="widget-heading">Melrian E.</div>
                                         <div className="widget-subheading">Full-Stack Developer</div>
                                     </div>
                                     <div className="widget-content-right header-user-info ml-3">
@@ -194,7 +194,7 @@ function blood_bank_update() {
                                 </li>
                                 <li className="app-sidebar__heading">Components</li>
                                 <li>
-                                    <a href="#" className="mm-active">
+                                    <a href="#">
                                         <i className="metismenu-icon pe-7s-diamond" />
                                         Doctors' Details
                                         <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
@@ -207,7 +207,7 @@ function blood_bank_update() {
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/Doctors_update" className="mm-active">
+                                            <a href="/Doctors_update">
                                                 <i className="metismenu-icon"></i> Doctors | Edit,Delete
                                             </a>
                                         </li>
@@ -275,7 +275,7 @@ function blood_bank_update() {
                                     </ul>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a href="#" className="mm-active">
                                         <i className="metismenu-icon pe-7s-diamond" />
                                        Blood Bank Details
                                         <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
@@ -288,8 +288,28 @@ function blood_bank_update() {
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/blood_bank_update">
+                                            <a href="/blood_bank_update" className="mm-active">
                                                 <i className="metismenu-icon"></i> Blood Bank | Edit,Delete
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i className="metismenu-icon pe-7s-diamond" />
+                                       Laboratory Details
+                                        <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
+                                    </a>
+                                    <ul>
+                                        <li>
+                                            <a href="/Lab_Details_Add">
+                                                <i className="metismenu-icon" />
+                                                Laboratory detail | Add
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/Lab_Details_Update">
+                                                <i className="metismenu-icon"></i> Laboratory detail | Edit,Delete
                                             </a>
                                         </li>
                                     </ul>
@@ -322,37 +342,32 @@ function blood_bank_update() {
                             </div>
                         </div>
                         <h1>Blood Bank Info | Update</h1>
-                        <div className="card mb-3" style={{width: '80%', margin:'5%', marginLeft:'10%' }}>
-                                <div className="row no-gutters">
-                                    <div className="col-md-4">
-                                        <svg
-                                            className="bd-placeholder-img"
-                                            width="80%"
-                                            height="250"
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            aria-label="Placeholder: Image"
-                                            preserveAspectRatio="xMidYMid slice"
-                                            role="img"
-                                        >
-                                            <title>Placeholder</title>
-                                            <rect width="100%" height="100%" fill="#868e96" />
-                                            <text x="50%" y="50%" fill="#dee2e6" dy=".3em">
-                                                Image
-                                            </text>
-                                        </svg>
-                                    </div>
-                                    <div className="col-md-8">
-                                            <div className="card-body">
-                                                <h5 className="card-title">Card title</h5>
-                                                <p className="card-text">
-                                                        Card Text
-                                                </p>
-                                                <p className="card-text">
-                                                    <small className="text-muted">Card Text 2</small>
-                                                </p>
-                                            </div>
+                        {/* style={{ maxWidth: 1024 }} */}
+                        <div className="card mb-3 melri_card">
+                            <div className="row no-gutters" width="100%">
+                                <div className="col-md-4">
+                                    <img src="Image/b.jpg" className="card-img meltri_card_img" alt="..."/>
+                                </div>
+                                <div className="col-md-8">
+                                    <div className="card-body">
+                                        <h5 className="card-title">Blood Bank of Navaloka</h5>
+                                         <p className="card-text">
+                                            Find details of the Navaloka blood bank here. 
+                                        </p>
+                                        <div class="bottomright">
+                                            <Button variant="primary" className = "subbtn" size="lg" active>
+                                            Edit
+                                            </Button>{'      '}
+                                            <Button variant="secondary" className = "subbtn" size="lg" active>
+                                            Delete
+                                            </Button>
+                                        </div>
+                                        <p className="card-text">
+                                        <small className="text-muted">Last updated 3 mins ago</small>
+                                        </p>
                                     </div>
                                 </div>
+                            </div>
                         </div>
                         {/* Body Part */}
                     </div >

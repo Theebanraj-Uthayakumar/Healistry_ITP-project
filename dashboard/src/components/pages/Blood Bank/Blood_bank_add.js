@@ -194,7 +194,7 @@ function Blood_bank_add() {
                                 </li>
                                 <li className="app-sidebar__heading">Components</li>
                                 <li>
-                                    <a href="#" className="mm-active">
+                                    <a href="#">
                                         <i className="metismenu-icon pe-7s-diamond" />
                                         Doctors' Details
                                         <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
@@ -207,7 +207,7 @@ function Blood_bank_add() {
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/Doctors_update" className="mm-active">
+                                            <a href="/Doctors_update">
                                                 <i className="metismenu-icon"></i> Doctors | Edit,Delete
                                             </a>
                                         </li>
@@ -275,14 +275,14 @@ function Blood_bank_add() {
                                     </ul>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a href="#" className="mm-active">
                                         <i className="metismenu-icon pe-7s-diamond" />
                                        Blood Bank Details
                                         <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
                                     </a>
                                     <ul>
                                         <li>
-                                            <a href="/Blood_bank_add">
+                                            <a href="/Blood_bank_add" className="mm-active">
                                                 <i className="metismenu-icon" />
                                                 Blood Bank | Add
                                             </a>
@@ -290,6 +290,26 @@ function Blood_bank_add() {
                                         <li>
                                             <a href="/blood_bank_update">
                                                 <i className="metismenu-icon"></i> Blood Bank | Edit,Delete
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i className="metismenu-icon pe-7s-diamond" />
+                                       Laboratory Details
+                                        <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
+                                    </a>
+                                    <ul>
+                                        <li>
+                                            <a href="/Lab_Details_Add">
+                                                <i className="metismenu-icon" />
+                                                Laboratory detail | Add
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/Lab_Details_Update" >
+                                                <i className="metismenu-icon"></i> Laboratory detail | Edit,Delete
                                             </a>
                                         </li>
                                     </ul>

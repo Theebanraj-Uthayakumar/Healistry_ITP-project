@@ -5,8 +5,8 @@ import Doctors_add from "./components/pages/Doctors/Doctors_add";
 import Doctors_update from "./components/pages/Doctors/Doctors_update";
 import Blood_bank_add from "./components/pages/Blood Bank/Blood_bank_add";
 import blood_bank_update from "./components/pages/Blood Bank/blood_bank_update";
-import Lab_Details_Update from "./components/pages/Laboratory/Lab_Details_Update";
 import Lab_Details_Add from "./components/pages/Laboratory/Lab_Details_Add";
+import Lab_Details_Update from "./components/pages/Laboratory/Lab_Details_Update";
 
 
 // All routing routes ddefined here
