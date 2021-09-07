@@ -10,6 +10,18 @@
     border: none;
     border-radius: 15px;
 }
+.melri_card{
+    width: 100%;
+    max-height: 300px;
+}
+.meltri_card_img{
+    max-height: 300px;
+}
+.bottomright{
+    position:absolute;
+    bottom: 40px;
+    right: 80px;
+}
 
 @tailwind base;
 @tailwind components;
