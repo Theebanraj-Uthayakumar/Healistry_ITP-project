@@ -1,29 +1,39 @@
+.subbtn {
+  padding: 5px;
+  text-align: center;
+  height: 40px;
+  width: 100px;
+  background-color: #001730;
+  color: white;
+  outline: none;
+  border: none;
+  border-radius: 15px;
+}
+.melri_card {
+  width: 100%;
+  max-height: 300px;
+}
+.meltri_card_img {
+  max-height: 300px;
+}
+.bottomright {
+  position: absolute;
+  bottom: 40px;
+  right: 80px;
+}
 
-.subbtn{
-    padding: 5px;
-    text-align: center;
-    height: 40px;
-    width: 100px;
-    background-color: #001730;
-    color: white;
-    outline: none;
-    border: none;
-    border-radius: 15px;
+/* sector abi css */
+.row_hospital:after {
+  content: "";
+  display: table;
+  clear: both;
 }
-.melri_card{
-    width: 100%;
-    max-height: 300px;
+.img {
+  height: 50%;
+  width: 20%;
 }
-.meltri_card_img{
-    max-height: 300px;
+.column_hospital {
 }
-.bottomright{
-    position:absolute;
-    bottom: 40px;
-    right: 80px;
-}
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-

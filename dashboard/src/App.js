@@ -22,6 +22,8 @@ import Blood_bank_add from "./components/pages/Blood Bank/Blood_bank_add";
 import blood_bank_update from "./components/pages/Blood Bank/blood_bank_update";
 import Lab_Details_Add from "./components/pages/Laboratory/Lab_Details_Add";
 import Lab_Details_Update from "./components/pages/Laboratory/Lab_Details_Update";
+import add from "./components/pages/Hospital/add";
+import page1 from "./components/pages/Hospital/page1";
 
 
 // All routing routes ddefined here
@@ -47,6 +49,8 @@ const Routing = () => {
       <Route exact path="/blood_bank_update" component={blood_bank_update} />
       <Route exact path="/Lab_Details_Update" component={Lab_Details_Update} />
       <Route exact path="/Lab_Details_Add" component={Lab_Details_Add} />
+      <Route exact path="/Hospital_add" component={add} />
+      <Route exact path="/Hospital_update" component={page1} />
     </Switch>
   );
 };
