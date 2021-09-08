@@ -1,4 +1,4 @@
-input,
+/* input,
 button,
 select,
 optgroup,
@@ -11,20 +11,20 @@ textarea {
   font-size: 30px;
   padding-bottom: 2%;
   text-decoration: underline;
-}
-
+} */
+/* 
 .formabi {
   margin-left: 30%;
   padding-top: 10%;
 }
-*/ .details {
+.details {
   display: inline;
 }
 
 .form-group {
   display: inline-block;
 }
-*/ #name {
+#name {
   width: 500px;
   margin-bottom: 4%;
   border-radius: 10px;
@@ -81,4 +81,4 @@ textarea {
   border: 1px solid #ced4da;
   border-radius: 0.25rem;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-}
+} */

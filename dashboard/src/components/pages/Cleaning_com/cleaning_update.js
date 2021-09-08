@@ -204,7 +204,7 @@ function cleaning_update() {
                                 <ul className="vertical-nav-menu">
                                     <li className="app-sidebar__heading">Dashboards</li>
                                     <li>
-                                        <a href="http://localhost:3001/">
+                                        <a href="#">
                                             <i className="metismenu-icon pe-7s-rocket" />
                                             Dashboard
                                         </a>
@@ -238,13 +238,13 @@ function cleaning_update() {
                                         </a>
                                         <ul>
                                             <li>
-                                                <a href="#">
+                                                <a href="Hospital_add">
                                                     <i className="metismenu-icon" />
                                                     Hospitals | Add
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="#">
+                                                <a href="Hospital_update">
                                                     <i className="metismenu-icon"></i> Hospitals | Edit,Delete
                                                 </a>
                                             </li>
@@ -266,6 +266,86 @@ function cleaning_update() {
                                             <li>
                                                 <a href="cleaning_update" className="mm-active">
                                                     <i className="metismenu-icon"></i> Cleaning Co... | Update
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i className="metismenu-icon pe-7s-diamond" />
+                                            Ambulance Details
+                                            <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
+                                        </a>
+                                        <ul>
+                                            <li>
+                                                <a href="/Ambulance_Add">
+                                                    <i className="metismenu-icon" />
+                                                    Ambulance | Add
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/Ambulance_update">
+                                                    <i className="metismenu-icon"></i> Ambulance | Edit,Delete
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#" >
+                                            <i className="metismenu-icon pe-7s-diamond" />
+                                            Camping Details
+                                            <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
+                                        </a>
+                                        <ul>
+                                            <li>
+                                                <a href="/Camping_Add">
+                                                    <i className="metismenu-icon" />
+                                                    Camping | Add
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/Camping_update" >
+                                                    <i className="metismenu-icon"></i> Camping | Edit,Delete
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i className="metismenu-icon pe-7s-diamond" />
+                                            Blood Bank Details
+                                            <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
+                                        </a>
+                                        <ul>
+                                            <li>
+                                                <a href="/Blood_bank_add">
+                                                    <i className="metismenu-icon" />
+                                                    Blood Bank | Add
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/blood_bank_update">
+                                                    <i className="metismenu-icon"></i> Blood Bank | Edit,Delete
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#" >
+                                            <i className="metismenu-icon pe-7s-diamond" />
+                                            Laboratory Details
+                                            <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
+                                        </a>
+                                        <ul>
+                                            <li>
+                                                <a href="/Lab_Details_Add" >
+                                                    <i className="metismenu-icon" />
+                                                    Laboratory detail | Add
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/Lab_Details_Update">
+                                                    <i className="metismenu-icon"></i> Laboratory detail | Edit,Delete
                                                 </a>
                                             </li>
                                         </ul>

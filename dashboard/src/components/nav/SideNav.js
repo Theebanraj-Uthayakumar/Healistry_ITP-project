@@ -136,7 +136,6 @@ const SideNav = () => {
                   </li>
                 </ul>
               </li>
-
               <li>
                 <a href="#">
                   <i className="metismenu-icon pe-7s-diamond" />
