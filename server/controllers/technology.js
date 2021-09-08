@@ -9,6 +9,9 @@ export const addTechnology = async (req, res, next) => {
     res.json(newTechnology);
   } catch (error) {
     console.log(error);
+    if (error.code === 11000) {
+      res.json({ status: "error", error: "duplicate key" });
+    }
     res.status(400).json({ error: "failed" });
   }
 };
@@ -23,6 +26,9 @@ export const editTechnology = async (req, res, next) => {
     );
     res.json(technology);
   } catch (error) {
+    if (error.code === 11000) {
+      res.json({ status: "error", error: "duplicate key" });
+    }
     res.status(400).json({ error: "failed" });
   }
 };

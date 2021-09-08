@@ -1,6 +1,7 @@
 import React from "react";
 import Resizer from "react-image-file-resizer";
 import axios from "axios";
+import Form from "react-bootstrap/Form";
 
 const ImageUpload = ({ file, setfile, name }) => {
   const imageUploadResize = (e) => {
@@ -60,8 +61,8 @@ const ImageUpload = ({ file, setfile, name }) => {
             );
           })}
       </div>
-      <label> Image :</label>
-      <input
+
+      <Form.Control
         required
         name={name}
         type="file"

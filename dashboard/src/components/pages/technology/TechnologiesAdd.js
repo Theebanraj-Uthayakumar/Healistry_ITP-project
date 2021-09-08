@@ -16,8 +16,9 @@ const initailSate = {
   price: "",
   image: [],
 };
-const TechnologiesAdd = () => {
+const TechnologiesAdd = ({ history }) => {
   const [technology, setTechnology] = useState(initailSate);
+  const [validated, setValidated] = useState(false);
 
   const handleChange = (e) => {
     setTechnology({ ...technology, [e.target.name]: e.target.value });
@@ -25,13 +26,26 @@ const TechnologiesAdd = () => {
 
   const submitHandler = async (event) => {
     event.preventDefault();
+    const form = event.currentTarget;
+    if (form.checkValidity() === false) {
+      event.stopPropagation();
+    }
+
+    setValidated(true);
+    // event.preventDefault();
     console.log(event.target.value);
     addTechnology(technology)
       .then((res) => {
-        console.log(res);
+        console.log("technology res", res);
+        if (res.data.error === "duplicate key") {
+          window.alert("Duplicate key error");
+        } else history.push("/technology/update");
+        setTechnology(initailSate);
+        // history.push("/technology/update");
       })
       .catch((err) => {
         console.log(err);
+        window.alert("Error", err);
       });
   };
   return (
@@ -59,9 +73,9 @@ const TechnologiesAdd = () => {
                 </div>
               </div>
               {/* Add Form Here */}
-              <h1>Technology Add Form</h1>
 
               <TechnologyForm
+                validated={validated}
                 submitHandler={submitHandler}
                 setTechnology={setTechnology}
                 technology={technology}
