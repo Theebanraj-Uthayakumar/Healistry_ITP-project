@@ -1,5 +1,5 @@
 import React from 'react'
-import Button from '../../../../dashboard/node_modules/@restart/ui/esm/Button';
+// import Button from '../../../../dashboard/node_modules/@restart/ui/esm/Button';
 import Card from 'react-bootstrap/Card';
 
 export default function header() {
@@ -39,6 +39,12 @@ export default function header() {
                                                         </li>
                                                         <li>
                                                             <a href="/BloodBank_Details">BloodBank Details</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/Ambulance_Details">Ambulance Details</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/Camping_Details">Camping Details</a>
                                                         </li>
                                                     </ul>
                                                 </li>

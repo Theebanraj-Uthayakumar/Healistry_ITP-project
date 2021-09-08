@@ -37,6 +37,8 @@ const Routing = () => {
       <Route exact path="/facility/add" component={FacilitiesAdd} />
       <Route exact path="/facility/update" component={Facility} />
       <Route exact path="/facility/:id" component={FacilityEdit} />
+      <Route exact path="/Doctors_add" component={Doctors_add} />
+      <Route exact path="/Doctors_update" component={Doctors_update} />
     </Switch>
   );
 };

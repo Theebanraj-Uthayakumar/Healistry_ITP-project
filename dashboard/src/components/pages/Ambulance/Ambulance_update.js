@@ -2,10 +2,11 @@ import React from 'react'
 import logo from "../../../Healistry.png"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Col from 'react-bootstrap/esm/Col';
-import Button from '@restart/ui/esm/Button';
+// import Button from '@restart/ui/esm/Button';
 import Row from 'react-bootstrap/esm/Row';
 import Form from 'react-bootstrap/Form';
 import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button'
 
 
 function Ambulance_update() {
@@ -313,7 +314,7 @@ function Ambulance_update() {
                         <div className="card mb-3 melri_card" style={{margin: '3%'}}>
                             <div className="row no-gutters" width="100%">
                                 <div className="col-md-4">
-                                    <img src="Image/909067.jpg" className="card-img meltri_card_img" alt="..."/>
+                                    <img src="img/img-1.jpeg" className="card-img meltri_card_img" alt="..."/>
                                 </div>
                                 <div className="col-md-8">
                                     <div className="card-body">
@@ -322,14 +323,14 @@ function Ambulance_update() {
                                             This is a wider card with supporting text below as a natural lead-in
                                             to additional content. This content is a little bit longer.
                                         </p>
-                                        <Button variant="primary" className = "subbtn" size="lg" active>
+                                        <button variant="primary" className = "subbtn" size="lg" >
                                         Edit
-                                        </Button>{'      '}
-                                        <Button variant="secondary" className = "subbtn" size="lg" active>
+                                        </button>{'      '}
+                                        <button variant="secondary" className = "subbtn" size="lg">
                                         Delete
-                                        </Button>
+                                        </button>
                                         <p className="card-text">
-                                        <small className="text-muted">Last updated 3 mins ago</small>
+                                        {/* <small className="text-muted">Last updated 3 mins ago</small> */}
                                         </p>
                                     </div>
                                 </div>
@@ -339,7 +340,7 @@ function Ambulance_update() {
                         <div className="card mb-3 melri_card" style={{margin: '3%'}}>
                             <div className="row no-gutters" width="100%">
                                 <div className="col-md-4">
-                                    <img src="Image/909067.jpg" className="card-img meltri_card_img" alt="..."/>
+                                <img src="img/img-1.jpeg" className="card-img meltri_card_img" alt="..."/>
                                 </div>
                                 <div className="col-md-8">
                                     <div className="card-body">
@@ -348,14 +349,14 @@ function Ambulance_update() {
                                             This is a wider card with supporting text below as a natural lead-in
                                             to additional content. This content is a little bit longer.
                                         </p>
-                                        <Button variant="primary" className = "subbtn" size="lg" active>
+                                        <button variant="primary" className = "subbtn" size="lg" >
                                         Edit
-                                        </Button>{'      '}
-                                        <Button variant="secondary" className = "subbtn" size="lg" active>
+                                        </button>{'      '}
+                                        <button variant="secondary" className = "subbtn" size="lg">
                                         Delete
-                                        </Button>
+                                        </button>
                                         <p className="card-text">
-                                        <small className="text-muted">Last updated 3 mins ago</small>
+                                        {/* <small className="text-muted">Last updated 3 mins ago</small> */}
                                         </p>
                                     </div>
                                 </div>
