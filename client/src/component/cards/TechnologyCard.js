@@ -21,7 +21,7 @@ const TechnologyCard = ({ t }) => {
   const classes = useStyles();
   return (
     <div>
-      <Card className={classes.root}>
+      {/* <Card className={classes.root}>
         <CardActionArea>
           <CardMedia
             className={classes.media}
@@ -41,7 +41,23 @@ const TechnologyCard = ({ t }) => {
             </Link>
           </Button>
         </CardActions>
-      </Card>
+      </Card> */}
+      <div class="row_meltri01">
+        <div class="column_meltri01">
+          <img src={t.image[0].url} alt="img" width="250px"></img>
+        </div>
+        <div class="column_meltri01">
+          <center>
+            <h2>{t.machineName}</h2>
+            <p>{t.machineId}</p>
+            <Button variant="outline-secondary">
+              <Link to={{ pathname: `/technology/${t._id}`, state: { t } }}>
+                View Details
+              </Link>
+            </Button>
+          </center>
+        </div>
+      </div>
     </div>
   );
 };
