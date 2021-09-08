@@ -1,7 +1,7 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Col from 'react-bootstrap/esm/Col';
-import Button from '@restart/ui/esm/Button';
+// import Button from '@restart/ui/esm/Button';
 import Row from 'react-bootstrap/esm/Row';
 import Form from 'react-bootstrap/Form';
 import logo from "../../../Healistry.png"
@@ -425,9 +425,14 @@ function Blood_bank_add() {
                                  </Form.Group>
                                 
                                 <Form.Group as={Row} className="mb-3">
-                                    <Col sm={{ span: 25, offset: 8 }}>
-                                        <Button type="submit" className = "subbtn">SUBMIT</Button>
-                                    </Col>
+                                <div style={{marginTop:'5%', marginLeft:'65%'}}>
+                                                
+                                                <div class="btn-group mr-2" role="group" aria-label="Second group">
+                                                    <button type="button" class="btn btn-secondary">SUBMIT</button>
+                                                </div>
+                                                
+                                            </div>
+                                   
                                 </Form.Group>
                         </Form>
                         {/* Body Part */}

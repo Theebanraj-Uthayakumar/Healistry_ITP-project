@@ -314,6 +314,46 @@ function Dashbord() {
                                         </li>
                                     </ul>
                                 </li>
+                                <li>
+                                    <a href="#">
+                                        <i className="metismenu-icon pe-7s-diamond" />
+                                       Blood Bank Details
+                                        <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
+                                    </a>
+                                    <ul>
+                                        <li>
+                                            <a href="/Blood_bank_add">
+                                                <i className="metismenu-icon" />
+                                                Blood Bank | Add
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/blood_bank_update">
+                                                <i className="metismenu-icon"></i> Blood Bank | Edit,Delete
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#" >
+                                        <i className="metismenu-icon pe-7s-diamond" />
+                                       Laboratory Details
+                                        <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
+                                    </a>
+                                    <ul>
+                                        <li>
+                                            <a href="/Lab_Details_Add" >
+                                                <i className="metismenu-icon" />
+                                                Laboratory detail | Add
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/Lab_Details_Update">
+                                                <i className="metismenu-icon"></i> Laboratory detail | Edit,Delete
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
                                     <li>
                                         <a href="#">
                                             <i className="metismenu-icon pe-7s-display2" />
