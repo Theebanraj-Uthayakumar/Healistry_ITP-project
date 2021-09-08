@@ -2,6 +2,10 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { getTechnologies } from "../../api/Technology";
 import { makeStyles } from "@material-ui/core/styles";
+import Col from 'react-bootstrap/esm/Col';
+import Form from 'react-bootstrap/Form';
+import Button from '@restart/ui/esm/Button';
+import Row from 'react-bootstrap/esm/Row';
 
 const useStyles = makeStyles({
   option: {
@@ -46,6 +50,7 @@ const TechnologySearch = () => {
     s.machineName.toLowerCase().includes(keyword);
   return (
     <div>
+      
       <input
         type="search"
         placeholder="search"
@@ -56,7 +61,7 @@ const TechnologySearch = () => {
         item.map((i, index) => {
           return (
             <Link to={{ pathname: `/technology/${i._id}`, state: { t: i } }}>
-              <option key={index}>mach Name: {i.machineName}</option>
+              <option key={index}>machine Name: {i.machineName}</option>
             </Link>
           );
         })}

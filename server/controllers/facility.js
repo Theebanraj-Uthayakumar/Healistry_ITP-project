@@ -7,6 +7,9 @@ export const addFacility = async (req, res, next) => {
     res.json(newFacility);
   } catch (error) {
     console.log(error);
+    if (error.code === 11000) {
+      res.json({ status: "error", error: "duplicate key" });
+    }
     res.status(400).json({ error: "failed" });
   }
 };
@@ -19,6 +22,9 @@ export const editFacility = async (req, res, next) => {
     });
     res.json(facility);
   } catch (error) {
+    if (error.code === 11000) {
+      res.json({ status: "error", error: "duplicate key" });
+    }
     res.status(400).json({ error: "failed" });
   }
 };

@@ -14,7 +14,7 @@ const initailSate = {
   features: "",
 };
 
-const FacilitiesAdd = () => {
+const FacilitiesAdd = ({ history }) => {
   const [facility, setFacility] = useState(initailSate);
 
   const handleChange = (e) => {
@@ -23,18 +23,27 @@ const FacilitiesAdd = () => {
 
   const submitHandler = async (event) => {
     event.preventDefault();
+    const form = event.currentTarget;
+    if (form.checkValidity() === false) {
+      event.stopPropagation();
+    }
+    // event.preventDefault();
     console.log(event.target.value);
     addFacility(facility)
       .then((res) => {
         console.log(res);
+        if (res.data.error === "duplicate key") {
+          window.alert("Duplicate key error");
+        } else history.push("/facility/update");
       })
       .catch((err) => {
         console.log(err);
+        window.alert("Error", err);
       });
   };
 
   return (
-    <div>
+    <>
       <div className="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
         <Header />
         <div className="app-main">
@@ -58,7 +67,7 @@ const FacilitiesAdd = () => {
                 </div>
               </div>
               {/* Add Form Here */}
-              <h1>Facility Add Form</h1>
+
               <FacilityForm
                 facility={facility}
                 setFacility={setFacility}
@@ -71,7 +80,7 @@ const FacilitiesAdd = () => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
