@@ -70,171 +70,172 @@ function home() {
                     </tr>
                 </table>
             </Container>
-            <Container>
-                <div>
-                    <h1 className="home2_heading">Lorem ipsum </h1>
-                </div>
-                <Slider {...settings}>
+            <div className="home_slider">
+                <Container>
+                    <div>
+                        <h1 className="home2_heading">Lorem ipsum </h1>
+                    </div>
+                    <Slider {...settings}>
 
-                    <div className="contact-info-box text-center mb-30">
-                        <div className="contact-box-icon">
-                            <center>
-                                <img src="img/icon/doctor.png" width="45px" style={{ paddingTop: "10px" }}></img>
-                            </center>
+                        <div className="contact-info-box text-center mb-30">
+                            <div className="contact-box-icon">
+                                <center>
+                                    <img src="img/icon/doctor.png" width="45px" style={{ paddingTop: "10px" }}></img>
+                                </center>
+                            </div>
+                            <div className="contact-info-content">
+                                <h5>Doctors Details</h5>
+                                <p>
+                                    W898 RTower Stat, Suite 56 Brockland, CA 9622 United States
+                                </p>
+                            </div>
                         </div>
-                        <div className="contact-info-content">
-                            <h5>Doctors Details</h5>
-                            <p>
-                                W898 RTower Stat, Suite 56 Brockland, CA 9622 United States
-                            </p>
+                        <div className="contact-info-box text-center mb-30">
+                            <div className="contact-box-icon">
+                                <center>
+                                    <img src="img/icon/hospital.png" width="45px" style={{ paddingTop: "10px" }}></img>
+                                </center>
+                            </div>
+                            <div className="contact-info-content">
+                                <h5>Hospital Details</h5>
+                                <p>
+                                    W898 RTower Stat, Suite 56 Brockland, CA 9622 United States
+                                </p>
+                            </div>
                         </div>
-                    </div>
-                    <div className="contact-info-box text-center mb-30">
-                        <div className="contact-box-icon">
-                            <center>
-                                <img src="img/icon/hospital.png" width="45px" style={{ paddingTop: "10px" }}></img>
-                            </center>
+                        <div className="contact-info-box text-center mb-30">
+                            <div className="contact-box-icon">
+                                <center>
+                                    <img src="img/icon/ambulance.png" width="45px" style={{ paddingTop: "10px" }}></img>
+                                </center>
+                            </div>
+                            <div className="contact-info-content">
+                                <h5>Ambulance Details</h5>
+                                <p>
+                                    W898 RTower Stat, Suite 56 Brockland, CA 9622 United States
+                                </p>
+                            </div>
                         </div>
-                        <div className="contact-info-content">
-                            <h5>Hospital Details</h5>
-                            <p>
-                                W898 RTower Stat, Suite 56 Brockland, CA 9622 United States
-                            </p>
+                        <div className="contact-info-box text-center mb-30">
+                            <div className="contact-box-icon">
+                                <center>
+                                    <img src="img/icon/Camping.png" width="45px" style={{ paddingTop: "10px" }}></img>
+                                </center>
+                            </div>
+                            <div className="contact-info-content">
+                                <h5>Camping Details</h5>
+                                <p>
+                                    W898 RTower Stat, Suite 56 Brockland, CA 9622 United States
+                                </p>
+                            </div>
                         </div>
-                    </div>
-                    <div className="contact-info-box text-center mb-30">
-                        <div className="contact-box-icon">
-                            <center>
-                                <img src="img/icon/ambulance.png" width="45px" style={{ paddingTop: "10px" }}></img>
-                            </center>
+                        <div className="contact-info-box text-center mb-30">
+                            <div className="contact-box-icon">
+                                <center>
+                                    <img src="img/icon/nanotechnology.png" width="45px" style={{ paddingTop: "10px" }}></img>
+                                </center>
+                            </div>
+                            <div className="contact-info-content">
+                                <h5>Technology Details</h5>
+                                <p>
+                                    W898 RTower Stat, Suite 56 Brockland, CA 9622 United States
+                                </p>
+                            </div>
                         </div>
-                        <div className="contact-info-content">
-                            <h5>Ambulance Details</h5>
-                            <p>
-                                W898 RTower Stat, Suite 56 Brockland, CA 9622 United States
-                            </p>
+                        <div className="contact-info-box text-center mb-30">
+                            <div className="contact-box-icon">
+                                <center>
+                                    <img src="img/icon/amenities.png" width="45px" style={{ paddingTop: "10px" }}></img>
+                                </center>
+                            </div>
+                            <div className="contact-info-content">
+                                <h5>Facility Details</h5>
+                                <p>
+                                    W898 RTower Stat, Suite 56 Brockland, CA 9622 United States
+                                </p>
+                            </div>
                         </div>
-                    </div>
-                    <div className="contact-info-box text-center mb-30">
-                        <div className="contact-box-icon">
-                            <center>
-                                <img src="img/icon/Camping.png" width="45px" style={{ paddingTop: "10px" }}></img>
-                            </center>
+                        <div className="contact-info-box text-center mb-30">
+                            <div className="contact-box-icon">
+                                <center>
+                                    <img src="img/icon/surgery-room.png" width="45px" style={{ paddingTop: "10px" }}></img>
+                                </center>
+                            </div>
+                            <div className="contact-info-content">
+                                <h5>Operation History</h5>
+                                <p>
+                                    Lorem ipsum dolor sit amet
+                                </p>
+                            </div>
                         </div>
-                        <div className="contact-info-content">
-                            <h5>Camping Details</h5>
-                            <p>
-                                W898 RTower Stat, Suite 56 Brockland, CA 9622 United States
-                            </p>
+                        <div className="contact-info-box text-center mb-30">
+                            <div className="contact-box-icon">
+                                <center>
+                                    <img src="img/icon/technical-support.png" width="45px" style={{ paddingTop: "10px" }}></img>
+                                </center>
+                            </div>
+                            <div className="contact-info-content">
+                                <h5>Cleaning Compines</h5>
+                                <p>
+                                    W898 RTower Stat, Suite 56 Brockland, CA 9622 United States
+                                </p>
+                            </div>
                         </div>
-                    </div>
-                    <div className="contact-info-box text-center mb-30">
-                        <div className="contact-box-icon">
-                            <center>
-                                <img src="img/icon/nanotechnology.png" width="45px" style={{ paddingTop: "10px" }}></img>
-                            </center>
+                        <div className="contact-info-box text-center mb-30">
+                            <div className="contact-box-icon">
+                                <center>
+                                    <img src="img/icon/pharmacy.png" width="45px" style={{ paddingTop: "10px" }}></img>
+                                </center>
+                            </div>
+                            <div className="contact-info-content">
+                                <h5>Pharmacy Details</h5>
+                                <p>
+                                    W898 RTower Stat, Suite 56 Brockland, CA 9622 United States
+                                </p>
+                            </div>
                         </div>
-                        <div className="contact-info-content">
-                            <h5>Technology Details</h5>
-                            <p>
-                                W898 RTower Stat, Suite 56 Brockland, CA 9622 United States
-                            </p>
+                        <div className="contact-info-box text-center mb-30">
+                            <div className="contact-box-icon">
+                                <center>
+                                    <img src="img/icon/coronavirus.png" width="45px" style={{ paddingTop: "10px" }}></img>
+                                </center>
+                            </div>
+                            <div className="contact-info-content">
+                                <h5>Disease spread information & Guidance</h5>
+                                <p>
+                                    W898 RTower Stat, Suite 56 Brockland, CA 9622 United States
+                                </p>
+                            </div>
                         </div>
-                    </div>
-                    <div className="contact-info-box text-center mb-30">
-                        <div className="contact-box-icon">
-                            <center>
-                                <img src="img/icon/amenities.png" width="45px" style={{ paddingTop: "10px" }}></img>
-                            </center>
+                        <div className="contact-info-box text-center mb-30">
+                            <div className="contact-box-icon">
+                                <center>
+                                    <img src="img/icon/blood-bank.png" width="45px" style={{ paddingTop: "10px" }}></img>
+                                </center>
+                            </div>
+                            <div className="contact-info-content">
+                                <h5>Blood Bank Details</h5>
+                                <p>
+                                    W898 RTower Stat, Suite 56 Brockland, CA 9622 United States
+                                </p>
+                            </div>
                         </div>
-                        <div className="contact-info-content">
-                            <h5>Facility Details</h5>
-                            <p>
-                                W898 RTower Stat, Suite 56 Brockland, CA 9622 United States
-                            </p>
+                        <div className="contact-info-box text-center mb-30">
+                            <div className="contact-box-icon">
+                                <center>
+                                    <img src="img/icon/microscope.png" width="45px" style={{ paddingTop: "10px" }}></img>
+                                </center>
+                            </div>
+                            <div className="contact-info-content">
+                                <h5>laboratory Details</h5>
+                                <p>
+                                    W898 RTower Stat, Suite 56 Brockland, CA 9622 United States
+                                </p>
+                            </div>
                         </div>
-                    </div>
-                    <div className="contact-info-box text-center mb-30">
-                        <div className="contact-box-icon">
-                            <center>
-                                <img src="img/icon/surgery-room.png" width="45px" style={{ paddingTop: "10px" }}></img>
-                            </center>
-                        </div>
-                        <div className="contact-info-content">
-                            <h5>Operation History</h5>
-                            <p>
-                                Lorem ipsum dolor sit amet
-                            </p>
-                        </div>
-                    </div>
-                    <div className="contact-info-box text-center mb-30">
-                        <div className="contact-box-icon">
-                            <center>
-                                <img src="img/icon/technical-support.png" width="45px" style={{ paddingTop: "10px" }}></img>
-                            </center>
-                        </div>
-                        <div className="contact-info-content">
-                            <h5>Cleaning Compines</h5>
-                            <p>
-                                W898 RTower Stat, Suite 56 Brockland, CA 9622 United States
-                            </p>
-                        </div>
-                    </div>
-                    <div className="contact-info-box text-center mb-30">
-                        <div className="contact-box-icon">
-                            <center>
-                                <img src="img/icon/pharmacy.png" width="45px" style={{ paddingTop: "10px" }}></img>
-                            </center>
-                        </div>
-                        <div className="contact-info-content">
-                            <h5>Pharmacy Details</h5>
-                            <p>
-                                W898 RTower Stat, Suite 56 Brockland, CA 9622 United States
-                            </p>
-                        </div>
-                    </div>
-                    <div className="contact-info-box text-center mb-30">
-                        <div className="contact-box-icon">
-                            <center>
-                                <img src="img/icon/coronavirus.png" width="45px" style={{ paddingTop: "10px" }}></img>
-                            </center>
-                        </div>
-                        <div className="contact-info-content">
-                            <h5>Disease spread information & Guidance</h5>
-                            <p>
-                                W898 RTower Stat, Suite 56 Brockland, CA 9622 United States
-                            </p>
-                        </div>
-                    </div>
-                    <div className="contact-info-box text-center mb-30">
-                        <div className="contact-box-icon">
-                            <center>
-                                <img src="img/icon/blood-bank.png" width="45px" style={{ paddingTop: "10px" }}></img>
-                            </center>
-                        </div>
-                        <div className="contact-info-content">
-                            <h5>Blood Bank Details</h5>
-                            <p>
-                                W898 RTower Stat, Suite 56 Brockland, CA 9622 United States
-                            </p>
-                        </div>
-                    </div>
-                    <div className="contact-info-box text-center mb-30">
-                        <div className="contact-box-icon">
-                            <center>
-                                <img src="img/icon/microscope.png" width="45px" style={{ paddingTop: "10px" }}></img>
-                            </center>
-                        </div>
-                        <div className="contact-info-content">
-                            <h5>laboratory Details</h5>
-                            <p>
-                                W898 RTower Stat, Suite 56 Brockland, CA 9622 United States
-                            </p>
-                        </div>
-                    </div>
-
-                </Slider>
-            </Container>
+                    </Slider>
+                </Container>
+            </div>
             <Container>
                 <table className="Home_1">
                     <tr>

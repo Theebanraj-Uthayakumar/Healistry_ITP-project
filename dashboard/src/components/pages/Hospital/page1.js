@@ -189,14 +189,14 @@ function Doctors_update() {
                                 <ul className="vertical-nav-menu">
                                     <li className="app-sidebar__heading">Dashboards</li>
                                     <li>
-                                        <a href="http://localhost:3001/">
+                                        <a href="#">
                                             <i className="metismenu-icon pe-7s-rocket" />
                                             Dashboard
                                         </a>
                                     </li>
                                     <li className="app-sidebar__heading">Components</li>
                                     <li>
-                                        <a href="#" className="mm-active">
+                                        <a href="#">
                                             <i className="metismenu-icon pe-7s-diamond" />
                                             Doctors' Details
                                             <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
@@ -209,8 +209,28 @@ function Doctors_update() {
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="/Doctors_update" className="mm-active">
+                                                <a href="/Doctors_update">
                                                     <i className="metismenu-icon"></i> Doctors | Edit,Delete
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#" className="mm-active">
+                                            <i className="metismenu-icon pe-7s-diamond" />
+                                            Hospitals Details
+                                            <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
+                                        </a>
+                                        <ul>
+                                            <li>
+                                                <a href="Hospital_add">
+                                                    <i className="metismenu-icon" />
+                                                    Hospitals | Add
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="Hospital_update" className="mm-active">
+                                                    <i className="metismenu-icon"></i> Hospitals | Edit,Delete
                                                 </a>
                                             </li>
                                         </ul>
@@ -218,19 +238,99 @@ function Doctors_update() {
                                     <li>
                                         <a href="#">
                                             <i className="metismenu-icon pe-7s-diamond" />
-                                            Hospitals Details
+                                            Cleaning Company
                                             <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
                                         </a>
                                         <ul>
                                             <li>
-                                                <a href="#">
+                                                <a href="cleaning_add">
                                                     <i className="metismenu-icon" />
-                                                    Hospitals | Add
+                                                    Cleaning Company | Add
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="/Hospital_update">
-                                                    <i className="metismenu-icon"></i> Hospitals | Edit,Delete
+                                                <a href="cleaning_update">
+                                                    <i className="metismenu-icon"></i> Cleaning Co... | Update
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i className="metismenu-icon pe-7s-diamond" />
+                                            Ambulance Details
+                                            <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
+                                        </a>
+                                        <ul>
+                                            <li>
+                                                <a href="/Ambulance_Add">
+                                                    <i className="metismenu-icon" />
+                                                    Ambulance | Add
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/Ambulance_update">
+                                                    <i className="metismenu-icon"></i> Ambulance | Edit,Delete
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#" >
+                                            <i className="metismenu-icon pe-7s-diamond" />
+                                            Camping Details
+                                            <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
+                                        </a>
+                                        <ul>
+                                            <li>
+                                                <a href="/Camping_Add">
+                                                    <i className="metismenu-icon" />
+                                                    Camping | Add
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/Camping_update" >
+                                                    <i className="metismenu-icon"></i> Camping | Edit,Delete
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i className="metismenu-icon pe-7s-diamond" />
+                                            Blood Bank Details
+                                            <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
+                                        </a>
+                                        <ul>
+                                            <li>
+                                                <a href="/Blood_bank_add">
+                                                    <i className="metismenu-icon" />
+                                                    Blood Bank | Add
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/blood_bank_update">
+                                                    <i className="metismenu-icon"></i> Blood Bank | Edit,Delete
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#" >
+                                            <i className="metismenu-icon pe-7s-diamond" />
+                                            Laboratory Details
+                                            <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
+                                        </a>
+                                        <ul>
+                                            <li>
+                                                <a href="/Lab_Details_Add" >
+                                                    <i className="metismenu-icon" />
+                                                    Laboratory detail | Add
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/Lab_Details_Update">
+                                                    <i className="metismenu-icon"></i> Laboratory detail | Edit,Delete
                                                 </a>
                                             </li>
                                         </ul>
@@ -254,138 +354,135 @@ function Doctors_update() {
                                             <i className="pe-7s-car icon-gradient bg-mean-fruit"></i>
                                         </div>
                                         <div>
-                                          <h1>Hospital Details</h1>
-                                            
+                                            <h1>Hospital Details</h1>
+
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             {/* Add Form Here */}
-                           
-                             <Container>
-            <div class="row_hospital">
-              <div class="column_hospital">
-                <h2>Hospital Details Management</h2>
-                  
-                </div>
-                <div class="column_hospital">
-                  
-                </div>
-          </div>
-          <center>
-           <input className="searchit"  type="text" placeholder="Search Here..." />
-          </center>
-          <Card>
-              <div className="row no-gutters" width="100%">
-                                <div className="col-md-4">
-                                    <img src="images/Hemas-hospital 1.png" width="200px" max-height= "300px" ></img>
-                                </div>
-                                <div className="col-md-8">
-                                    <div className="card-body">
-                                         <div class="column_hospital">
-                Contact Number:- 01167390473<br/>
-                Location- 18,mainroad colombo 4<br/>
-                Ward Available -<br/>
-                        Staff Count-145<br />
-                  
-              </div>
-                                        <Button variant="primary" className = "subbtn" size="lg" active>
-                                        Edit
-                                        </Button>{'      '}
-                                        <Button variant="secondary" className = "subbtn" size="lg" active>
-                                        Delete
-                                        </Button>
-                                        <p className="card-text">
-                                        <small className="text-muted">Last updated 3 mins ago</small>
-                                        </p>
+
+                            <Container>
+                                <div class="row_hospital">
+                                    <div class="column_hospital">
+                                        <h2>Hospital Details Management</h2>
+
+                                    </div>
+                                    <div class="column_hospital">
+
                                     </div>
                                 </div>
-                            </div>
+                                <center>
+                                    <input className="searchit" type="text" placeholder="Search Here..." />
+                                </center>
+                                <Card>
+                                    <div className="row no-gutters" width="100%">
+                                        <div className="col-md-4">
+                                            <img src="images/Hemas-hospital 1.png" width="200px" max-height="300px" ></img>
+                                        </div>
+                                        <div className="col-md-8">
+                                            <div className="card-body">
+                                                <div class="column_hospital">
+                                                    Contact Number:- 01167390473<br />
+                                                    Location- 18,mainroad colombo 4<br />
+                                                    Ward Available -<br />
+                                                    Staff Count-145<br />
+
+                                                </div>
+                                                <Button variant="primary" className="subbtn" size="lg" active>
+                                                    Edit
+                                                </Button>{'      '}
+                                                <Button variant="secondary" className="subbtn" size="lg" active>
+                                                    Delete
+                                                </Button>
+                                                <p className="card-text">
+                                                    <small className="text-muted">Last updated 3 mins ago</small>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </Card>
                                 <Card>
-              <div className="row no-gutters" width="100%">
-                                <div className="col-md-4">
-                                    <img src="images/pic2.png" width="200px" max-height= "300px" ></img>
-                                </div>
-                                <div className="col-md-8">
-                                    <div className="card-body">
-                                         <div class="column_hospital">
-                Contact Number:- 01167390473<br/>
-                Location- 18,mainroad colombo 4<br/>
-                Ward Available -<br/>
-                        Staff Count-145<br />
-                  
-              </div>
-                                        <Button variant="primary" className = "subbtn" size="lg" active>
-                                        Edit
-                                        </Button>{'      '}
-                                        <Button variant="secondary" className = "subbtn" size="lg" active>
-                                        Delete
-                                        </Button>
-                                        <p className="card-text">
-                                        <small className="text-muted">Last updated 3 mins ago</small>
-                                        </p>
+                                    <div className="row no-gutters" width="100%">
+                                        <div className="col-md-4">
+                                            <img src="images/pic2.png" width="200px" max-height="300px" ></img>
+                                        </div>
+                                        <div className="col-md-8">
+                                            <div className="card-body">
+                                                <div class="column_hospital">
+                                                    Contact Number:- 01167390473<br />
+                                                    Location- 18,mainroad colombo 4<br />
+                                                    Ward Available -<br />
+                                                    Staff Count-145<br />
+
+                                                </div>
+                                                <Button variant="primary" className="subbtn" size="lg" active>
+                                                    Edit
+                                                </Button>{'      '}
+                                                <Button variant="secondary" className="subbtn" size="lg" active>
+                                                    Delete
+                                                </Button>
+                                                <p className="card-text">
+                                                    <small className="text-muted">Last updated 3 mins ago</small>
+                                                </p>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-          </Card>
-   
-              <Card>
-              <div className="row no-gutters" width="100%">
-                                <div className="col-md-4">
-                                    <img src="images/pic3.png" width="200px" max-height= "300px" ></img>
-                                </div>
-                                <div className="col-md-8">
-                                    <div className="card-body">
-                                         <div class="column_hospital">
-                Contact Number:- 01167390473<br/>
-                Location- 18,mainroad colombo 4<br/>
-                Ward Available -<br/>
-                        Staff Count-145<br />
-                  
-              </div>
-                                        <Button variant="primary" className = "subbtn" size="lg" active>
-                                        Edit
-                                        </Button>{'      '}
-                                        <Button variant="secondary" className = "subbtn" size="lg" active>
-                                        Delete
-                                        </Button>
-                                        <p className="card-text">
-                                        <small className="text-muted">Last updated 2 mins ago</small>
-                                        </p>
+                                </Card>
+                                <Card>
+                                    <div className="row no-gutters" width="100%">
+                                        <div className="col-md-4">
+                                            <img src="images/pic3.png" width="200px" max-height="300px" ></img>
+                                        </div>
+                                        <div className="col-md-8">
+                                            <div className="card-body">
+                                                <div class="column_hospital">
+                                                    Contact Number:- 01167390473<br />
+                                                    Location- 18,mainroad colombo 4<br />
+                                                    Ward Available -<br />
+                                                    Staff Count-145<br />
+
+                                                </div>
+                                                <Button variant="primary" className="subbtn" size="lg" active>
+                                                    Edit
+                                                </Button>{'      '}
+                                                <Button variant="secondary" className="subbtn" size="lg" active>
+                                                    Delete
+                                                </Button>
+                                                <p className="card-text">
+                                                    <small className="text-muted">Last updated 2 mins ago</small>
+                                                </p>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-          </Card><Card>
-              <div className="row no-gutters" width="100%">
-                                <div className="col-md-4">
-                                    <img src="images/pic4.png" width="200px" max-height= "300px" ></img>
-                                </div>
-                                <div className="col-md-8">
-                                    <div className="card-body">
-                                         <div class="column_hospital">
-                Contact Number:- 01167390473<br/>
-                Location- 18,mainroad colombo 4<br/>
-                Ward Available -<br/>
-                        Staff Count-145<br />
-                  
-              </div>
-                                        <Button variant="primary" className = "subbtn" size="lg" active>
-                                        Edit
-                                        </Button>{'      '}
-                                        <Button variant="secondary" className = "subbtn" size="lg" active>
-                                        Delete
-                                        </Button>
-                                        <p className="card-text">
-                                        <small className="text-muted">Last updated 4 mins ago</small>
-                                        </p>
+                                </Card><Card>
+                                    <div className="row no-gutters" width="100%">
+                                        <div className="col-md-4">
+                                            <img src="images/pic4.png" width="200px" max-height="300px" ></img>
+                                        </div>
+                                        <div className="col-md-8">
+                                            <div className="card-body">
+                                                <div class="column_hospital">
+                                                    Contact Number:- 01167390473<br />
+                                                    Location- 18,mainroad colombo 4<br />
+                                                    Ward Available -<br />
+                                                    Staff Count-145<br />
+
+                                                </div>
+                                                <Button variant="primary" className="subbtn" size="lg" active>
+                                                    Edit
+                                                </Button>{'      '}
+                                                <Button variant="secondary" className="subbtn" size="lg" active>
+                                                    Delete
+                                                </Button>
+                                                <p className="card-text">
+                                                    <small className="text-muted">Last updated 4 mins ago</small>
+                                                </p>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-          </Card>
-   
-        
-                          </Container>
+                                </Card>
+                            </Container>
                         </div >
                         <div className="app-wrapper-footer">
                             <div className="app-footer">

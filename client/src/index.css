@@ -338,3 +338,9 @@ input.form-control {
   border-radius: 0.25rem;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
+.home_slider{
+  margin-top: 70px;
+  background-color: #dbdbdb;
+  padding-top: 50px;
+  padding-bottom: 90px;
+}
