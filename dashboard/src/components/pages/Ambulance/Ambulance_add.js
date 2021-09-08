@@ -377,7 +377,7 @@ function Ambulance_add() {
                                         <Form.Control type="file"  />
                                     </Col>
                                 </Form.Group>
-                                            <div style={{marginTop:'5%', marginLeft:'65%'}}>
+                                <div style={{marginTop:'5%', marginLeft:'65%'}}>
                                                 
                                                 <div class="btn-group mr-2" role="group" aria-label="Second group">
                                                     <button type="button" class="btn btn-secondary">SUBMIT</button>
