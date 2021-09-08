@@ -18,6 +18,7 @@ import Facility from "./component/pages/facility/Facility";
 import SingleTechnology from "./component/pages/technology/SingleTechnology";
 import SingleFacility from "./component/pages/facility/SingleFacility";
 import login from "./component/pages/login";
+import Hospital from "./component/pages/Hospital";
 
 
 
@@ -27,6 +28,7 @@ const Routing = () => {
     <Switch>
       <Route exact path="/" component={Home} />
       <Route exact path="/Ambulance_Details" component={Ambulance}/>
+      <Route exact path="/Hospital" component={Hospital}/>
       <Route exact path="/Camping_Details" component={Camping} />
       <Route exact path="/Doctors" component={doctor} />
       <Route exact path="/about" component={about} />
