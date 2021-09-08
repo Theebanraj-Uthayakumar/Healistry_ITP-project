@@ -2,8 +2,9 @@ import React from 'react'
 import logo from "../../../Healistry.png"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Col from 'react-bootstrap/esm/Col';
-import Button from '@restart/ui/esm/Button';
+// import Button from '@restart/ui/esm/Button';
 import Row from 'react-bootstrap/esm/Row';
+import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form';
 import Card from 'react-bootstrap/Card';
 
@@ -313,12 +314,7 @@ function Camping_add() {
                                              Organization Name
                                     </Form.Label>
                                     <Col sm={5}>
-                                    <Form.Select className="me-sm-2" id="inlineFormCustomSelect">
-                                        <option value="0">Choose...</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
-                                    </Form.Select>
+                                    <Form.Control type="text" />
                                      </Col>
                                  </Form.Group>
                                  <Form.Group as={Row} className="mb-3" controlId="">
@@ -359,13 +355,10 @@ function Camping_add() {
                                             Type
                                     </Form.Label>
                                     <Col sm={5}>
-                                    <Form.Select className="me-sm-2" id="inlineFormCustomSelect">
-                                        <option value="0">Choose...</option>
-                                        <option value="1">Blood Camping</option>
-                                        <option value="2">Medical Camping</option>
-                                    </Form.Select>
-                                    </Col>
-                                </Form.Group>
+                                        <Form.Control type="text" />
+                                     </Col>
+                                 </Form.Group>
+                                    
                                 <Form.Group as={Row} className="mb-3" controlId="">
                                     <Form.Label column sm={3}>
                                             Image

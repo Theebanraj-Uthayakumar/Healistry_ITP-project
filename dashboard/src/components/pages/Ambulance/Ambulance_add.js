@@ -2,10 +2,11 @@ import React from 'react'
 import logo from "../../../Healistry.png"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Col from 'react-bootstrap/esm/Col';
-import Button from '@restart/ui/esm/Button';
+// import Button from '@restart/ui/esm/Button';
 import Row from 'react-bootstrap/esm/Row';
 import Form from 'react-bootstrap/Form';
 import Card from 'react-bootstrap/Card';
+
 function Ambulance_add() {
     return (
         <div>
@@ -302,12 +303,9 @@ function Ambulance_add() {
                                 </div>
                             </div>
                         </div>
-                        {/* Add Form Here */}
                         <Card>
                         <Form style={{marginLeft:'5%',marginTop:'3%', marginBottom:'3%'}}>
-                            <fieldset>
-                                
-                                <Form.Group as={Row} className="mb-3"controlId="" >
+                        <Form.Group as={Row} className="mb-3"controlId="" >
                                     <Form.Label column sm={3}>
                                              Organization Name
                                     </Form.Label>
@@ -315,9 +313,17 @@ function Ambulance_add() {
                                         <Form.Control type="text" />
                                      </Col>
                                  </Form.Group>
-                                 <Form.Group as={Row} className="mb-3" controlId="">
+                                 <Form.Group as={Row} className="mb-3"controlId="" >
                                     <Form.Label column sm={3}>
                                              Registered Since
+                                    </Form.Label>
+                                    <Col sm={5}>
+                                        <Form.Control type="number" />
+                                     </Col>
+                                 </Form.Group>
+                                 <Form.Group as={Row} className="mb-3"controlId="" >
+                                    <Form.Label column sm={3}>
+                                            No of Ambulance
                                     </Form.Label>
                                     <Col sm={5}>
                                         <Form.Control type="number" />
@@ -347,7 +353,6 @@ function Ambulance_add() {
                                         <Form.Control type="number" />
                                      </Col>
                                  </Form.Group>
-
                                  <Form.Group as={Row} className="mb-3" controlId="">
                                     <Form.Label column sm={3}>
                                             Location
@@ -361,12 +366,7 @@ function Ambulance_add() {
                                             Servicing Hospitals
                                     </Form.Label>
                                     <Col sm={5}>
-                                    <Form.Select className="me-sm-2" id="inlineFormCustomSelect">
-                                        <option value="0">Choose...</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
-                                    </Form.Select>
+                                        <Form.Control type="text"  />
                                     </Col>
                                 </Form.Group>
                                 <Form.Group as={Row} className="mb-3" controlId="">
@@ -377,16 +377,17 @@ function Ambulance_add() {
                                         <Form.Control type="file"  />
                                     </Col>
                                 </Form.Group>
-                            
                                 <div style={{marginTop:'5%', marginLeft:'65%'}}>
                                                 
                                                 <div class="btn-group mr-2" role="group" aria-label="Second group">
                                                     <button type="button" class="btn btn-secondary">SUBMIT</button>
                                                 </div>
                                                 
-                                            </div></fieldset>
-                                
-                        </Form></Card>
+                                            </div>
+                                   
+                                </Form>
+                                </Card>
+
                         {/* Body Part */}
                     </div >
                     <div className="app-wrapper-footer" style={{marginTop: '3%'}}>

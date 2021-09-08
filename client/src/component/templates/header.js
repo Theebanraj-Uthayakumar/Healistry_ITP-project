@@ -43,7 +43,12 @@ export default function header() {
                                                         <li>
                                                             <a href="/BloodBank_Details">BloodBank Details</a>
                                                         </li>
-                                                        
+                                                        <li>
+                                                            <a href="/Ambulance_Details">Ambulance Details</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/Camping_Details">Camping Details</a>
+                                                        </li>
                                                     </ul>
                                                 </li>
                                                 {/* <li className="dropdown">

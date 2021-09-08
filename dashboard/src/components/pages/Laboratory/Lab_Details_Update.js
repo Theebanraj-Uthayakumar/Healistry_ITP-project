@@ -1,6 +1,6 @@
 import React from 'react'
 import Col from 'react-bootstrap/esm/Col'
-import Button from '@restart/ui/esm/Button'
+// import Button from '@restart/ui/esm/Button'
 import Row from 'react-bootstrap/esm/Row'
 import Form from 'react-bootstrap/Form'
 import logo from "../../../Healistry.png"
@@ -356,12 +356,12 @@ function Lab_Details_Update() {
                                         </p>
                                         <small className="text-muted">Last updated 3 mins ago</small>
                                         <div class="bottomright">
-                                            <Button variant="primary" className = "subbtn" size="lg" active>
-                                            Edit
-                                            </Button>{'      '}
-                                            <Button variant="secondary" className = "subbtn" size="lg" active>
-                                            Delete
-                                            </Button>
+                                            <button variant="primary" className = "subbtn" size="lg" >
+                                        Edit
+                                        </button>{'      '}
+                                        <button variant="secondary" className = "subbtn" size="lg">
+                                        Delete
+                                        </button>
                                         </div>
                                         <p className="card-text">
                                         

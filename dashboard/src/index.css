@@ -16,10 +16,10 @@
 .meltri_card_img {
   max-height: 300px;
 }
-.bottomright {
-  position: absolute;
-  bottom: 40px;
-  right: 80px;
+.bottomright{
+    position:absolute;
+    bottom: 40px;
+    right: 80px;
 }
 
 /* sector abi css */
