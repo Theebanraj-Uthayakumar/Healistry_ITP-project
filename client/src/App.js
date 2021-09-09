@@ -21,6 +21,9 @@ import login from "./component/pages/login";
 import Hospital from "./component/pages/Hospital";
 import Disease1 from "./component/pages/Disease1";
 
+import Pharmacy2 from "./component/Pharmacy/Pharmacy2";
+import Pharmacy1 from "./component/Pharmacy/Pharmacy1";
+
 
 
 // All routing routes ddefined here
@@ -43,6 +46,8 @@ const Routing = () => {
       <Route exact path="/facility/:id" component={SingleFacility} />
       <Route exact path="/login" component={login} />
       <Route exact path="/Disease1" component={Disease1} />
+      <Route exact path="/check" component={Pharmacy2}/>
+      <Route exact path="/check1" component={Pharmacy1}/>
     </Switch>
   );
 };

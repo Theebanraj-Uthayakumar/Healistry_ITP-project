@@ -58,6 +58,9 @@ export default function header() {
                                                         <li>
                                                             <a href="/Disease1">Disease</a>
                                                         </li>
+                                                         <li>
+                                                            <a href="/check">Pharmacy Details</a>
+                                                        </li>
                                                     </ul>
                                                 </li>
                                                 {/* <li className="dropdown">
