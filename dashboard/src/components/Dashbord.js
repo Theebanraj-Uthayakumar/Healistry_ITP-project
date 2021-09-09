@@ -354,6 +354,27 @@ function Dashbord() {
                                             </li>
                                         </ul>
                                     </li>
+
+                                    <li>
+                                        <a href="#" >
+                                            <i className="metismenu-icon pe-7s-diamond" />
+                                            Pharmacy Details
+                                            <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
+                                        </a>
+                                        <ul>
+                                            <li>
+                                                <a href="/Pharmacyadd" >
+                                                    <i className="metismenu-icon" />
+                                                    Pharmacy detail | Add
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/Pharmacy_update">
+                                                    <i className="metismenu-icon"></i> Pharmacy detail | Edit,Delete
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
                                     <li>
                                         <a href="#">
                                             <i className="metismenu-icon pe-7s-display2" />
