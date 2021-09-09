@@ -19,6 +19,7 @@ import SingleTechnology from "./component/pages/technology/SingleTechnology";
 import SingleFacility from "./component/pages/facility/SingleFacility";
 import login from "./component/pages/login";
 import Hospital from "./component/pages/Hospital";
+import Disease1 from "./component/pages/Disease1";
 
 
 
@@ -41,6 +42,7 @@ const Routing = () => {
       <Route exact path="/technology/:id" component={SingleTechnology} />
       <Route exact path="/facility/:id" component={SingleFacility} />
       <Route exact path="/login" component={login} />
+      <Route exact path="/Disease1" component={Disease1} />
     </Switch>
   );
 };

@@ -24,6 +24,8 @@ import Lab_Details_Add from "./components/pages/Laboratory/Lab_Details_Add";
 import Lab_Details_Update from "./components/pages/Laboratory/Lab_Details_Update";
 import add from "./components/pages/Hospital/add";
 import page1 from "./components/pages/Hospital/page1";
+import Disease_Add from "./components/pages/Disease/Disease_add";
+import Disease_update from "./components/pages/Disease/Disease_update";
 
 
 // All routing routes ddefined here
@@ -51,6 +53,8 @@ const Routing = () => {
       <Route exact path="/Lab_Details_Add" component={Lab_Details_Add} />
       <Route exact path="/Hospital_add" component={add} />
       <Route exact path="/Hospital_update" component={page1} />
+      <Route exact path="/Disease_add" component={Disease_Add} />
+      <Route exact path="/Disease_update" component={Disease_update} />
     </Switch>
   );
 };
