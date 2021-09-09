@@ -376,6 +376,26 @@ function Dashbord() {
                                         </ul>
                                     </li>
                                     <li>
+                                        <a href="#" >
+                                            <i className="metismenu-icon pe-7s-diamond" />
+                                            Disease Details
+                                            <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
+                                        </a>
+                                        <ul>
+                                            <li>
+                                                <a href="/Disease_add" >
+                                                    <i className="metismenu-icon" />
+                                                    Disease Details | Add
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/Lab_Details_Update">
+                                                    <i className="metismenu-icon"></i>  Disease Details | Edit,Delete
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
                                         <a href="#">
                                             <i className="metismenu-icon pe-7s-display2" />
                                             Tables
