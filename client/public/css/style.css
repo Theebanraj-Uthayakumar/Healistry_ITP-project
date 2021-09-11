@@ -2314,7 +2314,7 @@ label {
 
 /* 19. Pagination */
 .pagination-wrap{
-    padding-bottom: 100px;
+    padding-bottom: 200px;
 }
 .pagination-wrap::after{
     content: "";

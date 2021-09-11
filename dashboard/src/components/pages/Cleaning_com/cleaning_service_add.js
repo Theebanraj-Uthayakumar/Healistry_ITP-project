@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import axios from 'axios';
 import logo from "../../../Healistry.png"
 import Form from 'react-bootstrap/Form'
 import Paper from '@material-ui/core/Paper';
@@ -13,7 +14,38 @@ import Row from 'react-bootstrap/esm/Row';
 // import Form from 'react-bootstrap/Form';
 
 
-function cleaning_service_add() {
+function Cleaning_service_add() {
+
+    const [name, setName] = useState('')
+    const [location, setLocation] = useState('')
+    const [noe, setNoe] = useState('')
+    const [cnumber, setCnumber] = useState('')
+    const [since, setSince] = useState('')
+    const [image, setImage] = useState('')
+    const [description, setDescription] = useState('')
+
+    const [error, setError] = useState(null);
+    const [loading, setLoading] = useState(false);
+
+    function CreateCleaningCompany() {
+        console.log("working");
+        let item = { name, location, noe, cnumber, since, image, description }
+        console.log(item);
+
+        // setError(null);
+        // setLoading(true);
+
+        fetch("http://localhost:5000/cleaning", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'multipart/form-data',
+            },
+            body: JSON.stringify(item),
+        }).then((response) => {
+            console.log("response", response)
+        })
+
+    }
 
     return (
         <div>
@@ -374,7 +406,7 @@ function cleaning_service_add() {
                                         Company Name
                                     </Form.Label>
                                     <Col sm={9}>
-                                        <Form.Control type="text" placeholder="Company Name" />
+                                        <Form.Control type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Company Name" />
                                     </Col>
                                 </Form.Group>
                                 <Form.Group as={Row} className="mb-3" controlId="">
@@ -382,7 +414,7 @@ function cleaning_service_add() {
                                         Location
                                     </Form.Label>
                                     <Col sm={9}>
-                                        <Form.Control type="text" placeholder="Location" />
+                                        <Form.Control type="text" value={location} onChange={(e) => setLocation(e.target.value)} placeholder="Location" />
                                     </Col>
                                 </Form.Group>
                                 <Form.Group as={Row} className="mb-3" controlId="">
@@ -390,7 +422,7 @@ function cleaning_service_add() {
                                         Number of Employees
                                     </Form.Label>
                                     <Col sm={9}>
-                                        <Form.Control type="number" placeholder="Number of Employees" />
+                                        <Form.Control type="number" value={noe} onChange={(e) => setNoe(e.target.value)} placeholder="Number of Employees" />
                                     </Col>
                                 </Form.Group>
                                 <Form.Group as={Row} className="mb-3" controlId="">
@@ -398,7 +430,7 @@ function cleaning_service_add() {
                                         Contact Number
                                     </Form.Label>
                                     <Col sm={9}>
-                                        <Form.Control type="number" placeholder="Contact Number" />
+                                        <Form.Control type="number" value={cnumber} onChange={(e) => setCnumber(e.target.value)} placeholder="Contact Number" />
                                     </Col>
                                 </Form.Group>
                                 <Form.Group as={Row} className="mb-3" controlId="">
@@ -406,7 +438,7 @@ function cleaning_service_add() {
                                         Since Year
                                     </Form.Label>
                                     <Col sm={9}>
-                                        <Form.Control type="number" placeholder="Since Year" />
+                                        <Form.Control type="number" value={since} onChange={(e) => setSince(e.target.value)} placeholder="Since Year" />
                                     </Col>
                                 </Form.Group>
                                 <Form.Group as={Row} className="mb-3" controlId="">
@@ -414,7 +446,7 @@ function cleaning_service_add() {
                                         Description
                                     </Form.Label>
                                     <Col sm={9}>
-                                        <Form.Control type="text" placeholder="Description" />
+                                        <Form.Control type="text" value={description} onChange={(e) => setDescription(e.target.value)} placeholder="Description" />
                                     </Col>
                                 </Form.Group>
                                 <Form.Group as={Row} className="mb-3" controlId="">
@@ -422,12 +454,12 @@ function cleaning_service_add() {
                                         Image
                                     </Form.Label>
                                     <Col sm={9}>
-                                        <Form.Control type="file" />
+                                        <Form.Control type="file" value={image} onChange={(e) => setName(e.target.value)} />
                                     </Col>
                                 </Form.Group>
                                 <center>
                                     <div className="button">
-                                        <input type="button" className="Login-Button" value="Submit" className="btn btn-block app-sidebar__heading" />
+                                        <input type="button" className="Login-Button" onClick={CreateCleaningCompany} value="Submit" className="btn btn-block app-sidebar__heading" />
                                     </div>
                                 </center>
                             </Form>
@@ -476,4 +508,4 @@ function cleaning_service_add() {
         </div >
     )
 }
-export default cleaning_service_add
+export default Cleaning_service_add

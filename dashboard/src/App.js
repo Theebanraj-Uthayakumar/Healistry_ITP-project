@@ -32,7 +32,7 @@ const Routing = () => {
     <Switch>
       <Route exact path="/" component={Dashbord} />
       <Route exact path="/Doctors_update" component={Doctors_update} />
-      <Route exact path="/Doctors_add" component={Doctors_add} />
+      <Route exact path="/Doctors_add/" component={Doctors_add} />
       <Route exact path="/Ambulance_Add" component={Ambulance_add} />
       <Route exact path="/Camping_add" component={Camping_add} />
       <Route exact path="/Ambulance_update" component={Ambulance_update} />
