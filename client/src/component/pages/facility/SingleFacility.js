@@ -17,7 +17,7 @@ const SingleFacility = (t) => {
         <h3>facility ID:{facilityId} </h3>
         <h3>purpose:{purpose} </h3>
         <h3>feature:{features} </h3>
-        <h3>price:{price} </h3>
+        <h3>price:{price} Rs </h3>
       </div>
     </div>
   );

@@ -3,6 +3,10 @@ import { getFacilities } from "../../api/Facility";
 import { Link } from "react-router-dom";
 import TextField from "@material-ui/core/TextField";
 import Autocomplete from "@material-ui/lab/Autocomplete";
+import Col from "react-bootstrap/esm/Col";
+import Form from "react-bootstrap/Form";
+import Button from "@restart/ui/esm/Button";
+import Row from "react-bootstrap/esm/Row";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles({
@@ -35,34 +39,49 @@ const FacilitySearch = () => {
     if (!t) {
       setItem([]);
     } else {
-      let matching = facilities.filter((fecility) => {
+      let matching = facilities.filter((facility) => {
         const regex = new RegExp(`${t}`);
-        return fecility.fecilityName.match(regex);
+        return facility.facilityName.match(regex);
       });
 
       setItem(matching);
     }
   };
 
-  const searched = (keyword) => (s) =>
-    s.machineName.toLowerCase().includes(keyword);
+  // const searched = (keyword) => (s) =>
+  //   s.facilityName.toLowerCase().includes(keyword);
   return (
-    <div>
-      <input
-        type="search"
-        placeholder="search"
-        onChange={(e) => handleSearchChange(e.target.value)}
-      />
-
-      {item &&
-        item.map((i, index) => {
-          return (
-            <Link to={{ pathname: `/technology/${i._id}`, state: { t: i } }}>
-              <option key={index}>Fecility Name: {i.fecilityName}</option>
-            </Link>
-          );
-        })}
-    </div>
+    <>
+      <div>
+        <Form>
+          <Form.Group as={Row} className="mb-3" controlId="formHorizontalEmail">
+            <Form.Label column sm={2}>
+              Search
+            </Form.Label>
+            <Col sm={10}>
+              <Form.Control
+                type="search"
+                placeholder="facilities"
+                onChange={(e) => handleSearchChange(e.target.value)}
+              />
+            </Col>
+            {item &&
+              item.map((i, index) => {
+                return (
+                  <Col>
+                    <Link
+                      style={{ textDecoration: "none" }}
+                      to={{ pathname: `/facility/${i._id}`, state: { t: i } }}
+                    >
+                      <option key={index}>{i.facilityName}</option>
+                    </Link>
+                  </Col>
+                );
+              })}
+          </Form.Group>
+        </Form>
+      </div>
+    </>
   );
 };
 

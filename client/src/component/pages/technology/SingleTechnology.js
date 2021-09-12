@@ -25,7 +25,7 @@ const SingleTechnology = (props) => {
         <h3>machine ID:{machineId} </h3>
         <h3>purpose:{purpose} </h3>
         <h3>precautions:{precautions} </h3>
-        <h3>price:{price} </h3>
+        <h3>price:{price} Rs   </h3>
         <h3>estimated time:{eta} </h3>
         <h3>procedure:{procedure} </h3>
       </div>

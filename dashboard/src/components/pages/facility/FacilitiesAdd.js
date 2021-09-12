@@ -54,13 +54,12 @@ const FacilitiesAdd = ({ history }) => {
                 <div className="page-title-wrapper">
                   <div className="page-title-heading">
                     <div className="page-title-icon">
-                      <i className="pe-7s-car icon-gradient bg-mean-fruit"></i>
+                      <i className="pe-7s-way icon-gradient bg-mean-fruit"></i>
                     </div>
                     <div>
                       Add Faility Details
                       <div className="page-title-subheading">
-                        This is an example dashboard created using build-in
-                        elements and components.
+                        This is where we can add new facilities
                       </div>
                     </div>
                   </div>
