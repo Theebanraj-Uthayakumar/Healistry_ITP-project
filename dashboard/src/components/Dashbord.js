@@ -356,6 +356,26 @@ function Dashbord() {
                                     </li>
                                     <li>
                                         <a href="#">
+                                            <i className="metismenu-icon pe-7s-diamond" />
+                                            Operation History Details
+                                            <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
+                                        </a>
+                                        <ul>
+                                            <li>
+                                                <a href="Operationadd">
+                                                    <i className="metismenu-icon" />
+                                                    Operation | Add
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="Operationupdate">
+                                                    <i className="metismenu-icon"></i> Operation | Update
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#">
                                             <i className="metismenu-icon pe-7s-display2" />
                                             Tables
                                         </a>
