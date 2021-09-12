@@ -354,6 +354,47 @@ function Dashbord() {
                                             </li>
                                         </ul>
                                     </li>
+
+                                    <li>
+                                        <a href="#" >
+                                            <i className="metismenu-icon pe-7s-diamond" />
+                                            Pharmacy Details
+                                            <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
+                                        </a>
+                                        <ul>
+                                            <li>
+                                                <a href="/Pharmacyadd" >
+                                                    <i className="metismenu-icon" />
+                                                    Pharmacy detail | Add
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/Pharmacy_update">
+                                                    <i className="metismenu-icon"></i> Pharmacy detail | Edit,Delete
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#" >
+                                            <i className="metismenu-icon pe-7s-diamond" />
+                                            Disease Details
+                                            <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
+                                        </a>
+                                        <ul>
+                                            <li>
+                                                <a href="/Disease_add" >
+                                                    <i className="metismenu-icon" />
+                                                    Disease Details | Add
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/Lab_Details_Update">
+                                                    <i className="metismenu-icon"></i>  Disease Details | Edit,Delete
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
                                     <li>
                                         <a href="#">
                                             <i className="metismenu-icon pe-7s-diamond" />
