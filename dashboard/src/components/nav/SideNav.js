@@ -1,7 +1,33 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useHistory } from "react-router";
 
 const SideNav = () => {
+  const history = useHistory();
+  console.log(history);
+
+  const [techAdd, setTechAdd] = useState("");
+  const [techEdit, setTechEdit] = useState("");
+  const [faciAdd, setFaciAdd] = useState("");
+  const [faciEdit, setfaciEdit] = useState("");
+
+  const mmactive = "mm-active";
+
+  useEffect(() => {
+    if (history.location.pathname === "/technology/add") {
+      setTechAdd(mmactive);
+    }
+    if (history.location.pathname === "/technology/update") {
+      setTechEdit(mmactive);
+    }
+    if (history.location.pathname === "/facility/add") {
+      setFaciAdd(mmactive);
+    }
+    if (history.location.pathname === "/facility/update") {
+      setfaciEdit(mmactive);
+    }
+  }, [history]);
+
   return (
     <>
       <div className="app-sidebar sidebar-shadow">
@@ -199,21 +225,43 @@ const SideNav = () => {
                 </ul>
               </li>
               <li>
-                <a href="#">
-                  <i className="metismenu-icon pe-7s-diamond" />
-                  Technology
+                <a href="#" className={`${techAdd} ${techEdit}`}>
+                  <i className="metismenu-icon pe-7s-diamond " />
+                  Technology Details
                   <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
                 </a>
                 <ul>
                   <li>
-                    <a href="/technology/add">
+                    <a href="/technology/add" className={techAdd}>
                       <i className="metismenu-icon" />
                       Technology | Add
                     </a>
                   </li>
                   <li>
-                    <a href="/technology/update">
-                      <i className="metismenu-icon"></i> Technologies
+                    <a href="/technology/update" className={techEdit}>
+                      <i className="metismenu-icon"></i> Technology detail |
+                      Edit,Delete
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#" className={`${faciAdd} ${faciEdit}`}>
+                  <i className="metismenu-icon pe-7s-diamond" />
+                  Facility Details
+                  <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
+                </a>
+                <ul>
+                  <li>
+                    <a href="/facility/add" className={faciAdd}>
+                      <i className="metismenu-icon" />
+                      Facility | Add
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/facility/update" className={faciEdit}>
+                      <i className="metismenu-icon"></i> Facility detail |
+                      Edit,Delete
                     </a>
                   </li>
                 </ul>
@@ -221,19 +269,61 @@ const SideNav = () => {
               <li>
                 <a href="#">
                   <i className="metismenu-icon pe-7s-diamond" />
-                  Facility
+                  Pharmacy Details
                   <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
                 </a>
                 <ul>
                   <li>
-                    <a href="/facility/add">
+                    <a href="/Pharmacyadd">
                       <i className="metismenu-icon" />
-                      Facility | Add
+                      Pharmacy detail | Add
                     </a>
                   </li>
                   <li>
-                    <a href="/facility/update">
-                      <i className="metismenu-icon"></i> Facilities
+                    <a href="/Pharmacy_update">
+                      <i className="metismenu-icon"></i> Pharmacy detail |
+                      Edit,Delete
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                                        <a href="#">
+                                            <i className="metismenu-icon pe-7s-diamond" />
+                                            Operation History Details
+                                            <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
+                                        </a>
+                                        <ul>
+                                            <li>
+                                                <a href="/Operationadd">
+                                                    <i className="metismenu-icon" />
+                                                    Operation | Add
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/Operationupdate">
+                                                    <i className="metismenu-icon"></i> Operation | Update
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+              <li>
+                <a href="#">
+                  <i className="metismenu-icon pe-7s-diamond" />
+                  Disease Details
+                  <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
+                </a>
+                <ul>
+                  <li>
+                    <a href="/Disease_add">
+                      <i className="metismenu-icon" />
+                      Disease Details | Add
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/Lab_Details_Update">
+                      <i className="metismenu-icon"></i> Disease Details |
+                      Edit,Delete
                     </a>
                   </li>
                 </ul>

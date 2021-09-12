@@ -67,7 +67,14 @@ const TechnologyUpdate = () => {
                 <div className="page-title-wrapper">
                   <div className="page-title-heading">
                     <div className="page-title-icon">
-                      <i className="pe-7s-car icon-gradient bg-mean-fruit"></i>
+                      <i className="pe-7s-tools icon-gradient bg-mean-fruit"></i>
+                    </div>
+                    <div>
+                      Technology Details Edit and Delete
+                      <div className="page-title-subheading">
+                        This is where we can edit and delete the existing
+                        technologies
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -77,29 +84,8 @@ const TechnologyUpdate = () => {
               </div>
               {technologies.filter(searched(keyword)).map((t) => {
                 return (
-                  // <div key={t._id}>
-                  //   {t.machineName}
-
-                  //   <span
-                  //     onClick={() => handleRemove(t._id)}
-                  //     className="btn btn-sm float-right"
-                  //   >
-                  //     delete
-                  //   </span>
-                  //   <Link
-                  //     to={{
-                  //       pathname: `/technology/${t._id}`,
-                  //       state: { technology: t },
-                  //     }}
-                  //     className="btn btn-sm float-right"
-                  //   >
-                  //     edit
-                  //   </Link>
-                  // </div>
-
                   <div>
-                    <br />
-                    <Accordion key={t._id}>
+                    <Accordion key={t._id} style={{ marginBottom: "3px" }}>
                       <AccordionSummary
                         expandIcon={<ExpandMoreIcon />}
                         aria-controls="panel1a-content"
@@ -115,39 +101,99 @@ const TechnologyUpdate = () => {
                             <td>
                               <img src={t.image[0].url} />
                             </td>
+                            <td style={{ paddingLeft: "8pc" }}>
+                              <tr>
+                                <th>Machine Name </th>
+                                <td>: {t.machineName}</td>
+                              </tr>
+                              <tr>
+                                <th>Machine ID </th>
+                                <td>: {t.machineId}</td>
+                              </tr>
+                              <tr>
+                                <th>Purpose </th>
+                                <td>: {t.purpose}</td>
+                              </tr>
+                              <tr>
+                                <th>Price </th>
+                                <td>: {t.price}</td>
+                              </tr>
+                              <tr>
+                                <th>Precaution </th>
+                                <td>: {t.precaution}</td>
+                              </tr>
+                              <tr>
+                                <th>Procedure </th>
+                                <td>: {t.procedure}</td>
+                              </tr>
+                              <tr>
+                                <th>Estimated Time </th>
+                                <td>: {t.eta}</td>
+                              </tr>
+
+                              <tr>
+                                <td>
+                                  <Link
+                                    to={{
+                                      pathname: `/technology/${t._id}`,
+                                      state: { technology: t },
+                                    }}
+                                    variant="outlined"
+                                    color="primary"
+                                    style={{ textDecoration: "none" }}
+                                  >
+                                    <Button variant="outlined" color="primary">
+                                      Edit
+                                    </Button>
+                                  </Link>
+                                </td>
+                                <td>
+                                  <Link
+                                    onClick={() => handleRemove(t._id)}
+                                    variant="outlined"
+                                    color="secondary"
+                                    style={{ textDecoration: "none" }}
+                                  >
+                                    <Button
+                                      variant="outlined"
+                                      color="secondary"
+                                    >
+                                      Delete
+                                    </Button>
+                                  </Link>
+                                </td>
+                              </tr>
+                            </td>
                           </tr>
-                          <tr>
+                          {/* <tr>
                             <th>Machine Name </th>
-                            <td> {t.machineName}</td>
+                            <td> -{t.machineName}</td>
                           </tr>
                           <tr>
                             <th>Machine ID </th>
-                            <td>{t.machineId}</td>
+                            <td>-{t.machineId}</td>
                           </tr>
                           <tr>
                             <th>Purpose </th>
-                            <td>{t.purpose}</td>
+                            <td>-{t.purpose}</td>
                           </tr>
                           <tr>
                             <th>Price </th>
-                            <td>{t.price}</td>
+                            <td>-{t.price}</td>
                           </tr>
                           <tr>
-                            <th>Precation </th>
-                            <td>{t.precation}</td>
+                            <th>Precaution </th>
+                            <td>-{t.precaution}</td>
                           </tr>
                           <tr>
                             <th>Procedure </th>
-                            <td>{t.procedure}</td>
+                            <td>-{t.procedure}</td>
                           </tr>
                           <tr>
                             <th>Estimated Time </th>
-                            <td>{t.eta}</td>
+                            <td>-{t.eta}</td>
                           </tr>
-                          <tr>
-                            <th>Created At </th>
-                            <td> - 26th Aug 2021</td>
-                          </tr>
+
                           <tr>
                             <td>
                               <Link
@@ -176,11 +222,10 @@ const TechnologyUpdate = () => {
                                 </Button>
                               </Link>
                             </td>
-                          </tr>
+                          </tr> */}
                         </table>
                       </AccordionDetails>
                     </Accordion>
-                    <br />
                   </div>
                 );
               })}

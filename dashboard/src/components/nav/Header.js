@@ -116,7 +116,7 @@ const Header = () => {
                                             </div>
                                         </div>
                                         <div className="widget-content-left  ml-3 header-user-info">
-                                            <div className="widget-heading">Theebanraj U.</div>
+                                            <div className="widget-heading">Akeel</div>
                                             <div className="widget-subheading">Full-Stack Developer</div>
                                         </div>
                                         <div className="widget-content-right header-user-info ml-3">
