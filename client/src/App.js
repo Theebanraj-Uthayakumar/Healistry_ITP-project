@@ -20,6 +20,11 @@ import SingleFacility from "./component/pages/facility/SingleFacility";
 import login from "./component/pages/login";
 import Hospital from "./component/pages/Hospital";
 import register from "./component/pages/register";
+import Operation from "./component/pages/Operation";
+import Operation2 from "./component/pages/Operation2";
+import Disease1 from "./component/pages/Disease1";
+import Pharmacy2 from "./component/Pharmacy/Pharmacy2";
+import Pharmacy1 from "./component/Pharmacy/Pharmacy1";
 
 
 
@@ -43,6 +48,11 @@ const Routing = () => {
       <Route exact path="/facility/:id" component={SingleFacility} />
       <Route exact path="/login" component={login} />
       <Route exact path="/register" component={register} />
+      <Route exact path="/Operation" component={Operation} />
+      <Route exact path="/Operation2" component={Operation2} />
+      <Route exact path="/Disease1" component={Disease1} />
+      <Route exact path="/check" component={Pharmacy2}/>
+      <Route exact path="/check1" component={Pharmacy1}/>
     </Switch>
   );
 };

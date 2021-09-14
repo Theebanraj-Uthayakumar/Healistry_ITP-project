@@ -25,7 +25,12 @@ import Lab_Details_Update from "./components/pages/Laboratory/Lab_Details_Update
 import add from "./components/pages/Hospital/add";
 import page1 from "./components/pages/Hospital/page1";
 import Doctors_Edit from "./components/pages/Doctors/Doctors_Edit"
-
+import Operationadd from "./components/pages/Operation/Operationadd";
+import Operationupdate from "./components/pages/Operation/Operationupdate";
+import Disease_Add from "./components/pages/Disease/Disease_add";
+import Disease_update from "./components/pages/Disease/Disease_update";
+import Pharmacy_update from "./components/pages/Pharmacyadmin/Pharmacy_update";
+import Pharmacyadd from "./components/pages/Pharmacyadmin/Pharmacyadd";
 
 // All routing routes ddefined here
 const Routing = () => {
@@ -53,6 +58,12 @@ const Routing = () => {
       <Route exact path="/Hospital_add" component={add} />
       <Route exact path="/Hospital_update" component={page1} />
       <Route exact path="/Doctors_Edit" component={Doctors_Edit} />
+      <Route exact path="/Operationadd" component={Operationadd}/>
+      <Route exact path="/Operationupdate" component={Operationupdate}/>
+      <Route exact path="/Disease_add" component={Disease_Add} />
+      <Route exact path="/Disease_update" component={Disease_update} />
+      <Route exact path="/Pharmacyadd" component={Pharmacyadd} />
+      <Route exact path="/Pharmacy_update" component={Pharmacy_update} />
     </Switch>
   );
 };

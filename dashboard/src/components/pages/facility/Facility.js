@@ -67,7 +67,14 @@ const Facility = () => {
                 <div className="page-title-wrapper">
                   <div className="page-title-heading">
                     <div className="page-title-icon">
-                      <i className="pe-7s-car icon-gradient bg-mean-fruit"></i>
+                      <i className="pe-7s-way icon-gradient bg-mean-fruit"></i>
+                    </div>
+                    <div>
+                      Facility Details Edit and Delete
+                      <div className="page-title-subheading">
+                        This is where we can edit and delete the existing
+                        facilities
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -78,30 +85,8 @@ const Facility = () => {
               <div className={classes.root}>
                 {facilities.filter(searched(keyword)).map((f) => {
                   return (
-                    // <div key={f._id}>
-                    //   {f.facilityName}
-
-                    //   <span
-                    //     onClick={() => handleRemove(f._id)}
-                    //     className="btn btn-sm float-right"
-                    //   >
-                    //     delete
-                    //   </span>
-                    //   <Link
-                    //     to={{
-                    //       pathname: `/facility/${f._id}`,
-                    //       state: { facility: f },
-                    //     }}
-                    //     className="btn btn-sm float-right"
-                    //   >
-                    //     edit
-                    //   </Link>
-                    // </div>
-
                     <div>
-                      <br />
-
-                      <Accordion key={f._id}>
+                      <Accordion key={f._id} style={{ marginBottom: "3px" }}>
                         <AccordionSummary
                           expandIcon={<ExpandMoreIcon />}
                           aria-controls="panel1a-content"
@@ -117,32 +102,89 @@ const Facility = () => {
                               <td>
                                 <img src={f.image[0].url} />
                               </td>
+                              <td style={{ paddingLeft: "8pc" }}>
+                                <tr>
+                                  <th>Facility Name </th>
+                                  <td> : {f.facilityName}</td>
+                                </tr>
+                                <tr>
+                                  <th>Facility ID </th>
+                                  <td> : {f.facilityId}</td>
+                                </tr>
+                                <tr>
+                                  <th>Purpose </th>
+                                  <td> : {f.purpose}</td>
+                                </tr>
+                                <tr>
+                                  <th>Price </th>
+                                  <td> : {f.price}</td>
+                                </tr>
+                                <tr>
+                                  <th>Feature </th>
+                                  <td> : {f.features}</td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    <Link
+                                      to={{
+                                        pathname: `/facility/${f._id}`,
+                                        state: { facility: f },
+                                      }}
+                                      variant="outlined"
+                                      color="primary"
+                                      style={{ textDecoration: "none" }}
+                                    >
+                                      <Button
+                                        variant="outlined"
+                                        color="primary"
+                                      >
+                                        Edit
+                                      </Button>
+                                    </Link>
+                                  </td>
+                                  <td>
+                                    <Link
+                                      onClick={() => handleRemove(f._id)}
+                                      variant="outlined"
+                                      color="secondary"
+                                      style={{ textDecoration: "none" }}
+                                    >
+                                      <Button
+                                        variant="outlined"
+                                        color="secondary"
+                                      >
+                                        Delete
+                                      </Button>
+                                    </Link>
+                                  </td>
+                                </tr>
+                              </td>
                             </tr>
-                            <tr>
+                            {/* <tr>
                               <th>Facility Name </th>
-                              <td>{f.facilityName}</td>
+                              <td>-{f.facilityName}</td>
                             </tr>
                             <tr>
                               <th>Facility ID </th>
-                              <td>{f.facilityId}</td>
+                              <td>-{f.facilityId}</td>
                             </tr>
                             <tr>
                               <th>Purpose </th>
-                              <td>{f.purpose}</td>
+                              <td>-{f.purpose}</td>
                             </tr>
                             <tr>
                               <th>Price </th>
-                              <td>{f.price}</td>
+                              <td>-{f.price}</td>
                             </tr>
                             <tr>
                               <th>Feature </th>
-                              <td>{f.features}</td>
+                              <td>-{f.features}</td>
                             </tr>
                             <tr>
                               <th>Created At </th>
                               <td> - 26th Aug 2021</td>
-                            </tr>
-                            <tr>
+                            </tr> */}
+                            {/* <tr>
                               <td>
                                 <Link
                                   to={{
@@ -170,11 +212,10 @@ const Facility = () => {
                                   </Button>
                                 </Link>
                               </td>
-                            </tr>
+                            </tr> */}
                           </table>
                         </AccordionDetails>
                       </Accordion>
-                      <br />
                     </div>
                   );
                 })}

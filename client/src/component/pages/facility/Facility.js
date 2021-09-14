@@ -14,6 +14,10 @@ const useStyles = makeStyles((theme) => ({
       marginTop: theme.spacing(2),
     },
   },
+  pagination: {
+    justifyContent: "center",
+    alignItems: "center",
+  },
 }));
 
 const Facility = () => {
@@ -45,24 +49,27 @@ const Facility = () => {
     s.facilityName.toLowerCase().includes(keyword);
 
   return (
-    <div>
-      <div>
-        <FacilitySearch />
-      </div>
-      {facilities.map((t) => {
-        return (
-          <div key={t.facilityId}>
-            <FacilityCard t={t} />
-          </div>
-        );
-      })}
-      <div>
-        <Pagination
-          page={page}
-          onChange={(event, value) => setPage(value)}
-          count={Math.ceil(facilitiesCount / 3)}
-          color="primary"
-        />
+    <div className="shop-area gray-bg pt-10 pb-100">
+      <div className="custom-container-two">
+        <div>
+          <FacilitySearch />
+        </div>
+        {facilities.map((t) => {
+          return (
+            <div key={t.facilityId}>
+              <FacilityCard t={t} />
+            </div>
+          );
+        })}
+        <div className="pagination1">
+          <Pagination
+            className={classes.pagination}
+            page={page}
+            onChange={(event, value) => setPage(value)}
+            count={Math.ceil(facilitiesCount / 3)}
+            color="primary"
+          />
+        </div>
       </div>
     </div>
   );
