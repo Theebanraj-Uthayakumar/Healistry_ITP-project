@@ -12,7 +12,6 @@ import Col from 'react-bootstrap/esm/Col';
 import Form from 'react-bootstrap/Form';
 import Button from '@restart/ui/esm/Button';
 import Row from 'react-bootstrap/esm/Row';
-import Pagination from 'react-bootstrap/Pagination'
 const useStyles = makeStyles((theme) => ({
     link: {
         display: 'flex',
@@ -30,6 +29,7 @@ function handleClick(event) {
 }
 
 function Camping() {
+    const classes = useStyles();
     return (
         <div>
         <Container>
@@ -38,6 +38,16 @@ function Camping() {
                 <div></div>
                 <div className="shop-area gray-bg pt-10 pb-100">
                     <div className="custom-container-two">
+                    <Breadcrumbs aria-label="breadcrumb" className="Breadcrumbs">
+                                <Link color="inherit" href="/" onClick={handleClick} className={classes.link}>
+                                    <HomeIcon className={classes.icon} />
+                                    Home
+                                </Link>
+                                <Typography color="textPrimary" className={classes.link}>
+                                    <GrainIcon className={classes.icon} />
+                                    Camping Deatails
+                                </Typography>
+                            </Breadcrumbs>
                       
                         <div>
                             <form >
@@ -183,17 +193,38 @@ function Camping() {
                         </div>
                     </div>
                     
-                    <Pagination className="pagi" style={{marginLeft:'60%', marginBottom:'5%', marginTop:'3%'}}>
-                    <Pagination.First />
-                    <Pagination.Prev />
-                    <Pagination.Item active>{1}</Pagination.Item>
-                    <Pagination.Item>{2}</Pagination.Item>
-                    <Pagination.Item>{3}</Pagination.Item>
-                    <Pagination.Ellipsis />
-                    <Pagination.Item>{20}</Pagination.Item>
-                    <Pagination.Next />
-                    <Pagination.Last />
-                    </Pagination>
+                    <div className="pagination-wrap" style={{width:'90%', margin:'auto'}}>
+                                        <ul>
+                                            <li className="prev">
+                                                <a href="#">
+                                                    <i className="fas fa-long-arrow-alt-left" /> Prev
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">1</a>
+                                            </li>
+                                            <li className="active">
+                                                <a href="#">2</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">3</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">4</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">...</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">10</a>
+                                            </li>
+                                            <li className="next">
+                                                <a href="#">
+                                                    Next <i className="fas fa-long-arrow-alt-right" />
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
             
                             </div>
                         </div>

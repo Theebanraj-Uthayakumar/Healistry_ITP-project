@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useState, useEffect } from "react";
+import axios from 'axios';
 import logo from "../../../Healistry.png"
 import Form from 'react-bootstrap/Form'
 import Paper from '@material-ui/core/Paper';
@@ -8,12 +9,11 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Col from 'react-bootstrap/esm/Col';
-import Button from '@restart/ui/esm/Button';
 import Row from 'react-bootstrap/esm/Row';
-// import Form from 'react-bootstrap/Form';
+// import Base64 from 'react-file-base64';
 
 
-function Doctors_add() {
+const Doctors_add = (props, errors) => {
 
     const useStyles = makeStyles((theme) => ({
         root: {
@@ -28,7 +28,61 @@ function Doctors_add() {
     }));
 
     const classes = useStyles();
-  
+
+
+    const [name, setName] = useState('')
+    const [specialization, setSpecialization] = useState('')
+    const [slnc, setSlnc] = useState('')
+    const [experiance, setExperiance] = useState('')
+    const [gender, setGender] = useState('')
+    const [cposistion, setCposistion] = useState('')
+    const [whospital, setWhospital] = useState('')
+    const [whistory, setWhistory] = useState('')
+    const [image, setImage] = useState('')
+
+    const [error, setError] = useState(null);
+    const [loading, setLoading] = useState(false);
+
+    let fromDate = new FormData();
+
+    const onFileChange = (e) => {
+        console.log(e.target.files[0]);
+        if (e.target && e.target.files[0]) {
+            fromDate.append('file', e.target.files[0]);
+        }
+    }
+
+    function CreateDoctor() {
+        setError(null);
+        setLoading(true);
+
+        let item = { name, specialization, slnc, experiance, gender, cposistion, whospital, whistory, image }
+        console.log(item);
+
+        axios.post("http://localhost:5000/doctors",
+            {
+                DName: name,
+                Speci: specialization,
+                SLNC: slnc,
+                Exper: experiance,
+                Gender: gender,
+                CPosistion: cposistion,
+                WHospital: whospital,
+                WHistory: whistory,
+                // selectedFile: fromDate
+                selectedFile: image
+            }
+        ).then(response => {
+            setLoading(false);
+            alert("Your data has been successfully uploaded...");
+            window.location.reload();
+        }).catch(error => {
+            setLoading(false);
+            alert("Sorry, Something Error...");
+        })
+    }
+
+
     return (
         <div>
             <div className="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
@@ -209,7 +263,7 @@ function Doctors_add() {
                                 <ul className="vertical-nav-menu">
                                     <li className="app-sidebar__heading">Dashboards</li>
                                     <li>
-                                        <a href="http://localhost:3001/">
+                                        <a href="#">
                                             <i className="metismenu-icon pe-7s-rocket" />
                                             Dashboard
                                         </a>
@@ -243,13 +297,13 @@ function Doctors_add() {
                                         </a>
                                         <ul>
                                             <li>
-                                                <a href="#">
+                                                <a href="Hospital_add">
                                                     <i className="metismenu-icon" />
                                                     Hospitals | Add
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="#">
+                                                <a href="Hospital_update">
                                                     <i className="metismenu-icon"></i> Hospitals | Edit,Delete
                                                 </a>
                                             </li>
@@ -271,6 +325,86 @@ function Doctors_add() {
                                             <li>
                                                 <a href="cleaning_update">
                                                     <i className="metismenu-icon"></i> Cleaning Co... | Update
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i className="metismenu-icon pe-7s-diamond" />
+                                            Ambulance Details
+                                            <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
+                                        </a>
+                                        <ul>
+                                            <li>
+                                                <a href="/Ambulance_Add">
+                                                    <i className="metismenu-icon" />
+                                                    Ambulance | Add
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/Ambulance_update">
+                                                    <i className="metismenu-icon"></i> Ambulance | Edit,Delete
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#" >
+                                            <i className="metismenu-icon pe-7s-diamond" />
+                                            Camping Details
+                                            <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
+                                        </a>
+                                        <ul>
+                                            <li>
+                                                <a href="/Camping_Add">
+                                                    <i className="metismenu-icon" />
+                                                    Camping | Add
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/Camping_update" >
+                                                    <i className="metismenu-icon"></i> Camping | Edit,Delete
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i className="metismenu-icon pe-7s-diamond" />
+                                            Blood Bank Details
+                                            <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
+                                        </a>
+                                        <ul>
+                                            <li>
+                                                <a href="/Blood_bank_add">
+                                                    <i className="metismenu-icon" />
+                                                    Blood Bank | Add
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/blood_bank_update">
+                                                    <i className="metismenu-icon"></i> Blood Bank | Edit,Delete
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#" >
+                                            <i className="metismenu-icon pe-7s-diamond" />
+                                            Laboratory Details
+                                            <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
+                                        </a>
+                                        <ul>
+                                            <li>
+                                                <a href="/Lab_Details_Add" >
+                                                    <i className="metismenu-icon" />
+                                                    Laboratory detail | Add
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/Lab_Details_Update">
+                                                    <i className="metismenu-icon"></i> Laboratory detail | Edit,Delete
                                                 </a>
                                             </li>
                                         </ul>
@@ -307,13 +441,13 @@ function Doctors_add() {
                             <div className={classes.root}>
                                 <Paper className={classes.paper}>
                                     <h2 className="Login_heading">Add Details</h2>
-                                    <Form>
+                                    <Form encType='multipart/form-data'>
                                         <Form.Group as={Row} className="mb-3" controlId="" >
                                             <Form.Label column sm={3}>
                                                 Full Name
                                             </Form.Label>
                                             <Col sm={9}>
-                                                <Form.Control type="text" placeholder="Full Name" />
+                                                <Form.Control type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Full Name" />
                                             </Col>
                                         </Form.Group>
                                         <Form.Group as={Row} className="mb-3" controlId="">
@@ -321,7 +455,7 @@ function Doctors_add() {
                                                 SLNC Registation Number
                                             </Form.Label>
                                             <Col sm={9}>
-                                                <Form.Control type="number" placeholder="SLNC Registation Number" />
+                                                <Form.Control type="number" value={slnc} onChange={(e) => setSlnc(e.target.value)} placeholder="SLNC Registation Number" />
                                             </Col>
                                         </Form.Group>
                                         <Form.Group as={Row} className="mb-3" controlId="">
@@ -329,7 +463,7 @@ function Doctors_add() {
                                                 Specialization
                                             </Form.Label>
                                             <Col sm={9}>
-                                                <Form.Control type="number" placeholder="Specialization" />
+                                                <Form.Control type="text" value={specialization} onChange={(e) => setSpecialization(e.target.value)} placeholder="Specialization" />
                                             </Col>
                                         </Form.Group>
                                         <Form.Group as={Row} className="mb-3" controlId="">
@@ -337,7 +471,7 @@ function Doctors_add() {
                                                 Current Position
                                             </Form.Label>
                                             <Col sm={9}>
-                                                <Form.Control type="text" placeholder="Current Position" />
+                                                <Form.Control type="text" value={cposistion} onChange={(e) => setCposistion(e.target.value)} placeholder="Current Position" />
                                             </Col>
                                         </Form.Group>
                                         <Form.Group as={Row} className="mb-3" controlId="">
@@ -345,7 +479,7 @@ function Doctors_add() {
                                                 Working Hospital
                                             </Form.Label>
                                             <Col sm={9}>
-                                                <Form.Control type="text" placeholder="Working Hospital" />
+                                                <Form.Control type="text" value={whospital} onChange={(e) => setWhospital(e.target.value)} placeholder="Working Hospital" />
                                             </Col>
                                         </Form.Group>
                                         <Form.Group as={Row} className="mb-3" controlId="">
@@ -353,7 +487,7 @@ function Doctors_add() {
                                                 Gender
                                             </Form.Label>
                                             <Col sm={9}>
-                                                <RadioGroup row aria-label="position" name="position" defaultValue="top">
+                                                <RadioGroup row aria-label="position" value={gender} onChange={(e) => setGender(e.target.value)} name="position" defaultValue="top">
                                                     <FormControlLabel value="Male" control={<Radio color="primary" />} label="Male" />
                                                     <FormControlLabel value="Female" control={<Radio color="primary" />} label="Female" />
                                                 </RadioGroup>
@@ -364,7 +498,7 @@ function Doctors_add() {
                                                 Working History
                                             </Form.Label>
                                             <Col sm={9}>
-                                                <Form.Control type="text" placeholder="Working History" />
+                                                <Form.Control type="text" value={whistory} onChange={(e) => setWhistory(e.target.value)} placeholder="Working History" />
                                             </Col>
                                         </Form.Group>
                                         <Form.Group as={Row} className="mb-3" controlId="">
@@ -372,7 +506,7 @@ function Doctors_add() {
                                                 Experience
                                             </Form.Label>
                                             <Col sm={9}>
-                                                <Form.Control type="text" placeholder="Experience" />
+                                                <Form.Control type="text" value={experiance} onChange={(e) => setExperiance(e.target.value)} placeholder="Experience" />
                                             </Col>
                                         </Form.Group>
                                         <Form.Group as={Row} className="mb-3" controlId="">
@@ -380,12 +514,16 @@ function Doctors_add() {
                                                 Image
                                             </Form.Label>
                                             <Col sm={9}>
-                                                <Form.Control type="file" />
+                                                <Form.Control type="file" value={image} onChange={(e) => setImage(e.target.value)} />
                                             </Col>
+                                            {/* <Col sm={9}>
+                                                <Form.Control type="file" name="upload" onChange={onFileChange} />
+                                            </Col> */}
                                         </Form.Group>
                                         <center>
                                             <div className="button">
-                                                <input type="button" className="Login-Button" value="Submit" className="btn btn-block app-sidebar__heading" />
+                                                {/* <input type="button" className="Login-Button" onClick={CreateDoctor} value={loading ? "Loading... Please Wait!" : "SUBMIT"} disabled={loading} className="btn btn-block app-sidebar__heading" /> */}
+                                                <input type="button" className="Login-Button" onClick={CreateDoctor} value={loading ? "Loading... Please Wait!" : "SUBMIT"} disabled={loading} className="btn btn-block app-sidebar__heading" />
                                             </div>
                                         </center>
                                     </Form>

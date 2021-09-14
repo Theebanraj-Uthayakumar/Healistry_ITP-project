@@ -17,6 +17,14 @@ import Technology from "./component/pages/technology/Technology";
 import Facility from "./component/pages/facility/Facility";
 import SingleTechnology from "./component/pages/technology/SingleTechnology";
 import SingleFacility from "./component/pages/facility/SingleFacility";
+import login from "./component/pages/login";
+import Hospital from "./component/pages/Hospital";
+import register from "./component/pages/register";
+import Operation from "./component/pages/Operation";
+import Operation2 from "./component/pages/Operation2";
+import Disease1 from "./component/pages/Disease1";
+import Pharmacy2 from "./component/Pharmacy/Pharmacy2";
+import Pharmacy1 from "./component/Pharmacy/Pharmacy1";
 
 
 
@@ -25,7 +33,8 @@ const Routing = () => {
   return (
     <Switch>
       <Route exact path="/" component={Home} />
-      <Route exact path="/Ambulance_Details" component={Ambulance}/>
+      <Route exact path="/Ambulance_Details" component={Ambulance} />
+      <Route exact path="/Hospital" component={Hospital} />
       <Route exact path="/Camping_Details" component={Camping} />
       <Route exact path="/Doctors" component={doctor} />
       <Route exact path="/about" component={about} />
@@ -37,6 +46,13 @@ const Routing = () => {
       <Route exact path="/facility" component={Facility} />
       <Route exact path="/technology/:id" component={SingleTechnology} />
       <Route exact path="/facility/:id" component={SingleFacility} />
+      <Route exact path="/login" component={login} />
+      <Route exact path="/register" component={register} />
+      <Route exact path="/Operation" component={Operation} />
+      <Route exact path="/Operation2" component={Operation2} />
+      <Route exact path="/Disease1" component={Disease1} />
+      <Route exact path="/check" component={Pharmacy2}/>
+      <Route exact path="/check1" component={Pharmacy1}/>
     </Switch>
   );
 };

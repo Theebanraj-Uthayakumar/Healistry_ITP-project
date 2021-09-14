@@ -1,7 +1,5 @@
-import React from 'react'
+import React, { useState, useEffect } from "react";
 import logo from "../../../Healistry.png"
-import Table from 'react-bootstrap/Table'
-import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
 import Accordion from '@material-ui/core/Accordion';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
@@ -9,9 +7,9 @@ import AccordionDetails from '@material-ui/core/AccordionDetails';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Button from '@material-ui/core/Button';
-
-
-
+import axios from "axios";
+import swal from 'sweetalert';
+import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -23,8 +21,63 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-function Doctors_update() {
+function Doctors_update(props) {
     const classes = useStyles();
+    const [doctorsid, setDoctorsID] = useState([]);
+    const [doctors, setDoctors] = useState([]);
+    const [searchTerm, setSearchTerm] = useState("");
+
+    const getRequest = () => {
+        axios
+            .get('http://localhost:5000/doctors')
+            .then(response => {
+                setDoctors(response.data);
+
+            });
+    }
+
+    useEffect(() => {
+        getRequest()
+    }, [doctors]);
+
+    function deleteDoctor(_id) {
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this data!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    swal("Poof! Your data has been successfully Deleted!", {
+                        icon: "success",
+                    });
+                    fetch(`http://localhost:5000/doctors/${_id}`, {
+                        method: 'DELETE'
+                    }).then((response) => {
+                        response.json();
+                        swal("Good job!", "Your data has been successfully Deleted", "success");
+                    }).catch(error => {
+                        swal("Sorry!", "Something Error...", "error");
+                    })
+                }
+            });
+    }
+
+    const history = useHistory();
+    const [e_dname, setEDName] = useState([]);
+    function editDoctor(_id) {
+
+        console.log(_id);
+        window.sessionStorage.setItem("ID", _id);
+        axios.patch(`http://localhost:5000/doctors/${_id}`,
+            {
+                // setEDName(DName)
+            }
+        )
+        history.push("/Doctors_Edit");
+    }
 
     return (
         <div>
@@ -78,7 +131,7 @@ function Doctors_update() {
                                         type="text"
                                         className="search-input"
                                         placeholder="Type to search"
-                                    />
+                                        onChange={(e) => { setSearchTerm(e.target.value) }} />
                                     <button className="search-icon">
                                         <span />
                                     </button>
@@ -206,7 +259,7 @@ function Doctors_update() {
                                 <ul className="vertical-nav-menu">
                                     <li className="app-sidebar__heading">Dashboards</li>
                                     <li>
-                                        <a href="http://localhost:3001/">
+                                        <a href="#">
                                             <i className="metismenu-icon pe-7s-rocket" />
                                             Dashboard
                                         </a>
@@ -240,13 +293,13 @@ function Doctors_update() {
                                         </a>
                                         <ul>
                                             <li>
-                                                <a href="#">
+                                                <a href="Hospital_add">
                                                     <i className="metismenu-icon" />
                                                     Hospitals | Add
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="#">
+                                                <a href="Hospital_update">
                                                     <i className="metismenu-icon"></i> Hospitals | Edit,Delete
                                                 </a>
                                             </li>
@@ -268,6 +321,86 @@ function Doctors_update() {
                                             <li>
                                                 <a href="cleaning_update">
                                                     <i className="metismenu-icon"></i> Cleaning Co... | Update
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i className="metismenu-icon pe-7s-diamond" />
+                                            Ambulance Details
+                                            <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
+                                        </a>
+                                        <ul>
+                                            <li>
+                                                <a href="/Ambulance_Add">
+                                                    <i className="metismenu-icon" />
+                                                    Ambulance | Add
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/Ambulance_update">
+                                                    <i className="metismenu-icon"></i> Ambulance | Edit,Delete
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#" >
+                                            <i className="metismenu-icon pe-7s-diamond" />
+                                            Camping Details
+                                            <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
+                                        </a>
+                                        <ul>
+                                            <li>
+                                                <a href="/Camping_Add">
+                                                    <i className="metismenu-icon" />
+                                                    Camping | Add
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/Camping_update" >
+                                                    <i className="metismenu-icon"></i> Camping | Edit,Delete
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i className="metismenu-icon pe-7s-diamond" />
+                                            Blood Bank Details
+                                            <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
+                                        </a>
+                                        <ul>
+                                            <li>
+                                                <a href="/Blood_bank_add">
+                                                    <i className="metismenu-icon" />
+                                                    Blood Bank | Add
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/blood_bank_update">
+                                                    <i className="metismenu-icon"></i> Blood Bank | Edit,Delete
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#" >
+                                            <i className="metismenu-icon pe-7s-diamond" />
+                                            Laboratory Details
+                                            <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
+                                        </a>
+                                        <ul>
+                                            <li>
+                                                <a href="/Lab_Details_Add" >
+                                                    <i className="metismenu-icon" />
+                                                    Laboratory detail | Add
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/Lab_Details_Update">
+                                                    <i className="metismenu-icon"></i> Laboratory detail | Edit,Delete
                                                 </a>
                                             </li>
                                         </ul>
@@ -302,146 +435,87 @@ function Doctors_update() {
                             </div>
                             {/* Add Form Here */}
                             <div className={classes.root}>
-                                <Accordion>
-                                    <AccordionSummary
-                                        expandIcon={<ExpandMoreIcon />}
-                                        aria-controls="panel1a-content"
-                                        id="panel1a-header"
-                                    >
-                                        <Typography className={classes.heading}>Theebanraj Uthayakumar</Typography>
-                                    </AccordionSummary>
-                                    <AccordionDetails>
-                                        <table>
-                                            <tr>
-                                                <th>Full Name </th>
-                                                <td> - Theebanraj U.</td>
-                                            </tr>
-                                            <tr>
-                                                <th>Specialization </th>
-                                                <td> - BSc(Hons) in Information Techonology</td>
-                                            </tr>
-                                            <tr>
-                                                <th>SLNC </th>
-                                                <td> - 1963324</td>
-                                            </tr>
-                                            <tr>
-                                                <th>Experience </th>
-                                                <td> - Jan 2021 to Present, Full-Stack Developer at AathyHqC</td>
-                                            </tr>
-                                            <tr>
-                                                <th>Gender </th>
-                                                <td> - Male</td>
-                                            </tr>
-                                            <tr>
-                                                <th>Current Position </th>
-                                                <td> - Full-Stack Developer at AathyHqC</td>
-                                            </tr>
-                                            <tr>
-                                                <th>Working Hospital </th>
-                                                <td> - AathyHqC</td>
-                                            </tr>
-                                            <tr>
-                                                <th>Working History </th>
-                                                <td> - Freelancer</td>
-                                            </tr>
-                                            <tr>
-                                                <th>Image </th>
-                                                <td> - image.jpg</td>
-                                            </tr>
-                                            <tr>
-                                                <th>Likes </th>
-                                                <td> - 112</td>
-                                            </tr>
-                                            <tr>
-                                                <th>Created At </th>
-                                                <td> - 26th Aug 2021</td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <Button variant="outlined" color="primary">
-                                                        Edit
-                                                    </Button>
-                                                </td>
-                                                <td>
-                                                    <Button variant="outlined" color="secondary">
-                                                        Delete
-                                                    </Button>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </AccordionDetails>
-                                </Accordion>
-                                <Accordion>
-                                    <AccordionSummary
-                                        expandIcon={<ExpandMoreIcon />}
-                                        aria-controls="panel2a-content"
-                                        id="panel2a-header"
-                                    >
-                                        <Typography className={classes.heading}>Seththa pajalugala</Typography>
-                                    </AccordionSummary>
-                                    <AccordionDetails>
+                                {doctors.filter((val) => {
+                                    if (searchTerm == "") {
+                                        return val;
+                                    } else if (val.DName.toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase())) {
+                                        return val;
+                                    }
+                                }).map((item) => (
+                                    <Accordion>
+                                        <AccordionSummary
+                                            expandIcon={<ExpandMoreIcon />}
+                                            aria-controls="panel1a-content"
+                                            id="panel1a-header"
+                                        >
+                                            <Typography className={classes.heading}>{item.DName}</Typography>
+                                        </AccordionSummary>
                                         <AccordionDetails>
                                             <table>
                                                 <tr>
                                                     <th>Full Name </th>
-                                                    <td> - Theebanraj U.</td>
+                                                    <td> - {item.DName}</td>
                                                 </tr>
                                                 <tr>
                                                     <th>Specialization </th>
-                                                    <td> - BSc(Hons) in Information Techonology</td>
+                                                    <td> - {item.Speci}</td>
                                                 </tr>
                                                 <tr>
                                                     <th>SLNC </th>
-                                                    <td> - 1963324</td>
+                                                    <td> - {item.SLNC}</td>
                                                 </tr>
                                                 <tr>
                                                     <th>Experience </th>
-                                                    <td> - Jan 2021 to Present, Full-Stack Developer at AathyHqC</td>
+                                                    <td> - {item.Exper}</td>
                                                 </tr>
                                                 <tr>
                                                     <th>Gender </th>
-                                                    <td> - Male</td>
+                                                    <td> - {item.Gender}</td>
                                                 </tr>
                                                 <tr>
                                                     <th>Current Position </th>
-                                                    <td> - Full-Stack Developer at AathyHqC</td>
+                                                    <td> - {item.CPosistion}</td>
                                                 </tr>
                                                 <tr>
                                                     <th>Working Hospital </th>
-                                                    <td> - AathyHqC</td>
+                                                    <td> - {item.WHospital}</td>
                                                 </tr>
                                                 <tr>
                                                     <th>Working History </th>
-                                                    <td> - Freelancer</td>
+                                                    <td> - {item.WHistory}</td>
                                                 </tr>
                                                 <tr>
                                                     <th>Image </th>
-                                                    <td> - image.jpg</td>
+                                                    <td> - {item.selectedFile}</td>
                                                 </tr>
-                                                <tr>
+                                                {/* <tr>
                                                     <th>Likes </th>
-                                                    <td> - 112</td>
-                                                </tr>
+                                                    <td> - {item.DName}</td>
+                                                </tr> */}
                                                 <tr>
                                                     <th>Created At </th>
-                                                    <td> - 26th Aug 2021</td>
+                                                    <td> - {item.createdAt}</td>
                                                 </tr>
+                                                {/* <tr>
+                                                    <th>Created At </th>
+                                                    <td> - {item._id}</td>
+                                                </tr> */}
                                                 <tr>
                                                     <td>
-                                                        <Button variant="outlined" color="primary">
+                                                        <Button variant="outlined" onClick={() => editDoctor(item._id)} color="primary">
                                                             Edit
                                                         </Button>
                                                     </td>
                                                     <td>
-                                                        <Button variant="outlined" color="secondary">
+                                                        &nbsp;<Button variant="outlined" onClick={() => deleteDoctor(item._id)} color="secondary">
                                                             Delete
                                                         </Button>
                                                     </td>
                                                 </tr>
                                             </table>
                                         </AccordionDetails>
-                                    </AccordionDetails>
-                                </Accordion>
+                                    </Accordion>
+                                ))}
                             </div>
                         </div >
                         <div className="app-wrapper-footer">

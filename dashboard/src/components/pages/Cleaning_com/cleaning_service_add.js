@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import axios from 'axios';
 import logo from "../../../Healistry.png"
 import Form from 'react-bootstrap/Form'
 import Paper from '@material-ui/core/Paper';
@@ -8,12 +9,52 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Col from 'react-bootstrap/esm/Col';
-import Button from '@restart/ui/esm/Button';
+// import Button from '@restart/ui/esm/Button';
 import Row from 'react-bootstrap/esm/Row';
 // import Form from 'react-bootstrap/Form';
 
 
-function cleaning_service_add() {
+function Cleaning_service_add() {
+
+    const [name, setName] = useState('')
+    const [location, setLocation] = useState('')
+    const [noe, setNoe] = useState('')
+    const [cnumber, setCnumber] = useState('')
+    const [since, setSince] = useState('')
+    const [image, setImage] = useState('')
+    const [description, setDescription] = useState('')
+
+    const [error, setError] = useState(null);
+    const [loading, setLoading] = useState(false);
+
+    function CreateCleaningCompany() {
+        console.log("working");
+        let item = { name, location, noe, cnumber, since, image, description }
+        console.log(item);
+
+        setError(null);
+        setLoading(true);
+
+        axios.post("http://localhost:5000/cleaning",
+            {
+                CName: name,
+                Location: location,
+                NOE: noe,
+                CNumber: cnumber,
+                Since: since,
+                // Image: image,
+                Description: description,
+            }
+        ).then(response => {
+            setLoading(false);
+            alert("Your data has been successfully uploaded...");
+            window.location.reload();
+        }).catch(error => {
+            setLoading(false);
+            alert("Sorry, Something Error...");
+        })
+
+    }
 
     return (
         <div>
@@ -193,7 +234,7 @@ function cleaning_service_add() {
                                 <ul className="vertical-nav-menu">
                                     <li className="app-sidebar__heading">Dashboards</li>
                                     <li>
-                                        <a href="http://localhost:3001/">
+                                        <a href="#">
                                             <i className="metismenu-icon pe-7s-rocket" />
                                             Dashboard
                                         </a>
@@ -227,13 +268,13 @@ function cleaning_service_add() {
                                         </a>
                                         <ul>
                                             <li>
-                                                <a href="#">
+                                                <a href="Hospital_add">
                                                     <i className="metismenu-icon" />
                                                     Hospitals | Add
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="#">
+                                                <a href="Hospital_update">
                                                     <i className="metismenu-icon"></i> Hospitals | Edit,Delete
                                                 </a>
                                             </li>
@@ -249,12 +290,92 @@ function cleaning_service_add() {
                                             <li>
                                                 <a href="cleaning_add" className="mm-active">
                                                     <i className="metismenu-icon" />
-                                                    Cleaning Co... | Add
+                                                    Cleaning Company | Add
                                                 </a>
                                             </li>
                                             <li>
                                                 <a href="cleaning_update">
                                                     <i className="metismenu-icon"></i> Cleaning Co... | Update
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i className="metismenu-icon pe-7s-diamond" />
+                                            Ambulance Details
+                                            <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
+                                        </a>
+                                        <ul>
+                                            <li>
+                                                <a href="/Ambulance_Add">
+                                                    <i className="metismenu-icon" />
+                                                    Ambulance | Add
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/Ambulance_update">
+                                                    <i className="metismenu-icon"></i> Ambulance | Edit,Delete
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#" >
+                                            <i className="metismenu-icon pe-7s-diamond" />
+                                            Camping Details
+                                            <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
+                                        </a>
+                                        <ul>
+                                            <li>
+                                                <a href="/Camping_Add">
+                                                    <i className="metismenu-icon" />
+                                                    Camping | Add
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/Camping_update" >
+                                                    <i className="metismenu-icon"></i> Camping | Edit,Delete
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i className="metismenu-icon pe-7s-diamond" />
+                                            Blood Bank Details
+                                            <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
+                                        </a>
+                                        <ul>
+                                            <li>
+                                                <a href="/Blood_bank_add">
+                                                    <i className="metismenu-icon" />
+                                                    Blood Bank | Add
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/blood_bank_update">
+                                                    <i className="metismenu-icon"></i> Blood Bank | Edit,Delete
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#" >
+                                            <i className="metismenu-icon pe-7s-diamond" />
+                                            Laboratory Details
+                                            <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
+                                        </a>
+                                        <ul>
+                                            <li>
+                                                <a href="/Lab_Details_Add" >
+                                                    <i className="metismenu-icon" />
+                                                    Laboratory detail | Add
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/Lab_Details_Update">
+                                                    <i className="metismenu-icon"></i> Laboratory detail | Edit,Delete
                                                 </a>
                                             </li>
                                         </ul>
@@ -294,7 +415,7 @@ function cleaning_service_add() {
                                         Company Name
                                     </Form.Label>
                                     <Col sm={9}>
-                                        <Form.Control type="text" placeholder="Company Name" />
+                                        <Form.Control type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Company Name" />
                                     </Col>
                                 </Form.Group>
                                 <Form.Group as={Row} className="mb-3" controlId="">
@@ -302,7 +423,7 @@ function cleaning_service_add() {
                                         Location
                                     </Form.Label>
                                     <Col sm={9}>
-                                        <Form.Control type="text" placeholder="Location" />
+                                        <Form.Control type="text" value={location} onChange={(e) => setLocation(e.target.value)} placeholder="Location" />
                                     </Col>
                                 </Form.Group>
                                 <Form.Group as={Row} className="mb-3" controlId="">
@@ -310,7 +431,7 @@ function cleaning_service_add() {
                                         Number of Employees
                                     </Form.Label>
                                     <Col sm={9}>
-                                        <Form.Control type="number" placeholder="Number of Employees" />
+                                        <Form.Control type="number" value={noe} onChange={(e) => setNoe(e.target.value)} placeholder="Number of Employees" />
                                     </Col>
                                 </Form.Group>
                                 <Form.Group as={Row} className="mb-3" controlId="">
@@ -318,7 +439,7 @@ function cleaning_service_add() {
                                         Contact Number
                                     </Form.Label>
                                     <Col sm={9}>
-                                        <Form.Control type="number" placeholder="Contact Number" />
+                                        <Form.Control type="number" value={cnumber} onChange={(e) => setCnumber(e.target.value)} placeholder="Contact Number" />
                                     </Col>
                                 </Form.Group>
                                 <Form.Group as={Row} className="mb-3" controlId="">
@@ -326,7 +447,7 @@ function cleaning_service_add() {
                                         Since Year
                                     </Form.Label>
                                     <Col sm={9}>
-                                        <Form.Control type="number" placeholder="Since Year" />
+                                        <Form.Control type="number" value={since} onChange={(e) => setSince(e.target.value)} placeholder="Since Year" />
                                     </Col>
                                 </Form.Group>
                                 <Form.Group as={Row} className="mb-3" controlId="">
@@ -334,7 +455,7 @@ function cleaning_service_add() {
                                         Description
                                     </Form.Label>
                                     <Col sm={9}>
-                                        <Form.Control type="text" placeholder="Description" />
+                                        <Form.Control type="text" value={description} onChange={(e) => setDescription(e.target.value)} placeholder="Description" />
                                     </Col>
                                 </Form.Group>
                                 <Form.Group as={Row} className="mb-3" controlId="">
@@ -342,12 +463,12 @@ function cleaning_service_add() {
                                         Image
                                     </Form.Label>
                                     <Col sm={9}>
-                                        <Form.Control type="file" />
+                                        <Form.Control type="file" value={image} onChange={(e) => setName(e.target.value)} />
                                     </Col>
                                 </Form.Group>
                                 <center>
                                     <div className="button">
-                                        <input type="button" className="Login-Button" value="Submit" className="btn btn-block app-sidebar__heading" />
+                                        <input type="button" className="Login-Button" onClick={CreateCleaningCompany} value={loading ? "Loading... Please Wait!" : "SUBMIT"} className="btn btn-block app-sidebar__heading" />
                                     </div>
                                 </center>
                             </Form>
@@ -396,4 +517,4 @@ function cleaning_service_add() {
         </div >
     )
 }
-export default cleaning_service_add
+export default Cleaning_service_add

@@ -839,7 +839,7 @@ label {
     border-radius: 0;
     top: 50%;
     transform: translateY(-50%) rotate(0deg);
-	background: #ff6000;
+	background: #001730;
 	margin: 0 auto;
     z-index: -1;
 } */
@@ -1270,7 +1270,7 @@ label {
 }
 .features-icon {
     font-size: 50px;
-    color: #ff6000;
+    color: #001730;
     line-height: 1;
 	margin-bottom: 30px;
 }
@@ -1317,7 +1317,7 @@ label {
 	font-size: 12px;
 	text-transform: uppercase;
 	font-weight: 500;
-	color: #ff6000;
+	color: #001730;
 	margin-bottom: 15px;
 }
 .section-title .title,
@@ -1558,7 +1558,7 @@ label {
 }
 .our-mission-wrap .title {
     font-size: 20px;
-    color: #ff6000;
+    color: #001730;
     margin-bottom: 0;
     padding-bottom: 20px;
     border-bottom: 1px solid #ebebeb;
@@ -1696,7 +1696,7 @@ label {
 	max-height: 200px;
 }
 .contact-form [type=submit] {
-    background: #ff6000;
+    background: #001730;
     padding: 20px 51px 16px 51px;
     margin-top: 25px;
 }
@@ -1776,7 +1776,7 @@ label {
 	margin-left: auto;
 }
 .price_filter .ui-slider-range {
-	background: #ff6000 none repeat scroll 0 0;
+	background: #001730 none repeat scroll 0 0;
 	border-radius: 2px;
 }
 .price_filter .ui-slider-handle.ui-state-default.ui-corner-all {
@@ -1787,7 +1787,7 @@ label {
     background: #fff;
     border-radius: 2px;
     margin-left: 0;
-    border: 3px solid #ff6000;
+    border: 3px solid #001730;
 }
 .price_filter .ui-slider-handle.ui-state-default.ui-corner-all:focus {
 	outline: none;
@@ -1845,7 +1845,7 @@ label {
 }
 .sidebar-product-content span {
     display: block;
-    color: #ff6000;
+    color: #001730;
     font-family: 'Josefin Sans', sans-serif;
     font-size: 16px;
     font-weight: 600;
@@ -1910,8 +1910,8 @@ label {
 .shop-size-list ul li a:hover,
 .shop-meta-right ul li a:hover,
 .shop-meta-right ul li.active a {
-	border-color: #ff6000;
-	background: #ff6000;
+	border-color: #001730;
+	background: #001730;
 }
 .shop-sidebar-size,
 .shop-sidebar-color {
@@ -1945,7 +1945,7 @@ label {
 	width: 30px;
 	border-radius: 50%;
 	cursor: pointer;
-	background: #ff6000;
+	background: #001730;
 }
 .shop-sidebar-color .shop-size-list ul li:nth-child(2) {
 	background: #ffa800;
@@ -2033,7 +2033,7 @@ label {
     bottom: -1px;
     width: 100%;
     height: 1px;
-    background: #ff6000;
+    background: #001730;
     -webkit-transition: all 0.3s ease-out 0s;
     -moz-transition: all 0.3s ease-out 0s;
     -ms-transition: all 0.3s ease-out 0s;
@@ -2108,7 +2108,7 @@ label {
     float: right;
     line-height: 1;
     font-size: 10px;
-    color: #ff6000;
+    color: #001730;
 }
 .product-review-list .comment-avatar-info h5 {
     font-size: 16px;
@@ -2138,7 +2138,7 @@ label {
     color: #b3b3b3;
 }
 .rising-rating .fas {
-    color: #ff6000;
+    color: #001730;
 }
 .product-review-form p {
     margin-bottom: 20px;
@@ -2172,7 +2172,7 @@ label {
     margin-bottom: 25px;
 }
 .product-review-form form button {
-    background: #ff6000;
+    background: #001730;
     padding: 20px 49px 16px 49px;
     margin-top: 5px;
 }
@@ -2193,7 +2193,7 @@ label {
 }
 .shop-details-content .stock-info {
     display: inline-block;
-    background: #ff6000;
+    background: #001730;
     color: #fff;
     font-size: 12px;
     padding: 4px 13px;
@@ -2216,7 +2216,7 @@ label {
     margin-right: 10px;
 }
 .shop-details-price h2 {
-    color: #ff6000;
+    color: #001730;
     margin-bottom: 20px;
 }
 .shop-details-price h2 del {
@@ -2269,7 +2269,7 @@ label {
     margin-bottom: 10px;
 }
 .perched-info .add-card-btn {
-    background: #ff6000;
+    background: #001730;
     width: 220px;
     padding: 20px 27px 16px 27px;
     margin-bottom: 10px;
@@ -2314,7 +2314,7 @@ label {
 
 /* 19. Pagination */
 .pagination-wrap{
-    padding-bottom: 100px;
+    padding-bottom: 200px;
 }
 .pagination-wrap::after{
     content: "";
@@ -2379,13 +2379,13 @@ label {
 }
 .pagination-wrap ul li a:hover,
 .pagination-wrap ul li.active a {
-	background: #ff6000;
+	background: #001730;
 	color: #fff;
 }
 .pagination-wrap ul li.prev a:hover,
 .pagination-wrap ul li.next a:hover {
 	background: transparent;
-	color: #ff6000;
+	color: #001730;
 }
 .Like:hover{
 color: #170030;

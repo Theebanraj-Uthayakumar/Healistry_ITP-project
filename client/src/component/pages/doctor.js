@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from "react";
 import Container from '@material-ui/core/Container';
 import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
 import { makeStyles } from '@material-ui/core/styles';
@@ -8,6 +8,10 @@ import Link from '@material-ui/core/Link';
 import HomeIcon from '@material-ui/icons/Home';
 import WhatshotIcon from '@material-ui/icons/Whatshot';
 import GrainIcon from '@material-ui/icons/Grain';
+import axios from "axios";
+import SearchIcon from '@material-ui/icons/Search';
+import ReactPaginate from "react-paginate";
+
 
 const useStyles = makeStyles((theme) => ({
     link: {
@@ -27,6 +31,31 @@ function handleClick(event) {
 
 function Doctor() {
     const classes = useStyles();
+    const [searchTerm, setSearchTerm] = useState("");
+    const [doctors, setDoctors] = useState([]);
+
+    const getRequest = () => {
+        axios
+            .get('http://localhost:5000/doctors')
+            .then(response => {
+                setDoctors(response.data);
+
+            });
+    }
+
+    useEffect(() => {
+        getRequest()
+    }, [doctors]);
+
+
+    // const [doc, setDoc] = useState(JsonData.slice(0, 50));
+    // const [pageNumber, setPageNumber] = useState(0);
+    // const doctorsPerPage = 10;
+    // const pagesVisited = pageNumber * doctorsPerPage;
+    // const displayDoctors = doctors.slice(pagesVisited, pagesVisited + doctorsPerPage).map(doctors) =>{return()};
+
+
+    // console.log(doctors)
     return (
         <div>
             <Container>
@@ -49,228 +78,92 @@ function Doctor() {
                                     <aside className="shop-sidebar">
                                         <div className="widget shop-widget mb-30">
                                             <div className="shop-widget-title">
-                                                <h6 className="title">CONSULTANT</h6>
+                                                <h6 className="title">Quick Search</h6>
                                             </div>
-                                            <div className="sidebar-brand-list">
-                                                <ul>
-                                                    <li>
-                                                        <a href="#">Consultant Cardiothoracic Surgeon</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">Dentist</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">Dermatologist</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">ENT Surgeon</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">Eye Surgeon</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">Physician</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">Surgon</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">Chest Physician</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">Technisian</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">Others</a>
-                                                    </li>
-                                                </ul>
+                                            <div className="input-group">
+                                                <input type="text" className="form-control" placeholder="Type to Search here" onChange={(e) => { setSearchTerm(e.target.value) }} />
+                                                <div className="input-group-append">
+                                                    <button className="btn btn-secondary" type="button">
+                                                        <SearchIcon />
+                                                    </button>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div className="widget">
+                                        <div className="widget" style={{ paddingBlock: "20px" }}>
                                             <div className="shop-widget-banner special-offer-banner">
-                                                <a href="shop-left-sidebar.html">
-                                                    <img src="images/sidebar_banner_ad.jpg" alt />
+                                                <a href="#">
+                                                    <img src="images/News01.png" alt />
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div className="widget" style={{ paddingBlock: "20px" }}>
+                                            <div className="shop-widget-banner special-offer-banner">
+                                                <a href="#">
+                                                    <img src="images/News02.png" alt />
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div className="widget" style={{ paddingBlock: "20px" }}>
+                                            <div className="shop-widget-banner special-offer-banner">
+                                                <a href="#">
+                                                    <img src="images/News03.png" alt />
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div className="widget" style={{ paddingBlock: "20px" }}>
+                                            <div className="shop-widget-banner special-offer-banner">
+                                                <a href="#">
+                                                    <img src="images/News04.png" alt />
                                                 </a>
                                             </div>
                                         </div>
                                     </aside>
                                 </div>
                                 <div className="col-xl-9 col-lg-8">
-                                    <div className="pagination-wrap">
-                                        <div className="pagination-wrap_column1">
-                                            <img src="img/profiles/Profile01.jpg" alt="Profile01" className="pagination-wrap_image" />
+                                    {doctors.filter((val) => {
+                                        if (searchTerm == "") {
+                                            return val;
+                                        } else if (val.DName.toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase())) {
+                                            return val;
+                                        }
+                                    }).map((item) => (
+
+                                        <div className="pagination-wrap">
+                                            <div className="pagination-wrap_column1">
+                                                <img src={item.selectedFile} alt="Profile01" className="pagination-wrap_image" height="350px" width="200px" />
+                                            </div>
+                                            <div className="pagination-wrap_column2">
+                                                <h2>{item.DName}</h2>
+                                                <p>{item.Speci}</p>
+                                                <table>
+                                                    <tr>
+                                                        <th>SLNC</th>
+                                                        <td>{item.SLNC}</td>
+                                                        <th>Gender</th>
+                                                        <td>{item.Gender}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th >Experience</th>
+                                                        <td colspan="3">{item.Exper}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th >Current Position</th>
+                                                        <td>{item.CPosistion}</td>
+                                                        <th>Working Hospital</th>
+                                                        <td>{item.WHospital}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Working History</th>
+                                                        <td colspan="3">{item.WHistory}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th colspan="2"><p>{item.createdAt}</p></th>
+                                                        <td colspan="2"><p className="Like"><ThumbUpAltIcon /> Like</p></td>
+                                                    </tr>
+                                                </table>
+                                            </div>
                                         </div>
-                                        <div className="pagination-wrap_column2">
-                                            <h2>Theebanraj Uthayakumar</h2>
-                                            <p>BSc(Hons) in Information Techonology</p>
-                                            <table>
-                                                <tr>
-                                                    <th>SLNC</th>
-                                                    <td>1963324</td>
-                                                    <th>Gender</th>
-                                                    <td>Male</td>
-                                                </tr>
-                                                <tr>
-                                                    <th >Experience</th>
-                                                    <td colspan="3">Jan 2021 to Present, Full-Stack Developer at AathyHqC</td>
-                                                </tr>
-                                                <tr>
-                                                    <th >Current Position</th>
-                                                    <td>Full-Stack Developer</td>
-                                                    <th>Working Hospital</th>
-                                                    <td>AathyHqC</td>
-                                                </tr>
-                                                <tr>
-                                                    <th>Working History</th>
-                                                    <td colspan="3">Freelancer</td>
-                                                </tr>
-                                                <tr>
-                                                    <th colspan="2"><p>26th Aug 2021</p></th>
-                                                    <td colspan="2"><p className="Like"><ThumbUpAltIcon /> Like</p></td>
-                                                </tr>
-                                            </table>
-                                        </div>
-                                    </div>
-                                    <div className="pagination-wrap">
-                                        <div className="pagination-wrap_column1">
-                                            <img src="img/profiles/Profile02.jpg" alt="Profile01" className="pagination-wrap_image" />
-                                        </div>
-                                        <div className="pagination-wrap_column2">
-                                            <h2>Thuvaraga Thayaparan</h2>
-                                            <p>BSc(Hons) in Information Techonology</p>
-                                            <table>
-                                                <tr>
-                                                    <th>SLNC</th>
-                                                    <td>1963324</td>
-                                                    <th>Gender</th>
-                                                    <td>Male</td>
-                                                </tr>
-                                                <tr>
-                                                    <th >Experience</th>
-                                                    <td colspan="3">Jan 2021 to Present, Full-Stack Developer at AathyHqC</td>
-                                                </tr>
-                                                <tr>
-                                                    <th >Current Position</th>
-                                                    <td>Full-Stack Developer</td>
-                                                    <th>Working Hospital</th>
-                                                    <td>AathyHqC</td>
-                                                </tr>
-                                                <tr>
-                                                    <th>Working History</th>
-                                                    <td colspan="3">Freelancer</td>
-                                                </tr>
-                                                <tr>
-                                                    <th colspan="2"><p>26th Aug 2021</p></th>
-                                                    <td colspan="2"><p className="Like"><ThumbUpAltIcon /> Like</p></td>
-                                                </tr>
-                                            </table>
-                                        </div>
-                                    </div>
-                                    <div className="pagination-wrap">
-                                        <div className="pagination-wrap_column1">
-                                            <img src="img/profiles/Profile03.jpg" alt="Profile01" className="pagination-wrap_image" />
-                                        </div>
-                                        <div className="pagination-wrap_column2">
-                                            <h2>Abinaya Thayaparan</h2>
-                                            <p>BSc(Hons) in Information Techonology</p>
-                                            <table>
-                                                <tr>
-                                                    <th>SLNC</th>
-                                                    <td>1963324</td>
-                                                    <th>Gender</th>
-                                                    <td>Male</td>
-                                                </tr>
-                                                <tr>
-                                                    <th >Experience</th>
-                                                    <td colspan="3">Jan 2021 to Present, Full-Stack Developer at AathyHqC</td>
-                                                </tr>
-                                                <tr>
-                                                    <th >Current Position</th>
-                                                    <td>Full-Stack Developer</td>
-                                                    <th>Working Hospital</th>
-                                                    <td>AathyHqC</td>
-                                                </tr>
-                                                <tr>
-                                                    <th>Working History</th>
-                                                    <td colspan="3">Freelancer</td>
-                                                </tr>
-                                                <tr>
-                                                    <th colspan="2"><p>26th Aug 2021</p></th>
-                                                    <td colspan="2"><p className="Like"><ThumbUpAltIcon /> Like</p></td>
-                                                </tr>
-                                            </table>
-                                        </div>
-                                    </div>
-                                    <div className="pagination-wrap">
-                                        <div className="pagination-wrap_column1">
-                                            <img src="img/profiles/Profile04.jpg" alt="Profile01" className="pagination-wrap_image" />
-                                        </div>
-                                        <div className="pagination-wrap_column2">
-                                            <h2>Meltri</h2>
-                                            <p>BSc(Hons) in Information Techonology</p>
-                                            <table>
-                                                <tr>
-                                                    <th>SLNC</th>
-                                                    <td>1963324</td>
-                                                    <th>Gender</th>
-                                                    <td>Male</td>
-                                                </tr>
-                                                <tr>
-                                                    <th >Experience</th>
-                                                    <td colspan="3">Jan 2021 to Present, Full-Stack Developer at AathyHqC</td>
-                                                </tr>
-                                                <tr>
-                                                    <th >Current Position</th>
-                                                    <td>Full-Stack Developer</td>
-                                                    <th>Working Hospital</th>
-                                                    <td>AathyHqC</td>
-                                                </tr>
-                                                <tr>
-                                                    <th>Working History</th>
-                                                    <td colspan="3">Freelancer</td>
-                                                </tr>
-                                                <tr>
-                                                    <th colspan="2"><p>26th Aug 2021</p></th>
-                                                    <td colspan="2"><p className="Like"><ThumbUpAltIcon /> Like</p></td>
-                                                </tr>
-                                            </table>
-                                        </div>
-                                    </div>
-                                    <div className="pagination-wrap">
-                                        <div className="pagination-wrap_column1">
-                                            <img src="img/profiles/Profile05.jpg" alt="Profile01" className="pagination-wrap_image" />
-                                        </div>
-                                        <div className="pagination-wrap_column2">
-                                            <h2>Jerry</h2>
-                                            <p>BSc(Hons) in Information Techonology</p>
-                                            <table>
-                                                <tr>
-                                                    <th>SLNC</th>
-                                                    <td>1963324</td>
-                                                    <th>Gender</th>
-                                                    <td>Male</td>
-                                                </tr>
-                                                <tr>
-                                                    <th >Experience</th>
-                                                    <td colspan="3">Jan 2021 to Present, Full-Stack Developer at AathyHqC</td>
-                                                </tr>
-                                                <tr>
-                                                    <th >Current Position</th>
-                                                    <td>Full-Stack Developer</td>
-                                                    <th>Working Hospital</th>
-                                                    <td>AathyHqC</td>
-                                                </tr>
-                                                <tr>
-                                                    <th>Working History</th>
-                                                    <td colspan="3">Freelancer</td>
-                                                </tr>
-                                                <tr>
-                                                    <th colspan="2"><p>26th Aug 2021</p></th>
-                                                    <td colspan="2"><p className="Like"><ThumbUpAltIcon /> Like</p></td>
-                                                </tr>
-                                            </table>
-                                        </div>
-                                    </div>
+                                    ))}
                                     <div className="pagination-wrap">
                                         <ul>
                                             <li className="prev">

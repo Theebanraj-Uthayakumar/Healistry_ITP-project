@@ -1,7 +1,5 @@
-import React from 'react'
+import React, { useState, useEffect } from "react";
 import logo from "../../../Healistry.png"
-import Table from 'react-bootstrap/Table'
-import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
 import Accordion from '@material-ui/core/Accordion';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
@@ -9,6 +7,8 @@ import AccordionDetails from '@material-ui/core/AccordionDetails';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Button from '@material-ui/core/Button';
+import axios from "axios";
+import swal from 'sweetalert';
 
 
 const use_style = makeStyles((theme) => ({
@@ -21,8 +21,50 @@ const use_style = makeStyles((theme) => ({
     },
 }));
 
-function cleaning_update() {
+function Cleaning_update() {
     const classes = use_style();
+
+    const [cleaning, setCleaning] = useState([]);
+    const [searchTerm, setSearchTerm] = useState("");
+
+    const getRequest = () => {
+        axios
+            .get('http://localhost:5000/cleaning')
+            .then(response => {
+                setCleaning(response.data);
+
+            });
+    }
+
+    useEffect(() => {
+        getRequest()
+    }, [cleaning]);
+
+    function deleteCleaning(_id) {
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this data!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    swal("Poof! Your data has been successfully Deleted!", {
+                        icon: "success",
+                    });
+                    fetch(`http://localhost:5000/cleaning/${_id}`, {
+                        method: 'DELETE'
+                    }).then((response) => {
+                        response.json();
+                        swal("Good job!", "Your data has been successfully Deleted", "success");
+                    }).catch(error => {
+                        swal("Sorry!", "Something Error...", "error");
+                    })
+                }
+            });
+    }
+
 
     return (
         <div>
@@ -76,6 +118,7 @@ function cleaning_update() {
                                         type="text"
                                         className="search-input"
                                         placeholder="Type to search"
+                                        onChange={(e) => { setSearchTerm(e.target.value) }}
                                     />
                                     <button className="search-icon">
                                         <span />
@@ -204,7 +247,7 @@ function cleaning_update() {
                                 <ul className="vertical-nav-menu">
                                     <li className="app-sidebar__heading">Dashboards</li>
                                     <li>
-                                        <a href="http://localhost:3001/">
+                                        <a href="#">
                                             <i className="metismenu-icon pe-7s-rocket" />
                                             Dashboard
                                         </a>
@@ -238,13 +281,13 @@ function cleaning_update() {
                                         </a>
                                         <ul>
                                             <li>
-                                                <a href="#">
+                                                <a href="Hospital_add">
                                                     <i className="metismenu-icon" />
                                                     Hospitals | Add
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="#">
+                                                <a href="Hospital_update">
                                                     <i className="metismenu-icon"></i> Hospitals | Edit,Delete
                                                 </a>
                                             </li>
@@ -266,6 +309,86 @@ function cleaning_update() {
                                             <li>
                                                 <a href="cleaning_update" className="mm-active">
                                                     <i className="metismenu-icon"></i> Cleaning Co... | Update
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i className="metismenu-icon pe-7s-diamond" />
+                                            Ambulance Details
+                                            <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
+                                        </a>
+                                        <ul>
+                                            <li>
+                                                <a href="/Ambulance_Add">
+                                                    <i className="metismenu-icon" />
+                                                    Ambulance | Add
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/Ambulance_update">
+                                                    <i className="metismenu-icon"></i> Ambulance | Edit,Delete
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#" >
+                                            <i className="metismenu-icon pe-7s-diamond" />
+                                            Camping Details
+                                            <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
+                                        </a>
+                                        <ul>
+                                            <li>
+                                                <a href="/Camping_Add">
+                                                    <i className="metismenu-icon" />
+                                                    Camping | Add
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/Camping_update" >
+                                                    <i className="metismenu-icon"></i> Camping | Edit,Delete
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i className="metismenu-icon pe-7s-diamond" />
+                                            Blood Bank Details
+                                            <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
+                                        </a>
+                                        <ul>
+                                            <li>
+                                                <a href="/Blood_bank_add">
+                                                    <i className="metismenu-icon" />
+                                                    Blood Bank | Add
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/blood_bank_update">
+                                                    <i className="metismenu-icon"></i> Blood Bank | Edit,Delete
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#" >
+                                            <i className="metismenu-icon pe-7s-diamond" />
+                                            Laboratory Details
+                                            <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
+                                        </a>
+                                        <ul>
+                                            <li>
+                                                <a href="/Lab_Details_Add" >
+                                                    <i className="metismenu-icon" />
+                                                    Laboratory detail | Add
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/Lab_Details_Update">
+                                                    <i className="metismenu-icon"></i> Laboratory detail | Edit,Delete
                                                 </a>
                                             </li>
                                         </ul>
@@ -300,113 +423,58 @@ function cleaning_update() {
                             </div>
                             {/* Add Form Here */}
                             <div className={classes.root}>
-                                <Accordion>
-                                    <AccordionSummary
-                                        expandIcon={<ExpandMoreIcon />}
-                                        aria-controls="panel1a-content"
-                                        id="panel1a-header"
-                                    >
-                                        <Typography className={classes.heading}>SLIIT</Typography>
-                                    </AccordionSummary>
-                                    <AccordionDetails>
-                                        <table>
-                                            <tr>
-                                                <th>Company Name </th>
-                                                <td> - SLIIT</td>
-                                            </tr>
-                                            <tr>
-                                                <th>Location </th>
-                                                <td> - Kandy Road, Malebe, Colombo, Sri Lanka.</td>
-                                            </tr>
-                                            <tr>
-                                                <th>Number of Employees </th>
-                                                <td> - 112</td>
-                                            </tr>
-                                            <tr>
-                                                <th>Contact Numeber </th>
-                                                <td> - 0212229895</td>
-                                            </tr>
-                                            <tr>
-                                                <th>Since </th>
-                                                <td> - 1999</td>
-                                            </tr>
-                                            <tr>
-                                                <th>Image </th>
-                                                <td> - image.jpg</td>
-                                            </tr>
-                                            <tr>
-                                                <th>Description </th>
-                                                <td> - Lorem ipsum dolor sit amet, consectetur adipiscing elit. In dictum nibh quis ipsum dictum, vel semper massa ultricies. Curabitur ut finibus tortor. Aliquam nulla sem, sodales at massa ac, iaculis placerat leo. </td>
-                                            </tr>
-                                            <tr>
-                                                <th>Likes </th>
-                                                <td> - 112</td>
-                                            </tr>
-                                            <tr>
-                                                <th>Created At </th>
-                                                <td> - 26th Aug 2021</td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <Button variant="outlined" color="primary">
-                                                        Edit
-                                                    </Button>
-                                                </td>
-                                                <td>
-                                                    <Button variant="outlined" color="secondary">
-                                                        Delete
-                                                    </Button>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </AccordionDetails>
-                                </Accordion>
-                                <Accordion>
-                                    <AccordionSummary
-                                        expandIcon={<ExpandMoreIcon />}
-                                        aria-controls="panel2a-content"
-                                        id="panel2a-header"
-                                    >
-                                        <Typography className={classes.heading}>IIT</Typography>
-                                    </AccordionSummary>
-                                    <AccordionDetails>
+                                {cleaning.filter((val) => {
+                                    if (searchTerm == "") {
+                                        return val;
+                                    } else if (val.CName.toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase())) {
+                                        return val;
+                                    }
+                                }).map((item) => (
+                                    <Accordion>
+                                        <AccordionSummary
+                                            expandIcon={<ExpandMoreIcon />}
+                                            aria-controls="panel1a-content"
+                                            id="panel1a-header"
+                                        >
+                                            <Typography className={classes.heading}>{item.CName}</Typography>
+                                        </AccordionSummary>
                                         <AccordionDetails>
                                             <table>
                                                 <tr>
                                                     <th>Company Name </th>
-                                                    <td> - SLIIT</td>
+                                                    <td> - {item.CName}</td>
                                                 </tr>
                                                 <tr>
                                                     <th>Location </th>
-                                                    <td> - Kandy Road, Malebe, Colombo, Sri Lanka.</td>
+                                                    <td> - {item.Location}</td>
                                                 </tr>
                                                 <tr>
                                                     <th>Number of Employees </th>
-                                                    <td> - 112</td>
+                                                    <td> - {item.NOE} Employees</td>
                                                 </tr>
                                                 <tr>
                                                     <th>Contact Numeber </th>
-                                                    <td> - 0212229895</td>
+                                                    <td> - {item.CNumber}</td>
                                                 </tr>
                                                 <tr>
                                                     <th>Since </th>
-                                                    <td> - 1999</td>
+                                                    <td> - {item.Since}</td>
                                                 </tr>
                                                 <tr>
                                                     <th>Image </th>
-                                                    <td> - image.jpg</td>
+                                                    <td> - {item.Image}</td>
                                                 </tr>
                                                 <tr>
                                                     <th>Description </th>
-                                                    <td> - Lorem ipsum dolor sit amet, consectetur adipiscing elit. In dictum nibh quis ipsum dictum, vel semper massa ultricies. Curabitur ut finibus tortor. Aliquam nulla sem, sodales at massa ac, iaculis placerat leo. </td>
+                                                    <td> - {item.Description} </td>
                                                 </tr>
-                                                <tr>
+                                                {/* <tr>
                                                     <th>Likes </th>
                                                     <td> - 112</td>
-                                                </tr>
+                                                </tr> */}
                                                 <tr>
                                                     <th>Created At </th>
-                                                    <td> - 26th Aug 2021</td>
+                                                    <td> - {item.createdAt}</td>
                                                 </tr>
                                                 <tr>
                                                     <td>
@@ -415,15 +483,15 @@ function cleaning_update() {
                                                         </Button>
                                                     </td>
                                                     <td>
-                                                        <Button variant="outlined" color="secondary">
+                                                        <Button variant="outlined" onClick={() => deleteCleaning(item._id)} color="secondary">
                                                             Delete
                                                         </Button>
                                                     </td>
                                                 </tr>
                                             </table>
                                         </AccordionDetails>
-                                    </AccordionDetails>
-                                </Accordion>
+                                    </Accordion>
+                                ))}
                             </div>
                         </div >
                         <div className="app-wrapper-footer">
@@ -471,4 +539,4 @@ function cleaning_update() {
     )
 }
 
-export default cleaning_update
+export default Cleaning_update

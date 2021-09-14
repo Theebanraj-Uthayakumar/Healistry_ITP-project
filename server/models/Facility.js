@@ -10,6 +10,7 @@ const facilitySchema = new Mongoose.Schema(
     facilityId: {
       type: Number,
       required: true,
+      unique: true,
     },
     purpose: {
       type: String,

@@ -6,7 +6,7 @@ import Header from "../../nav/Header";
 import Footer from "../../nav/Footer";
 import SideNav from "../../nav/SideNav";
 
-const FacilityEdit = (match) => {
+const FacilityEdit = ({ match, history }) => {
   const location = useLocation();
 
   const initailSate = {
@@ -29,9 +29,13 @@ const FacilityEdit = (match) => {
     editFacility(facility, location.state.facility._id)
       .then((res) => {
         console.log(res);
+        if (res.data.error === "duplicate key") {
+          window.alert("Duplicate key error");
+        } else history.push("/facility/update");
       })
       .catch((err) => {
         console.log(err);
+        window.alert("Error", err);
       });
   };
   return (

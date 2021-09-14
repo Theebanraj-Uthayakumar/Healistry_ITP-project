@@ -2,6 +2,10 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { getTechnologies } from "../../api/Technology";
 import { makeStyles } from "@material-ui/core/styles";
+import Col from "react-bootstrap/esm/Col";
+import Form from "react-bootstrap/Form";
+import Button from "@restart/ui/esm/Button";
+import Row from "react-bootstrap/esm/Row";
 
 const useStyles = makeStyles({
   option: {
@@ -42,24 +46,35 @@ const TechnologySearch = () => {
     }
   };
 
-  const searched = (keyword) => (s) =>
-    s.machineName.toLowerCase().includes(keyword);
+  // const searched = (keyword) => (s) =>
+  //   s.machineName.toLowerCase().includes(keyword);
   return (
     <div>
-      <input
-        type="search"
-        placeholder="search"
-        onChange={(e) => handleSearchChange(e.target.value)}
-      />
-
-      {item &&
-        item.map((i, index) => {
-          return (
-            <Link to={{ pathname: `/technology/${i._id}`, state: { t: i } }}>
-              <option key={index}>mach Name: {i.machineName}</option>
-            </Link>
-          );
-        })}
+      <Form>
+        <Form.Group as={Row} className="mb-3" controlId="formHorizontalEmail">
+          <Form.Label column sm={2}>
+            Search
+          </Form.Label>
+          <Col sm={10}>
+            <Form.Control
+              type="search"
+              placeholder="technologies"
+              onChange={(e) => handleSearchChange(e.target.value)}
+            />
+          </Col>
+        </Form.Group>
+        {item &&
+          item.map((i, index) => {
+            return (
+              <Link
+                style={{ display: "block" }}
+                to={{ pathname: `/technology/${i._id}`, state: { t: i } }}
+              >
+                <option key={index}>{i.machineName}</option>
+              </Link>
+            );
+          })}
+      </Form>
     </div>
   );
 };

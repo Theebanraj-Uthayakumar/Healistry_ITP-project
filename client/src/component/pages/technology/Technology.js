@@ -41,24 +41,26 @@ const Technology = () => {
   // );
 
   return (
-    <div>
-      <div>
-        <TechnologySearch />
-      </div>
-      {technologies.map((t) => {
-        return (
-          <div key={t.machineID}>
-            <TechnologyCard t={t} />
-          </div>
-        );
-      })}
-      <div>
-        <Pagination
-          page={page}
-          onChange={(event, value) => setPage(value)}
-          count={Math.ceil(technologiesCount / 3)}
-          color="primary"
-        />
+    <div className="shop-area gray-bg pt-10 pb-100">
+      <div className="custom-container-two">
+        <div>
+          <TechnologySearch />
+        </div>
+        {technologies.map((t) => {
+          return (
+            <div key={t.machineID}>
+              <TechnologyCard t={t} />
+            </div>
+          );
+        })}
+        <div className="pagination1">
+          <Pagination
+            page={page}
+            onChange={(event, value) => setPage(value)}
+            count={Math.ceil(technologiesCount / 3)}
+            color="primary"
+          />
+        </div>
       </div>
     </div>
   );

@@ -49,6 +49,7 @@ function Ambulance() {
                                     Ambulance Deatails
                                 </Typography>
                             </Breadcrumbs>
+                           
                             <div>
                             <form >
                                   
@@ -64,7 +65,7 @@ function Ambulance() {
                                   </form>
                             </div>
                                 
-                            <div className="row justify-content-center">
+                            <div className="row justify-content-center"> 
                                
 
                                 <div className="col-xl-9 col-lg-8">
@@ -193,17 +194,38 @@ function Ambulance() {
                             </div>
                         </div>
                         
-                        <Pagination className="pagi" style={{marginLeft:'60%', marginBottom:'5%', marginTop:'3%'}}>
-                    <Pagination.First />
-                    <Pagination.Prev />
-                    <Pagination.Item active>{1}</Pagination.Item>
-                    <Pagination.Item>{2}</Pagination.Item>
-                    <Pagination.Item>{3}</Pagination.Item>
-                    <Pagination.Ellipsis />
-                    <Pagination.Item>{20}</Pagination.Item>
-                    <Pagination.Next />
-                    <Pagination.Last />
-                    </Pagination>
+                        <div className="pagination-wrap" style={{width:'90%', margin:'auto'}}>
+                                        <ul>
+                                            <li className="prev">
+                                                <a href="#">
+                                                    <i className="fas fa-long-arrow-alt-left" /> Prev
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">1</a>
+                                            </li>
+                                            <li className="active">
+                                                <a href="#">2</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">3</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">4</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">...</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">10</a>
+                                            </li>
+                                            <li className="next">
+                                                <a href="#">
+                                                    Next <i className="fas fa-long-arrow-alt-right" />
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
                                     
 
                                 </div>

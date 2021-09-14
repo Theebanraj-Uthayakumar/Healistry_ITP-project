@@ -20,29 +20,34 @@ const useStyles = makeStyles({
 const FacilityCard = ({ t }) => {
   const classes = useStyles();
   return (
-    <div>
-      <Card className={classes.root}>
-        <CardActionArea>
-          <CardMedia
-            className={classes.media}
-            image={t.image[0].url}
-            title={t.machineName || t.facilityName}
-          />
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="h2">
-              {t.machineName || t.facilityName}
-            </Typography>
-          </CardContent>
-        </CardActionArea>
-        <CardActions>
-          <Button size="small" color="primary">
-            <Link to={{ pathname: `/facility/${t._id}`, state: { t } }}>
-              Show Details
-            </Link>
-          </Button>
-        </CardActions>
-      </Card>
-    </div>
+    <>
+      <div className="card mb-3 melri_card" style={{ margin: "3%" }}>
+        <div className="row no-gutters" width="100%">
+          <div className="col-md-4">
+            <img src={t.image[0].url} className="ambulance" alt="..." />
+          </div>
+          <div className="col-md-8 text">
+            <div className="card-body">
+              <p className="ambtitle">{t.facilityName}</p>
+
+              <table className="ambtable">
+                <tr style={{ padding: "25px" }}>
+                  <td style={{ paddingLeft: "10px", paddingTop: "10px;" }}>
+                    <Button variant="outline-secondary">
+                      <Link
+                        to={{ pathname: `/facility/${t._id}`, state: { t } }}
+                      >
+                        View Details
+                      </Link>
+                    </Button>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
   );
 };
 
