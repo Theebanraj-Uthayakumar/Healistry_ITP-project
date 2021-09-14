@@ -10,6 +10,7 @@ import RadioGroup from '@material-ui/core/RadioGroup';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Col from 'react-bootstrap/esm/Col';
 import Row from 'react-bootstrap/esm/Row';
+// import Base64 from 'react-file-base64';
 
 
 const Doctors_add = (props, errors) => {
@@ -42,24 +43,21 @@ const Doctors_add = (props, errors) => {
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
 
+    let fromDate = new FormData();
+
+    const onFileChange = (e) => {
+        console.log(e.target.files[0]);
+        if (e.target && e.target.files[0]) {
+            fromDate.append('file', e.target.files[0]);
+        }
+    }
+
     function CreateDoctor() {
-        console.log("working");
+        setError(null);
+        setLoading(true);
+
         let item = { name, specialization, slnc, experiance, gender, cposistion, whospital, whistory, image }
         console.log(item);
-
-        // setError(null);
-        // setLoading(true); any headers authorization ???noooo
-
-        // fetch("http://localhost:5000/doctors", {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //     },
-        //     body: JSON.stringify(item),
-        // }).then((response) => {
-        //     console.log("response", response)
-        // })
-
 
         axios.post("http://localhost:5000/doctors",
             {
@@ -71,12 +69,16 @@ const Doctors_add = (props, errors) => {
                 CPosistion: cposistion,
                 WHospital: whospital,
                 WHistory: whistory,
+                // selectedFile: fromDate
                 selectedFile: image
             }
         ).then(response => {
-            alert("Registation Finished");
+            setLoading(false);
+            alert("Your data has been successfully uploaded...");
+            window.location.reload();
         }).catch(error => {
-            alert("Registation Faild");
+            setLoading(false);
+            alert("Sorry, Something Error...");
         })
     }
 
@@ -439,7 +441,7 @@ const Doctors_add = (props, errors) => {
                             <div className={classes.root}>
                                 <Paper className={classes.paper}>
                                     <h2 className="Login_heading">Add Details</h2>
-                                    <Form>
+                                    <Form encType='multipart/form-data'>
                                         <Form.Group as={Row} className="mb-3" controlId="" >
                                             <Form.Label column sm={3}>
                                                 Full Name
@@ -514,11 +516,14 @@ const Doctors_add = (props, errors) => {
                                             <Col sm={9}>
                                                 <Form.Control type="file" value={image} onChange={(e) => setImage(e.target.value)} />
                                             </Col>
+                                            {/* <Col sm={9}>
+                                                <Form.Control type="file" name="upload" onChange={onFileChange} />
+                                            </Col> */}
                                         </Form.Group>
                                         <center>
                                             <div className="button">
                                                 {/* <input type="button" className="Login-Button" onClick={CreateDoctor} value={loading ? "Loading... Please Wait!" : "SUBMIT"} disabled={loading} className="btn btn-block app-sidebar__heading" /> */}
-                                                <input type="button" className="Login-Button" onClick={CreateDoctor} value="Submit" className="btn btn-block app-sidebar__heading" />
+                                                <input type="button" className="Login-Button" onClick={CreateDoctor} value={loading ? "Loading... Please Wait!" : "SUBMIT"} disabled={loading} className="btn btn-block app-sidebar__heading" />
                                             </div>
                                         </center>
                                     </Form>

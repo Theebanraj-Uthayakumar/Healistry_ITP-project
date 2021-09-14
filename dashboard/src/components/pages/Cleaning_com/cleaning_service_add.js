@@ -32,17 +32,26 @@ function Cleaning_service_add() {
         let item = { name, location, noe, cnumber, since, image, description }
         console.log(item);
 
-        // setError(null);
-        // setLoading(true);
+        setError(null);
+        setLoading(true);
 
-        fetch("http://localhost:5000/cleaning", {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'multipart/form-data',
-            },
-            body: JSON.stringify(item),
-        }).then((response) => {
-            console.log("response", response)
+        axios.post("http://localhost:5000/cleaning",
+            {
+                CName: name,
+                Location: location,
+                NOE: noe,
+                CNumber: cnumber,
+                Since: since,
+                // Image: image,
+                Description: description,
+            }
+        ).then(response => {
+            setLoading(false);
+            alert("Your data has been successfully uploaded...");
+            window.location.reload();
+        }).catch(error => {
+            setLoading(false);
+            alert("Sorry, Something Error...");
         })
 
     }
@@ -459,7 +468,7 @@ function Cleaning_service_add() {
                                 </Form.Group>
                                 <center>
                                     <div className="button">
-                                        <input type="button" className="Login-Button" onClick={CreateCleaningCompany} value="Submit" className="btn btn-block app-sidebar__heading" />
+                                        <input type="button" className="Login-Button" onClick={CreateCleaningCompany} value={loading ? "Loading... Please Wait!" : "SUBMIT"} className="btn btn-block app-sidebar__heading" />
                                     </div>
                                 </center>
                             </Form>

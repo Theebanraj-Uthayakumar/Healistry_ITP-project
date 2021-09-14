@@ -12,6 +12,7 @@ import axios from "axios";
 import SearchIcon from '@material-ui/icons/Search';
 import ReactPaginate from "react-paginate";
 
+
 const useStyles = makeStyles((theme) => ({
     link: {
         display: 'flex',
@@ -79,7 +80,6 @@ function Doctor() {
                                             <div className="shop-widget-title">
                                                 <h6 className="title">Quick Search</h6>
                                             </div>
-
                                             <div className="input-group">
                                                 <input type="text" className="form-control" placeholder="Type to Search here" onChange={(e) => { setSearchTerm(e.target.value) }} />
                                                 <div className="input-group-append">
@@ -89,10 +89,31 @@ function Doctor() {
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className="widget">
+                                        <div className="widget" style={{ paddingBlock: "20px" }}>
                                             <div className="shop-widget-banner special-offer-banner">
-                                                <a href="shop-left-sidebar.html">
-                                                    <img src="images/sidebar_banner_ad.jpg" alt />
+                                                <a href="#">
+                                                    <img src="images/News01.png" alt />
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div className="widget" style={{ paddingBlock: "20px" }}>
+                                            <div className="shop-widget-banner special-offer-banner">
+                                                <a href="#">
+                                                    <img src="images/News02.png" alt />
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div className="widget" style={{ paddingBlock: "20px" }}>
+                                            <div className="shop-widget-banner special-offer-banner">
+                                                <a href="#">
+                                                    <img src="images/News03.png" alt />
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div className="widget" style={{ paddingBlock: "20px" }}>
+                                            <div className="shop-widget-banner special-offer-banner">
+                                                <a href="#">
+                                                    <img src="images/News04.png" alt />
                                                 </a>
                                             </div>
                                         </div>

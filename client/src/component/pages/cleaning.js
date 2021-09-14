@@ -89,10 +89,31 @@ function Cleaning() {
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className="widget">
+                                        <div className="widget" style={{ paddingBlock: "20px" }}>
                                             <div className="shop-widget-banner special-offer-banner">
                                                 <a href="#">
-                                                    <img src="images/sidebar_banner_ad.jpg" alt />
+                                                    <img src="images/News01.png" alt />
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div className="widget" style={{ paddingBlock: "20px" }}>
+                                            <div className="shop-widget-banner special-offer-banner">
+                                                <a href="#">
+                                                    <img src="images/News02.png" alt />
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div className="widget" style={{ paddingBlock: "20px" }}>
+                                            <div className="shop-widget-banner special-offer-banner">
+                                                <a href="#">
+                                                    <img src="images/News03.png" alt />
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div className="widget" style={{ paddingBlock: "20px" }}>
+                                            <div className="shop-widget-banner special-offer-banner">
+                                                <a href="#">
+                                                    <img src="images/News04.png" alt />
                                                 </a>
                                             </div>
                                         </div>

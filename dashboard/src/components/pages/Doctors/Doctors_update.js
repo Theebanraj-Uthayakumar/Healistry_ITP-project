@@ -8,7 +8,8 @@ import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Button from '@material-ui/core/Button';
 import axios from "axios";
-
+import swal from 'sweetalert';
+import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -40,18 +41,42 @@ function Doctors_update(props) {
     }, [doctors]);
 
     function deleteDoctor(_id) {
-        alert("Are you confirm to delete?");
-        fetch(`http://localhost:5000/doctors/${_id}`, {
-            method: 'DELETE'
-        }).then((response) => {
-            response.json();
-            alert("Your Date Successfully Deleted...!");
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this data!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
         })
+            .then((willDelete) => {
+                if (willDelete) {
+                    swal("Poof! Your data has been successfully Deleted!", {
+                        icon: "success",
+                    });
+                    fetch(`http://localhost:5000/doctors/${_id}`, {
+                        method: 'DELETE'
+                    }).then((response) => {
+                        response.json();
+                        swal("Good job!", "Your data has been successfully Deleted", "success");
+                    }).catch(error => {
+                        swal("Sorry!", "Something Error...", "error");
+                    })
+                }
+            });
     }
 
+    const history = useHistory();
+    const [e_dname, setEDName] = useState([]);
     function editDoctor(_id) {
+
         console.log(_id);
-        props.history.push(`/Doctors_Add/${_id}`)
+        window.sessionStorage.setItem("ID", _id);
+        axios.patch(`http://localhost:5000/doctors/${_id}`,
+            {
+                // setEDName(DName)
+            }
+        )
+        history.push("/Doctors_Edit");
     }
 
     return (
@@ -482,7 +507,6 @@ function Doctors_update(props) {
                                                         </Button>
                                                     </td>
                                                     <td>
-                                                        {/* &nbsp;<Button variant="outlined" onClick={() => this.setDoctorsID(item._id)} onClick={DeleteDoctors} color="secondary"> */}
                                                         &nbsp;<Button variant="outlined" onClick={() => deleteDoctor(item._id)} color="secondary">
                                                             Delete
                                                         </Button>
