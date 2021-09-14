@@ -1,68 +1,73 @@
 import React, { useState, useEffect } from "react";
+import axios from 'axios';
 import logo from "../../../Healistry.png"
+import Form from 'react-bootstrap/Form'
+import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
-import Accordion from '@material-ui/core/Accordion';
-import AccordionSummary from '@material-ui/core/AccordionSummary';
-import AccordionDetails from '@material-ui/core/AccordionDetails';
-import Typography from '@material-ui/core/Typography';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import Button from '@material-ui/core/Button';
-import axios from "axios";
-import swal from 'sweetalert';
+import Radio from '@material-ui/core/Radio';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Col from 'react-bootstrap/esm/Col';
+import Row from 'react-bootstrap/esm/Row';
+// import Base64 from 'react-file-base64';
 
 
-const use_style = makeStyles((theme) => ({
-    root: {
-        width: '100%',
-    },
-    heading: {
-        fontSize: theme.typography.pxToRem(15),
-        fontWeight: theme.typography.fontWeightRegular,
-    },
-}));
+const Doctors_add = (props, errors) => {
 
-function Cleaning_update() {
-    const classes = use_style();
+    const useStyles = makeStyles((theme) => ({
+        root: {
+            flexGrow: 1,
+            margin: 50
+        },
+        paper: {
+            padding: theme.spacing(5),
+            margin: 'auto',
+            maxWidth: 1000,
+        },
+    }));
 
-    const [cleaning, setCleaning] = useState([]);
-    const [searchTerm, setSearchTerm] = useState("");
+    const classes = useStyles();
 
-    const getRequest = () => {
-        axios
-            .get('http://localhost:5000/cleaning')
-            .then(response => {
-                setCleaning(response.data);
 
-            });
+    const [name, setName] = useState('')
+    const [specialization, setSpecialization] = useState('')
+    const [slnc, setSlnc] = useState('')
+    const [experiance, setExperiance] = useState('')
+    const [gender, setGender] = useState('')
+    const [cposistion, setCposistion] = useState('')
+    const [whospital, setWhospital] = useState('')
+    const [whistory, setWhistory] = useState('')
+    const [image, setImage] = useState('')
+
+    const [error, setError] = useState(null);
+    const [loading, setLoading] = useState(false);
+
+    let fromDate = new FormData();
+
+    const onFileChange = (e) => {
+        console.log(e.target.files[0]);
+        if (e.target && e.target.files[0]) {
+            fromDate.append('file', e.target.files[0]);
+        }
     }
 
-    useEffect(() => {
-        getRequest()
-    }, [cleaning]);
+    const id = window.sessionStorage.getItem("ID");
+    console.log("ID from update page", id);
 
-    function deleteCleaning(_id) {
-        swal({
-            title: "Are you sure?",
-            text: "Once deleted, you will not be able to recover this data!",
-            icon: "warning",
-            buttons: true,
-            dangerMode: true,
-        })
-            .then((willDelete) => {
-                if (willDelete) {
-                    swal("Poof! Your data has been successfully Deleted!", {
-                        icon: "success",
-                    });
-                    fetch(`http://localhost:5000/cleaning/${_id}`, {
-                        method: 'DELETE'
-                    }).then((response) => {
-                        response.json();
-                        swal("Good job!", "Your data has been successfully Deleted", "success");
-                    }).catch(error => {
-                        swal("Sorry!", "Something Error...", "error");
-                    })
-                }
-            });
+    // CreateDoctor();
+    function CreateDoctor() {
+        setError(null);
+        setLoading(true);
+
+        let item = { name, specialization, slnc, experiance, gender, cposistion, whospital, whistory, image }
+        console.log(item);
+
+        axios.patch(`http://localhost:5000/doctors/${id}`,
+            {
+                // setName()
+            }
+        )
     }
 
 
@@ -118,7 +123,6 @@ function Cleaning_update() {
                                         type="text"
                                         className="search-input"
                                         placeholder="Type to search"
-                                        onChange={(e) => { setSearchTerm(e.target.value) }}
                                     />
                                     <button className="search-icon">
                                         <span />
@@ -254,14 +258,14 @@ function Cleaning_update() {
                                     </li>
                                     <li className="app-sidebar__heading">Components</li>
                                     <li>
-                                        <a href="#">
+                                        <a href="#" className="mm-active">
                                             <i className="metismenu-icon pe-7s-diamond" />
                                             Doctors' Details
                                             <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
                                         </a>
                                         <ul>
                                             <li>
-                                                <a href="/Doctors_Add">
+                                                <a href="/Doctors_Add" className="mm-active">
                                                     <i className="metismenu-icon" />
                                                     Doctors | Add
                                                 </a>
@@ -294,7 +298,7 @@ function Cleaning_update() {
                                         </ul>
                                     </li>
                                     <li>
-                                        <a href="#" className="mm-active">
+                                        <a href="#">
                                             <i className="metismenu-icon pe-7s-diamond" />
                                             Cleaning Company
                                             <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
@@ -307,7 +311,7 @@ function Cleaning_update() {
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="cleaning_update" className="mm-active">
+                                                <a href="cleaning_update">
                                                     <i className="metismenu-icon"></i> Cleaning Co... | Update
                                                 </a>
                                             </li>
@@ -412,7 +416,7 @@ function Cleaning_update() {
                                             <i className="pe-7s-car icon-gradient bg-mean-fruit"></i>
                                         </div>
                                         <div>
-                                            Doctors Details Edit and Delete
+                                            Add Doctors Details
                                             <div className="page-title-subheading">
                                                 This is an example dashboard created using build-in elements
                                                 and components.
@@ -423,75 +427,95 @@ function Cleaning_update() {
                             </div>
                             {/* Add Form Here */}
                             <div className={classes.root}>
-                                {cleaning.filter((val) => {
-                                    if (searchTerm == "") {
-                                        return val;
-                                    } else if (val.CName.toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase())) {
-                                        return val;
-                                    }
-                                }).map((item) => (
-                                    <Accordion>
-                                        <AccordionSummary
-                                            expandIcon={<ExpandMoreIcon />}
-                                            aria-controls="panel1a-content"
-                                            id="panel1a-header"
-                                        >
-                                            <Typography className={classes.heading}>{item.CName}</Typography>
-                                        </AccordionSummary>
-                                        <AccordionDetails>
-                                            <table>
-                                                <tr>
-                                                    <th>Company Name </th>
-                                                    <td> - {item.CName}</td>
-                                                </tr>
-                                                <tr>
-                                                    <th>Location </th>
-                                                    <td> - {item.Location}</td>
-                                                </tr>
-                                                <tr>
-                                                    <th>Number of Employees </th>
-                                                    <td> - {item.NOE} Employees</td>
-                                                </tr>
-                                                <tr>
-                                                    <th>Contact Numeber </th>
-                                                    <td> - {item.CNumber}</td>
-                                                </tr>
-                                                <tr>
-                                                    <th>Since </th>
-                                                    <td> - {item.Since}</td>
-                                                </tr>
-                                                <tr>
-                                                    <th>Image </th>
-                                                    <td> - {item.Image}</td>
-                                                </tr>
-                                                <tr>
-                                                    <th>Description </th>
-                                                    <td> - {item.Description} </td>
-                                                </tr>
-                                                {/* <tr>
-                                                    <th>Likes </th>
-                                                    <td> - 112</td>
-                                                </tr> */}
-                                                <tr>
-                                                    <th>Created At </th>
-                                                    <td> - {item.createdAt}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <Button variant="outlined" color="primary">
-                                                            Edit
-                                                        </Button>
-                                                    </td>
-                                                    <td>
-                                                        <Button variant="outlined" onClick={() => deleteCleaning(item._id)} color="secondary">
-                                                            Delete
-                                                        </Button>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </AccordionDetails>
-                                    </Accordion>
-                                ))}
+                                <Paper className={classes.paper}>
+                                    <h2 className="Login_heading">Add Details</h2>
+                                    <Form encType='multipart/form-data'>
+                                        <Form.Group as={Row} className="mb-3" controlId="" >
+                                            <Form.Label column sm={3}>
+                                                Full Name
+                                            </Form.Label>
+                                            <Col sm={9}>
+                                                <Form.Control type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Full Name" />
+                                            </Col>
+                                        </Form.Group>
+                                        <Form.Group as={Row} className="mb-3" controlId="">
+                                            <Form.Label column sm={3}>
+                                                SLNC Registation Number
+                                            </Form.Label>
+                                            <Col sm={9}>
+                                                <Form.Control type="number" value={slnc} onChange={(e) => setSlnc(e.target.value)} placeholder="SLNC Registation Number" />
+                                            </Col>
+                                        </Form.Group>
+                                        <Form.Group as={Row} className="mb-3" controlId="">
+                                            <Form.Label column sm={3}>
+                                                Specialization
+                                            </Form.Label>
+                                            <Col sm={9}>
+                                                <Form.Control type="text" value={specialization} onChange={(e) => setSpecialization(e.target.value)} placeholder="Specialization" />
+                                            </Col>
+                                        </Form.Group>
+                                        <Form.Group as={Row} className="mb-3" controlId="">
+                                            <Form.Label column sm={3}>
+                                                Current Position
+                                            </Form.Label>
+                                            <Col sm={9}>
+                                                <Form.Control type="text" value={cposistion} onChange={(e) => setCposistion(e.target.value)} placeholder="Current Position" />
+                                            </Col>
+                                        </Form.Group>
+                                        <Form.Group as={Row} className="mb-3" controlId="">
+                                            <Form.Label column sm={3}>
+                                                Working Hospital
+                                            </Form.Label>
+                                            <Col sm={9}>
+                                                <Form.Control type="text" value={whospital} onChange={(e) => setWhospital(e.target.value)} placeholder="Working Hospital" />
+                                            </Col>
+                                        </Form.Group>
+                                        <Form.Group as={Row} className="mb-3" controlId="">
+                                            <Form.Label column sm={3}>
+                                                Gender
+                                            </Form.Label>
+                                            <Col sm={9}>
+                                                <RadioGroup row aria-label="position" value={gender} onChange={(e) => setGender(e.target.value)} name="position" defaultValue="top">
+                                                    <FormControlLabel value="Male" control={<Radio color="primary" />} label="Male" />
+                                                    <FormControlLabel value="Female" control={<Radio color="primary" />} label="Female" />
+                                                </RadioGroup>
+                                            </Col>
+                                        </Form.Group>
+                                        <Form.Group as={Row} className="mb-3" controlId="">
+                                            <Form.Label column sm={3}>
+                                                Working History
+                                            </Form.Label>
+                                            <Col sm={9}>
+                                                <Form.Control type="text" value={whistory} onChange={(e) => setWhistory(e.target.value)} placeholder="Working History" />
+                                            </Col>
+                                        </Form.Group>
+                                        <Form.Group as={Row} className="mb-3" controlId="">
+                                            <Form.Label column sm={3}>
+                                                Experience
+                                            </Form.Label>
+                                            <Col sm={9}>
+                                                <Form.Control type="text" value={experiance} onChange={(e) => setExperiance(e.target.value)} placeholder="Experience" />
+                                            </Col>
+                                        </Form.Group>
+                                        <Form.Group as={Row} className="mb-3" controlId="">
+                                            <Form.Label column sm={3}>
+                                                Image
+                                            </Form.Label>
+                                            <Col sm={9}>
+                                                <Form.Control type="file" value={image} onChange={(e) => setImage(e.target.value)} />
+                                            </Col>
+                                            {/* <Col sm={9}>
+                                                <Form.Control type="file" name="upload" onChange={onFileChange} />
+                                            </Col> */}
+                                        </Form.Group>
+                                        <center>
+                                            <div className="button">
+                                                {/* <input type="button" className="Login-Button" onClick={CreateDoctor} value={loading ? "Loading... Please Wait!" : "SUBMIT"} disabled={loading} className="btn btn-block app-sidebar__heading" /> */}
+                                                <input type="button" className="Login-Button" onClick={CreateDoctor} value={loading ? "Loading... Please Wait!" : "SUBMIT"} disabled={loading} className="btn btn-block app-sidebar__heading" />
+                                            </div>
+                                        </center>
+                                    </Form>
+                                </Paper>
                             </div>
                         </div >
                         <div className="app-wrapper-footer">
@@ -539,4 +563,4 @@ function Cleaning_update() {
     )
 }
 
-export default Cleaning_update
+export default Doctors_add

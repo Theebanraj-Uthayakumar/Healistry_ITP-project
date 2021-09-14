@@ -1,6 +1,4 @@
 import React from 'react'
-// import Button from '../../../../dashboard/node_modules/@restart/ui/esm/Button';
-import Card from 'react-bootstrap/Card';
 
 export default function header() {
     return (
@@ -16,7 +14,7 @@ export default function header() {
                                 <div className="menu-wrap">
                                     <nav className="menu-nav show">
                                         <div className="logo">
-                                            <a href="index.html">
+                                            <a href="#">
                                                 <img src="images/LOGO final.png" alt="Logo" width="100px" />
                                             </a>
                                         </div>
@@ -63,32 +61,6 @@ export default function header() {
                                                         </li>
                                                     </ul>
                                                 </li>
-                                                {/* <li className="dropdown">
-                                                    <a href="#">SHOP</a>
-                                                    <ul className="submenu">
-                                                        <li className="active">
-                                                            <a href="shop-left-sidebar.html">Shop Left Sidebar</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="shop-right-sidebar.html">Shop Right Sidebar</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="shop-details.html">Shop Details</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="wishlist.html">Wishlist page</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="cart.html">Cart page</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="checkout.html">Checkout page</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="order-completed.html">Order completed</a>
-                                                        </li>
-                                                    </ul>
-                                                </li> */}
                                                 <li>
                                                     <a href="/about">About Us</a>
                                                 </li>
