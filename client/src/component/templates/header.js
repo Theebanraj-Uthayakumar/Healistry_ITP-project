@@ -58,10 +58,16 @@ export default function header() {
                                                             <a href="/facility">Facility Details</a>
                                                         </li>
                                                         <li>
+                                                            <a href="laboratory_details">Laboratory Details</a>
+                                                        </li>
+                                                        <li>
                                                             <a href="/Disease1">Disease</a>
                                                         </li>
                                                          <li>
                                                             <a href="/check">Pharmacy Details</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/Equipments">Equipments Details</a>
                                                         </li>
                                                     </ul>
                                                 </li>

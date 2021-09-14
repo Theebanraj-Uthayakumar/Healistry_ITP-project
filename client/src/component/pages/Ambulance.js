@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from "react";
 import Container from '@material-ui/core/Container';
 import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
 import { makeStyles } from '@material-ui/core/styles';
@@ -13,6 +13,7 @@ import Form from 'react-bootstrap/Form';
 import Button from '@restart/ui/esm/Button';
 import Row from 'react-bootstrap/esm/Row';
 import Pagination from 'react-bootstrap/Pagination'
+import axios from "axios";
 const useStyles = makeStyles((theme) => ({
     link: {
         display: 'flex',
@@ -31,6 +32,22 @@ function handleClick(event) {
 
 function Ambulance() {
     const classes = useStyles();
+    const [searchTerm, setSearchTerm] = useState("");
+    const [ambulance, setAmbulance] = useState([]);
+
+    const getRequest = () => {
+        axios
+            .get('http://localhost:5000/ambulance')
+            .then(response => {
+                setAmbulance(response.data);
+
+            });
+    }
+
+    useEffect(() => {
+        getRequest()
+    }, [ambulance]);
+
     return (
         <div>
             <Container>
@@ -55,7 +72,7 @@ function Ambulance() {
                                   
                                   <Form.Group as={Row} className="mb-3"controlId="" >
                                   <Col sm={2} className="ambform">
-                                          <Form.Control type="text"  />
+                                          <Form.Control type="text" onChange={(e) => { setSearchTerm(e.target.value) }} />
                                           </Col>
                                       <Col sm={1}>
                                       <Button className="searchbtn">Search</Button>
@@ -69,39 +86,47 @@ function Ambulance() {
                                
 
                                 <div className="col-xl-9 col-lg-8">
+                                {ambulance.filter((val) => {
+                                        if (searchTerm == "") {
+                                            return val;
+                                        } else if (val.organizationName.toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase())) {
+                                            return val;
+                                        }
+                                    }).map((item) => ( 
                                 <div className="card mb-3 melri_card" style={{margin: '3%'}}>
                             <div className="row no-gutters" width="100%">
                                 <div className="col-md-4">
-                                    <img src="images/Rectangle 67.png" className="ambulance" alt="..." />
+                                    <img src={item.ambImg} className="ambulance" alt="..." />
                                 </div>
                                 <div className="col-md-8 text">
                                     <div className="card-body">
-                                        <p className="ambtitle">Mediquick Ambulance Service</p>
+                                    
+                                        <p className="ambtitle">{item.organizationName}</p>
                                          
                                        <table  className="ambtable">
                                            <tr style={{padding:'25px'}}>
                                                <td style={{paddingLeft:'10px', paddingTop:'10px;'}}>Contact Number</td>
-                                               <td style={{paddingLeft:'15px', paddingTop:'10px;'}}>0773885388</td>
+                                               <td style={{paddingLeft:'15px', paddingTop:'10px;'}}>{item.aContact}</td>
                                            </tr >
                                            <tr style={{padding:'25px'}}>
                                                <td style={{paddingLeft:'10px', paddingTop:'10px;'}}>Address</td>
-                                               <td style={{paddingLeft:'15px', paddingTop:'10px;'}}> 48/1 Dharmarama Rd, Colombo 00600 </td>
+                                               <td style={{paddingLeft:'15px', paddingTop:'10px;'}}>{item.Location}</td>
                                            </tr >
                                            <tr style={{padding:'25px'}}>
                                                <td style={{paddingLeft:'10px', paddingTop:'10px;'}}>No of ambulance</td>
-                                               <td style={{paddingLeft:'15px', paddingTop:'10px;'}}>  30</td>
+                                               <td style={{paddingLeft:'15px', paddingTop:'10px;'}}> {item.noOfAmbulance}</td>
                                            </tr>
                                            <tr style={{padding:'25px'}}>
                                                <td style={{paddingLeft:'10px', paddingTop:'10px;'}}>Registered since</td>
-                                               <td style={{paddingLeft:'15px', paddingTop:'10px;'}}>  1990</td>
+                                               <td style={{paddingLeft:'15px', paddingTop:'10px;'}}>  {item.regSince}</td>
                                            </tr>
                                            <tr style={{padding:'25px'}}>
                                                <td style={{paddingLeft:'10px', paddingTop:'10px;'}}>Duty hours</td>
-                                               <td style={{paddingLeft:'15px', paddingTop:'10px;'}}> 24/7</td>
+                                               <td style={{paddingLeft:'15px', paddingTop:'10px;'}}> {item.dutyHrs}</td>
                                            </tr>
                                            <tr style={{padding:'25px'}}>
                                                <td style={{paddingLeft:'10px', paddingTop:'10px;'}}>Duty Hospitals</td>
-                                               <td style={{paddingLeft:'15px', paddingTop:'10px;'}}> Nawaloka, Delmon</td>
+                                               <td style={{paddingLeft:'15px', paddingTop:'10px;'}}> {item.workingHos}</td>
                                            </tr>
 
                                        </table>
@@ -110,89 +135,7 @@ function Ambulance() {
                                 </div>
                             </div>
                         </div>
-                        <div className="card mb-3 melri_card" style={{margin: '3%'}}>
-                            <div className="row no-gutters" width="100%">
-                                <div className="col-md-4">
-                                    <img src="images/Rectangle 67.png" className="ambulance" alt="..." />
-                                </div>
-                                <div className="col-md-8 text">
-                                    <div className="card-body">
-                                        <p className="ambtitle">Mediquick Ambulance Service</p>
-                                         
-                                       <table  className="ambtable">
-                                           <tr style={{padding:'25px'}}>
-                                               <td style={{paddingLeft:'10px', paddingTop:'10px;'}}>Contact Number</td>
-                                               <td style={{paddingLeft:'15px', paddingTop:'10px;'}}>0773885388</td>
-                                           </tr >
-                                           <tr style={{padding:'25px'}}>
-                                               <td style={{paddingLeft:'10px', paddingTop:'10px;'}}>Address</td>
-                                               <td style={{paddingLeft:'15px', paddingTop:'10px;'}}> 48/1 Dharmarama Rd, Colombo 00600 </td>
-                                           </tr >
-                                           <tr style={{padding:'25px'}}>
-                                               <td style={{paddingLeft:'10px', paddingTop:'10px;'}}>No of ambulance</td>
-                                               <td style={{paddingLeft:'15px', paddingTop:'10px;'}}>  30</td>
-                                           </tr>
-                                           <tr style={{padding:'25px'}}>
-                                               <td style={{paddingLeft:'10px', paddingTop:'10px;'}}>Registered since</td>
-                                               <td style={{paddingLeft:'15px', paddingTop:'10px;'}}>  1990</td>
-                                           </tr>
-                                           <tr style={{padding:'25px'}}>
-                                               <td style={{paddingLeft:'10px', paddingTop:'10px;'}}>Duty hours</td>
-                                               <td style={{paddingLeft:'15px', paddingTop:'10px;'}}> 24/7</td>
-                                           </tr>
-                                           <tr style={{padding:'25px'}}>
-                                               <td style={{paddingLeft:'10px', paddingTop:'10px;'}}>Duty Hospitals</td>
-                                               <td style={{paddingLeft:'15px', paddingTop:'10px;'}}> Nawaloka, Delmon</td>
-                                           </tr>
-
-                                       </table>
-                                        
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div className="card mb-3 melri_card" style={{margin: '3%'}}>
-                            <div className="row no-gutters" width="100%">
-                                <div className="col-md-4">
-                                    <img src="images/Rectangle 67.png" className="ambulance" alt="..." />
-                                </div>
-                                <div className="col-md-8 text">
-                                    <div className="card-body">
-                                        <p className="ambtitle">Mediquick Ambulance Service</p>
-                                         
-                                       <table  className="ambtable">
-                                           <tr style={{padding:'25px'}}>
-                                               <td style={{paddingLeft:'10px', paddingTop:'10px;'}}>Contact Number</td>
-                                               <td style={{paddingLeft:'15px', paddingTop:'10px;'}}>0773885388</td>
-                                           </tr >
-                                           <tr style={{padding:'25px'}}>
-                                               <td style={{paddingLeft:'10px', paddingTop:'10px;'}}>Address</td>
-                                               <td style={{paddingLeft:'15px', paddingTop:'10px;'}}> 48/1 Dharmarama Rd, Colombo 00600 </td>
-                                           </tr >
-                                           <tr style={{padding:'25px'}}>
-                                               <td style={{paddingLeft:'10px', paddingTop:'10px;'}}>No of ambulance</td>
-                                               <td style={{paddingLeft:'15px', paddingTop:'10px;'}}>  30</td>
-                                           </tr>
-                                           <tr style={{padding:'25px'}}>
-                                               <td style={{paddingLeft:'10px', paddingTop:'10px;'}}>Registered since</td>
-                                               <td style={{paddingLeft:'15px', paddingTop:'10px;'}}>  1990</td>
-                                           </tr>
-                                           <tr style={{padding:'25px'}}>
-                                               <td style={{paddingLeft:'10px', paddingTop:'10px;'}}>Duty hours</td>
-                                               <td style={{paddingLeft:'15px', paddingTop:'10px;'}}> 24/7</td>
-                                           </tr>
-                                           <tr style={{padding:'25px'}}>
-                                               <td style={{paddingLeft:'10px', paddingTop:'10px;'}}>Duty Hospitals</td>
-                                               <td style={{paddingLeft:'15px', paddingTop:'10px;'}}> Nawaloka, Delmon</td>
-                                           </tr>
-
-                                       </table>
-                                        
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        ))}                                        
                         
                         <div className="pagination-wrap" style={{width:'90%', margin:'auto'}}>
                                         <ul>
