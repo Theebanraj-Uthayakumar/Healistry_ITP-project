@@ -344,6 +344,220 @@ input.form-control {
   padding-top: 50px;
   padding-bottom: 90px;
 }
+/* shothri 1st page*/
+.backround{
+  background-image: url(https://img.freepik.com/free-vector/caduceus-medical-symbol-abstract-geometric-with-medicine-science-concept-background_41814-395.jpg?size=626&ext=jpg);
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  }
+  .heading{
+    font-size: 22px;
+  text-align: center; 
+  background-image: url(https://www.northeastern.edu/graduate/blog/wp-content/uploads/2020/03/iStock-1165046681-3-1.jpg);
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  }
+  .searchbar{
+  padding-bottom:-150px;
+  padding-left:650px;
+  width: 1px;
+  margin-left: 500px;
+  float: right;
+  }
+  .pic{
+    margin-right: 750px;
+    padding-right: 500px;
+    padding-bottom: 50px;
+    width: 10px;
+    height: 10%;
+    opacity:80%;
+  }
+  .searchbutton{
+   margin-right: 150px;
+   margin-top: 50px;
+   overflow: hidden;
+   float: right;
+  }
+  .searchbutton input{
+  font-size: 23px;
+  border-radius: 15px;
+  border: 10px solid rgb(148, 150, 150);
+  }
+  .searchbar input{
+  border-radius: 15px;
+  width: 400px;
+  height: 60px; 
+  font-size: 20px;
+  border: 10px solid rgb(148, 150, 150);
+  margin-left: -600px; 
+  margin-top: 50px;
+  }
+  /* shothri 2nd page*/
+  .heading2{
+    text-align: center;
+    width: 1300px;
+    margin-right: 300px;
+    background-image: url(https://www.northeastern.edu/graduate/blog/wp-content/uploads/2020/03/iStock-1165046681-3-1.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+  }
+  .img1{
+    width: 182px;
+    height: 273px;
+    margin-left: 100px;
+    margin-top: 50px;
+    border-radius: 20px;
+  }
+  .details{
+    filter: drop-shadow(8px 4px 8px rgba(0, 0, 0, 0.35));
+    margin-right: 600px;
+    margin-top: -180px;
+    float: right;
+    text-align: center;
+    background-color:rgb(255, 255, 255) ;
+    border-radius: 20px;
+    font-size: 18px;
+    width: 300px;
+    height: 150px; 
+    padding-top: 10px; 
+  }
+  .surgeryname{
+     filter: drop-shadow(8px 4px 8px rgba(0, 0, 0, 0.35));
+    font-size: 35px;
+    background-color:rgb(228, 224, 224) ;
+    border-radius: 10px;
+    text-align: center;
+    width: 800px;
+    height: 60px;
+    padding-top: 22px;
+    margin-top: 10px;
+    margin-left: 300px;
+  }
+  .details1{
+    filter: drop-shadow(8px 4px 8px rgba(0, 0, 0, 0.35));
+    background-color:#ffffff ;
+    float: left;
+    margin-left: 100px;
+    margin-top: 55px;
+    text-align: center;
+    background-color:rgb(255, 255, 255) ;
+    border-radius: 20px;
+    font-size: 18px;
+    width: 350px;
+    height: 180px;  
+    padding-top: 10px;   
+  }
+  .details2{
+    filter: drop-shadow(8px 4px 8px rgba(0, 0, 0, 0.35));
+    background-color:rgb(255, 255, 255) ;
+    float: left;
+    margin-left:250px;
+    margin-top: 53px;
+    text-align: center;
+    background-color:rgb(255, 255, 255) ;
+    border-radius: 20px;
+    font-size: 18px;
+    width: 520px;
+    height: 230px;         
+  }
+  .dreport{
+    filter: drop-shadow(8px 4px 8px rgba(0, 0, 0, 0.35));
+    margin-top: 370px;
+    width: 1330px;
+    height: 60px;
+    text-align: center;
+    font-size: 10px;
+    background-color:rgb(228, 224, 224) ;
+    border-radius: 10px;
+    text-align: center;
+    width: 800px;
+    height: 60px;
+    margin-left: 300px;
+    padding-top: 22px;
+  }
+  .picture{
+    margin-top: 600px;
+    margin-left: 700px;
+  }
+  .img3{
+    width: 182px;
+    height: 241px;
+    margin-left: 100px;
+    margin-top: 50px;
+    border-radius: 20px; 
+    float: left;   
+  }
+  .img4{
+    float: right;
+    width: 185px;
+    height: 241px;
+    margin-right: 760px;
+    margin-top: 50px ;
+    border-radius: 20px;
+  }
+  .checkup{
+    text-align: center;
+    padding-top:20px;
+    filter: drop-shadow(8px 4px 8px rgba(0, 0, 0, 0.35));
+    background-color:rgb(255, 255, 255) ;
+    margin-left: 830px;
+    margin-top: 300px;
+    text-align: center;
+    background-color:rgb(255, 255, 255) ;
+    border-radius: 20px;
+    font-size: 18px;
+    width: 420px;
+    height: 120px;        
+  }
+  .doctoradvises{
+    filter: drop-shadow(8px 4px 8px rgba(0, 0, 0, 0.35));
+    background-color:rgb(255, 255, 255) ;
+    border-radius: 20px;
+    font-size: 18px;
+    width: 420px;
+    height: 120px;  
+    text-align: center; 
+    padding-top: 20px;  
+    margin-left: 100px;
+  }
+
+  .rating{
+    border: 5px solid rgb(114, 113, 113);
+    filter: drop-shadow(8px 4px 8px rgba(0, 0, 0, 0.35));
+    background-color:rgb(255, 255, 255) ;
+    border-radius: 20px;
+    font-size: 35px;
+    margin-left: 900px;
+    margin-top: 0px;
+    width: 150px;
+    text-align: center;
+    height: 50px;
+    padding-top: 12px;
+  }
+  .rating1{
+    border: 5px solid rgb(114, 113, 113);
+    filter: drop-shadow(8px 4px 8px rgba(0, 0, 0, 0.35));
+    background-color:rgb(255, 255, 255) ;
+    border-radius: 20px;
+    font-size: 50px;
+    margin-left: 1100px;
+    margin-top: -50px;
+    width: 150px;
+    height: 50px;
+    text-align: center;
+    padding-top: 15px;
+  }
+  .rating2{
+    background-color:rgb(255, 255, 255) ;
+    border-radius: 20px;
+    font-size: 50px;
+    margin-left: 1100px;
+    margin-top: -50px;
+    width: 150px;
+    height: 50px;
+    text-align: center;
+    padding-top: 15px;
+  }
 .topnav input[type=text]{
 	float:right;
 	padding: 6px;
@@ -426,4 +640,8 @@ text-transform: capitalize;
 .uppernav{
 	/* left:100px; */
 	transform: translate(1000px,1000px);
+}
+
+.MuiPagination-ul {
+  justify-content: center;
 }

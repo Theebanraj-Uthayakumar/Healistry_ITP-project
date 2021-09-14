@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from "react";
 import Container from '@material-ui/core/Container';
 import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
 import { makeStyles } from '@material-ui/core/styles';
@@ -8,6 +8,8 @@ import Link from '@material-ui/core/Link';
 import HomeIcon from '@material-ui/icons/Home';
 import WhatshotIcon from '@material-ui/icons/Whatshot';
 import GrainIcon from '@material-ui/icons/Grain';
+import axios from "axios";
+import SearchIcon from '@material-ui/icons/Search';
 
 const useStyles = makeStyles((theme) => ({
     link: {
@@ -27,6 +29,23 @@ function handleClick(event) {
 
 function Cleaning() {
     const classes = useStyles();
+
+    const [cleaning, setCleaning] = useState([]);
+    const [searchTerm, setSearchTerm] = useState("");
+
+    const getRequest = () => {
+        axios
+            .get('http://localhost:5000/cleaning')
+            .then(response => {
+                setCleaning(response.data);
+
+            });
+    }
+
+    useEffect(() => {
+        getRequest()
+    }, [cleaning]);
+
     return (
         <div>
             <Container>
@@ -58,192 +77,86 @@ function Cleaning() {
                                     <aside className="shop-sidebar">
                                         <div className="widget shop-widget mb-30">
                                             <div className="shop-widget-title">
-                                                <h6 className="title">Product Brand</h6>
+                                                <h6 className="title">Quick Search</h6>
                                             </div>
-                                            <div className="sidebar-brand-list">
-                                                <ul>
-                                                    <li>
-                                                        <a href="#">New Arrivals</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">Clothing &amp; Accessories</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">Vanam Jacket</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">Home Electronics</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">New Arrivals</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">Clothing &amp; Accessories</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">Vanam Jacket</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">Home Electronics</a>
-                                                    </li>
-                                                </ul>
+
+                                            <div className="input-group">
+                                                <input type="text" className="form-control" placeholder="Type to Search here" onChange={(e) => { setSearchTerm(e.target.value) }} />
+                                                <div className="input-group-append">
+                                                    <button className="btn btn-secondary" type="button">
+                                                        <SearchIcon />
+                                                    </button>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div className="widget">
+                                        <div className="widget" style={{ paddingBlock: "20px" }}>
                                             <div className="shop-widget-banner special-offer-banner">
-                                                <a href="shop-left-sidebar.html">
-                                                    <img src="images/sidebar_banner_ad.jpg" alt />
+                                                <a href="#">
+                                                    <img src="images/News01.png" alt />
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div className="widget" style={{ paddingBlock: "20px" }}>
+                                            <div className="shop-widget-banner special-offer-banner">
+                                                <a href="#">
+                                                    <img src="images/News02.png" alt />
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div className="widget" style={{ paddingBlock: "20px" }}>
+                                            <div className="shop-widget-banner special-offer-banner">
+                                                <a href="#">
+                                                    <img src="images/News03.png" alt />
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div className="widget" style={{ paddingBlock: "20px" }}>
+                                            <div className="shop-widget-banner special-offer-banner">
+                                                <a href="#">
+                                                    <img src="images/News04.png" alt />
                                                 </a>
                                             </div>
                                         </div>
                                     </aside>
                                 </div>
                                 <div className="col-xl-9 col-lg-8">
-                                    <div className="pagination-wrap">
-                                        <div className="pagination-wrap_column1">
-                                            <img src="img/profiles/Profile01.jpg" alt="Profile01" className="pagination-wrap_image" />
+                                    {cleaning.filter((val) => {
+                                        if (searchTerm == "") {
+                                            return val;
+                                        } else if (val.CName.toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase())) {
+                                            return val;
+                                        }
+                                    }).map((item) => (
+                                        <div className="pagination-wrap">
+                                            <div className="pagination-wrap_column1">
+                                                <img src={item.Image} alt="Profile01" className="pagination-wrap_image" />
+                                            </div>
+                                            <div className="pagination-wrap_column2">
+                                                <h2>{item.CName}</h2>
+                                                <p>Since {item.Since}</p>
+                                                <table>
+                                                    <tr>
+                                                        <th>Number of Employees</th>
+                                                        <td>{item.NOE} Employees</td>
+                                                        <th>Contact Numeber</th>
+                                                        <td>{item.CNumber}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th >Location</th>
+                                                        <td colspan="3">{item.Location}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th >Description</th>
+                                                        <td colspan="3">{item.Description}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th colspan="2"><p>{item.createdAt}</p></th>
+                                                        <td colspan="2"><p className="Like"><ThumbUpAltIcon /> Like</p></td>
+                                                    </tr>
+                                                </table>
+                                            </div>
                                         </div>
-                                        <div className="pagination-wrap_column2">
-                                            <h2>SLIIT</h2>
-                                            <p>Since 1999</p>
-                                            <table>
-                                                <tr>
-                                                    <th>Number of Employees</th>
-                                                    <td>112 Employees</td>
-                                                    <th>Contact Numeber</th>
-                                                    <td>0212229895</td>
-                                                </tr>
-                                                <tr>
-                                                    <th >Location</th>
-                                                    <td colspan="3">Kandy Road, Malebe, Colombo, Sri Lanka</td>
-                                                </tr>
-                                                <tr>
-                                                    <th >Description</th>
-                                                    <td colspan="3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In dictum nibh quis ipsum dictum, vel semper massa ultricies.</td>
-                                                </tr>
-                                                <tr>
-                                                    <th colspan="2"><p>26th Aug 2021</p></th>
-                                                    <td colspan="2"><p className="Like"><ThumbUpAltIcon /> Like</p></td>
-                                                </tr>
-                                            </table>
-                                        </div>
-                                    </div>
-                                    <div className="pagination-wrap">
-                                        <div className="pagination-wrap_column1">
-                                            <img src="img/profiles/Profile02.jpg" alt="Profile01" className="pagination-wrap_image" />
-                                        </div>
-                                        <div className="pagination-wrap_column2">
-                                            <h2>Thuvaraga Thayaparan</h2>
-                                            <p>Since 1999</p>
-                                            <table>
-                                                <tr>
-                                                    <th>Number of Employees</th>
-                                                    <td>112 Employees</td>
-                                                    <th>Contact Numeber</th>
-                                                    <td>0212229895</td>
-                                                </tr>
-                                                <tr>
-                                                    <th >Location</th>
-                                                    <td colspan="3">Kandy Road, Malebe, Colombo, Sri Lanka</td>
-                                                </tr>
-                                                <tr>
-                                                    <th >Description</th>
-                                                    <td colspan="3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In dictum nibh quis ipsum dictum, vel semper massa ultricies.</td>
-                                                </tr>
-                                                <tr>
-                                                    <th colspan="2"><p>26th Aug 2021</p></th>
-                                                    <td colspan="2"><p className="Like"><ThumbUpAltIcon /> Like</p></td>
-                                                </tr>
-                                            </table>
-                                        </div>
-                                    </div>
-                                    <div className="pagination-wrap">
-                                        <div className="pagination-wrap_column1">
-                                            <img src="img/profiles/Profile03.jpg" alt="Profile01" className="pagination-wrap_image" />
-                                        </div>
-                                        <div className="pagination-wrap_column2">
-                                            <h2>Abinaya Thayaparan</h2>
-                                            <p>Since 1999</p>
-                                            <table>
-                                                <tr>
-                                                    <th>Number of Employees</th>
-                                                    <td>112 Employees</td>
-                                                    <th>Contact Numeber</th>
-                                                    <td>0212229895</td>
-                                                </tr>
-                                                <tr>
-                                                    <th >Location</th>
-                                                    <td colspan="3">Kandy Road, Malebe, Colombo, Sri Lanka</td>
-                                                </tr>
-                                                <tr>
-                                                    <th >Description</th>
-                                                    <td colspan="3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In dictum nibh quis ipsum dictum, vel semper massa ultricies.</td>
-                                                </tr>
-                                                <tr>
-                                                    <th colspan="2"><p>26th Aug 2021</p></th>
-                                                    <td colspan="2"><p className="Like"><ThumbUpAltIcon /> Like</p></td>
-                                                </tr>
-                                            </table>
-                                        </div>
-                                    </div>
-                                    <div className="pagination-wrap">
-                                        <div className="pagination-wrap_column1">
-                                            <img src="img/profiles/Profile04.jpg" alt="Profile01" className="pagination-wrap_image" />
-                                        </div>
-                                        <div className="pagination-wrap_column2">
-                                            <h2>Meltri</h2>
-                                            <p>Since 1999</p>
-                                            <table>
-                                                <tr>
-                                                    <th>Number of Employees</th>
-                                                    <td>112 Employees</td>
-                                                    <th>Contact Numeber</th>
-                                                    <td>0212229895</td>
-                                                </tr>
-                                                <tr>
-                                                    <th >Location</th>
-                                                    <td colspan="3">Kandy Road, Malebe, Colombo, Sri Lanka</td>
-                                                </tr>
-                                                <tr>
-                                                    <th >Description</th>
-                                                    <td colspan="3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In dictum nibh quis ipsum dictum, vel semper massa ultricies.</td>
-                                                </tr>
-                                                <tr>
-                                                    <th colspan="2"><p>26th Aug 2021</p></th>
-                                                    <td colspan="2"><p className="Like"><ThumbUpAltIcon /> Like</p></td>
-                                                </tr>
-                                            </table>
-                                        </div>
-                                    </div>
-                                    <div className="pagination-wrap">
-                                        <div className="pagination-wrap_column1">
-                                            <img src="img/profiles/Profile05.jpg" alt="Profile01" className="pagination-wrap_image" />
-                                        </div>
-                                        <div className="pagination-wrap_column2">
-                                            <h2>Jerry</h2>
-                                            <p>Since 1999</p>
-                                            <table>
-                                                <tr>
-                                                    <th>Number of Employees</th>
-                                                    <td>112 Employees</td>
-                                                    <th>Contact Numeber</th>
-                                                    <td>0212229895</td>
-                                                </tr>
-                                                <tr>
-                                                    <th >Location</th>
-                                                    <td colspan="3">Kandy Road, Malebe, Colombo, Sri Lanka</td>
-                                                </tr>
-                                                <tr>
-                                                    <th >Description</th>
-                                                    <td colspan="3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In dictum nibh quis ipsum dictum, vel semper massa ultricies.</td>
-                                                </tr>
-                                                <tr>
-                                                    <th colspan="2"><p>26th Aug 2021</p></th>
-                                                    <td colspan="2"><p className="Like"><ThumbUpAltIcon /> Like</p></td>
-                                                </tr>
-                                            </table>
-                                        </div>
-                                    </div>
+                                    ))}
                                     <div className="pagination-wrap">
                                         <ul>
                                             <li className="prev">
