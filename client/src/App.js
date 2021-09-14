@@ -20,9 +20,10 @@ import SingleFacility from "./component/pages/facility/SingleFacility";
 import login from "./component/pages/login";
 import Hospital from "./component/pages/Hospital";
 import Disease1 from "./component/pages/Disease1";
-
+import laboratory from "./component/pages/laboratory_details";
 import Pharmacy2 from "./component/Pharmacy/Pharmacy2";
 import Pharmacy1 from "./component/Pharmacy/Pharmacy1";
+import eqp from "./component/pages/Equipments";
 
 
 
@@ -48,6 +49,9 @@ const Routing = () => {
       <Route exact path="/Disease1" component={Disease1} />
       <Route exact path="/check" component={Pharmacy2}/>
       <Route exact path="/check1" component={Pharmacy1}/>
+      <Route exact path="/laboratory_details" component={laboratory}/>
+      <Route exact path="/Equipments" component={eqp}/>
+
     </Switch>
   );
 };

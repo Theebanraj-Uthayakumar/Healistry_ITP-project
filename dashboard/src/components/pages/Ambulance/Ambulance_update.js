@@ -1,15 +1,48 @@
-import React from 'react'
+import React, { useState, useEffect } from "react";
 import logo from "../../../Healistry.png"
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { makeStyles } from '@material-ui/core/styles';
 import Col from 'react-bootstrap/esm/Col';
 // import Button from '@restart/ui/esm/Button';
 import Row from 'react-bootstrap/esm/Row';
 import Form from 'react-bootstrap/Form';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button'
+import axios from "axios";
 
 
-function Ambulance_update() {
+function Ambulance_update(props) {
+    // const [ambulanceID, setAmbulanceID] = useState([]);
+    const [ambulance, setAmbulance] = useState([]);
+    const [searchTerm, setSearchTerm] = useState("");
+
+    const getRequest = () => {
+        axios
+            .get('http://localhost:5000/ambulance')
+            .then(response => {
+                setAmbulance(response.data);
+
+            });
+    }
+
+    useEffect(() => {
+        getRequest()
+    }, [ambulance]);
+
+    function deleteAmbulance(_id) {
+        alert("Are you confirm to delete?");
+        fetch(`http://localhost:5000/ambulance/${_id}`, {
+            method: 'DELETE'
+        }).then((response) => {
+            response.json();
+            alert("Your Date Successfully Deleted...!");
+        })
+    }
+
+    function editDoctor(_id) {
+        console.log(_id);
+        props.history.push(`/Ambulance_add/${_id}`)
+    }
     return (
         <div>
             <div className="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
@@ -62,6 +95,7 @@ function Ambulance_update() {
                                         type="text"
                                         className="search-input"
                                         placeholder="Type to search"
+                                        onChange={(e) => { setSearchTerm(e.target.value) }}
                                     />
                                     <button className="search-icon">
                                         <span />
@@ -369,48 +403,54 @@ function Ambulance_update() {
 
                             <Card>
 
-                                <div className="card mb-3 melri_card" style={{ margin: '3%' }}>
+                            {ambulance.filter((val) => {
+                                    if (searchTerm == "") {
+                                        return val;
+                                    } else if (val.organizationName.toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase())) {
+                                        return val;
+                                    }
+                                }).map((item) => (
+                                <div className="card mb-3 melri_card" style={{ margin: '3%', width:'95%' }}>
+                                
+                                
                                     <div className="row no-gutters" width="100%">
                                         <div className="col-md-4">
-                                            <img src="img/img-1.jpeg" className="card-img meltri_card_img" alt="..." />
+                                            <img src={item.ambImg} className="card-img meltri_card_img" alt="..." />
                                         </div>
                                         <div className="col-md-8">
                                             <div className="card-body">
-                                                <h5 className="card-title">Card title</h5>
-                                                <p className="card-text">
-                                                    This is a wider card with supporting text below as a natural lead-in
-                                                    to additional content. This content is a little bit longer.
-                                                </p>
-                                                <button variant="primary" className="subbtn" size="lg" >
-                                                    Edit
-                                                </button>{'      '}
-                                                <button variant="secondary" className="subbtn" size="lg">
-                                                    Delete
-                                                </button>
-                                                <p className="card-text">
-                                                    {/* <small className="text-muted">Last updated 3 mins ago</small> */}
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                                <h5 className="card-title">{item.organizationName}</h5>
+                                                <table  className="ambtable">
+                                           <tr style={{padding:'25px'}}>
+                                               <td style={{paddingLeft:'10px', paddingTop:'10px;'}}>Contact Number</td>
+                                               <td style={{paddingLeft:'15px', paddingTop:'10px;'}}>{item.aContact}</td>
+                                           </tr >
+                                           <tr style={{padding:'25px'}}>
+                                               <td style={{paddingLeft:'10px', paddingTop:'10px;'}}>Address</td>
+                                               <td style={{paddingLeft:'15px', paddingTop:'10px;'}}>{item.Location}</td>
+                                           </tr >
+                                           <tr style={{padding:'25px'}}>
+                                               <td style={{paddingLeft:'10px', paddingTop:'10px;'}}>No of ambulance</td>
+                                               <td style={{paddingLeft:'15px', paddingTop:'10px;'}}> {item.noOfAmbulance}</td>
+                                           </tr>
+                                           <tr style={{padding:'25px'}}>
+                                               <td style={{paddingLeft:'10px', paddingTop:'10px;'}}>Registered since</td>
+                                               <td style={{paddingLeft:'15px', paddingTop:'10px;'}}>  {item.regSince}</td>
+                                           </tr>
+                                           <tr style={{padding:'25px'}}>
+                                               <td style={{paddingLeft:'10px', paddingTop:'10px;'}}>Duty hours</td>
+                                               <td style={{paddingLeft:'15px', paddingTop:'10px;'}}> {item.dutyHrs}</td>
+                                           </tr>
+                                           <tr style={{padding:'25px'}}>
+                                               <td style={{paddingLeft:'10px', paddingTop:'10px;'}}>Duty Hospitals</td>
+                                               <td style={{paddingLeft:'15px', paddingTop:'10px;'}}> {item.workingHos}</td>
+                                           </tr>
 
-                                <div className="card mb-3 melri_card" style={{ margin: '3%' }}>
-                                    <div className="row no-gutters" width="100%">
-                                        <div className="col-md-4">
-                                            <img src="img/img-1.jpeg" className="card-img meltri_card_img" alt="..." />
-                                        </div>
-                                        <div className="col-md-8">
-                                            <div className="card-body">
-                                                <h5 className="card-title">Card title</h5>
-                                                <p className="card-text">
-                                                    This is a wider card with supporting text below as a natural lead-in
-                                                    to additional content. This content is a little bit longer.
-                                                </p>
+                                       </table>
                                                 <button variant="primary" className="subbtn" size="lg" >
                                                     Edit
                                                 </button>{'      '}
-                                                <button variant="secondary" className="subbtn" size="lg">
+                                                <button variant="secondary" className="subbtn" size="lg" onClick={() => deleteAmbulance(item._id)}>
                                                     Delete
                                                 </button>
                                                 <p className="card-text">
@@ -419,7 +459,10 @@ function Ambulance_update() {
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                    
+                                    </div>
+                               ))}
+                                 
                             </Card>
                         </div >
 

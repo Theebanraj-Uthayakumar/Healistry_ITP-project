@@ -1,13 +1,82 @@
-import React from 'react'
+import React, { useState, useEffect } from "react";
 import logo from "../../../Healistry.png"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Col from 'react-bootstrap/esm/Col';
+import { makeStyles } from '@material-ui/core/styles';
 // import Button from '@restart/ui/esm/Button';
 import Row from 'react-bootstrap/esm/Row';
 import Form from 'react-bootstrap/Form';
 import Card from 'react-bootstrap/Card';
+import axios from "axios";
 
-function Ambulance_add() {
+const Ambulance_add = (props, errors) => {
+
+    const useStyles = makeStyles((theme) => ({
+        root: {
+            flexGrow: 1,
+            margin: 50
+        },
+        paper: {
+            padding: theme.spacing(5),
+            margin: 'auto',
+            maxWidth: 1000,
+        },
+    }));
+
+    const classes = useStyles();
+
+
+    const [orgname, setOrgName] = useState('')
+    const [location, setLocation] = useState('')
+    const [aContact, setAContact] = useState('')
+    const [dutyHrs, setDutyHrs] = useState('')
+    const [noOfAmbulance, setNoOfAmbulance] = useState('')
+    const [workingHos, setWorkingHos] = useState('')
+    const [ regSince, setRegSince] = useState('')
+    const [image, setImage] = useState('')
+
+    const [error, setError] = useState(null);
+    const [loading, setLoading] = useState(false);
+
+    function CreateAmbulance() {
+        console.log("working");
+        let item = { orgname, location,aContact,dutyHrs, noOfAmbulance, regSince,workingHos, image }
+        console.log(item);
+
+        // setError(null);
+        // setLoading(true); any headers authorization ???noooo
+
+        // fetch("http://localhost:5000/doctors", {
+        //     method: 'POST',
+        //     headers: {
+        //         'Content-Type': 'application/json',
+        //     },
+        //     body: JSON.stringify(item),
+        // }).then((response) => {
+        //     console.log("response", response)
+        // })
+
+
+        axios.post("http://localhost:5000/ambulance",
+            {
+                organizationName: orgname,
+                Location: location,
+                aContact: aContact,
+                dutyHrs:dutyHrs,
+                noOfAmbulance:noOfAmbulance,
+                workingHos: workingHos,
+                ambImg:image,
+                regSince:regSince
+            }
+        ).then(response => {
+            alert("Registation Finished");
+        }).catch(error => {
+            alert("Registation Faild");
+        })
+    }
+
+// function Ambulance_add() {
+   
     return (
         <div>
             <div className="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
@@ -368,7 +437,7 @@ function Ambulance_add() {
                                             Organization Name
                                         </Form.Label>
                                         <Col sm={5}>
-                                            <Form.Control type="text" />
+                                            <Form.Control type="text" value={orgname} onChange={(e) => setOrgName(e.target.value)} />
                                         </Col>
                                     </Form.Group>
                                     <Form.Group as={Row} className="mb-3" controlId="" >
@@ -376,23 +445,23 @@ function Ambulance_add() {
                                             Registered Since
                                         </Form.Label>
                                         <Col sm={5}>
-                                            <Form.Control type="number" />
+                                            <Form.Control type="number" value={regSince} onChange={(e) => setRegSince(e.target.value)} />
                                         </Col>
                                     </Form.Group>
-                                    <Form.Group as={Row} className="mb-3" controlId="" >
+                                    {/* <Form.Group as={Row} className="mb-3" controlId="" >
                                         <Form.Label column sm={3}>
                                             No of Ambulance
                                         </Form.Label>
                                         <Col sm={5}>
                                             <Form.Control type="number" />
                                         </Col>
-                                    </Form.Group>
+                                    </Form.Group> */}
                                     <Form.Group as={Row} className="mb-3" controlId="">
                                         <Form.Label column sm={3}>
                                             No of Ambulance Registered
                                         </Form.Label>
                                         <Col sm={5}>
-                                            <Form.Control type="number" />
+                                            <Form.Control type="number" value={noOfAmbulance} onChange={(e) => setNoOfAmbulance(e.target.value)} />
                                         </Col>
                                     </Form.Group>
                                     <Form.Group as={Row} className="mb-3" controlId="">
@@ -400,7 +469,7 @@ function Ambulance_add() {
                                             Contact Number
                                         </Form.Label>
                                         <Col sm={5}>
-                                            <Form.Control type="number" />
+                                            <Form.Control type="number" value={aContact} onChange={(e) => setAContact(e.target.value)} />
                                         </Col>
                                     </Form.Group>
                                     <Form.Group as={Row} className="mb-3" controlId="">
@@ -408,7 +477,7 @@ function Ambulance_add() {
                                             Duty Hours
                                         </Form.Label>
                                         <Col sm={5}>
-                                            <Form.Control type="number" />
+                                            <Form.Control type="number" value={dutyHrs} onChange={(e) => setDutyHrs(e.target.value)} />
                                         </Col>
                                     </Form.Group>
                                     <Form.Group as={Row} className="mb-3" controlId="">
@@ -416,7 +485,7 @@ function Ambulance_add() {
                                             Location
                                         </Form.Label>
                                         <Col sm={5}>
-                                            <Form.Control type="text" />
+                                            <Form.Control type="text" value={location} onChange={(e) => setLocation(e.target.value)} />
                                         </Col>
                                     </Form.Group>
                                     <Form.Group as={Row} className="mb-3" controlId="">
@@ -424,7 +493,7 @@ function Ambulance_add() {
                                             Servicing Hospitals
                                         </Form.Label>
                                         <Col sm={5}>
-                                            <Form.Control type="text" />
+                                            <Form.Control type="text" value={workingHos} onChange={(e) => setWorkingHos(e.target.value)}/>
                                         </Col>
                                     </Form.Group>
                                     <Form.Group as={Row} className="mb-3" controlId="">
@@ -432,13 +501,13 @@ function Ambulance_add() {
                                             Image
                                         </Form.Label>
                                         <Col sm={5}>
-                                            <Form.Control type="file" />
+                                            <Form.Control type="file" value={image} onChange={(e) => setImage(e.target.value)}/>
                                         </Col>
                                     </Form.Group>
                                     <div style={{ marginTop: '5%', marginLeft: '65%' }}>
 
                                         <div class="btn-group mr-2" role="group" aria-label="Second group">
-                                            <button type="button" class="btn btn-secondary">SUBMIT</button>
+                                            <button type="button"  onClick={CreateAmbulance} class="btn btn-secondary">SUBMIT</button>
                                         </div>
 
                                     </div>

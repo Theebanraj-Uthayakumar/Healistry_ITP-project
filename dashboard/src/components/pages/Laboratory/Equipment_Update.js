@@ -1,62 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React from 'react'
+import Col from 'react-bootstrap/esm/Col'
+// import Button from '@restart/ui/esm/Button'
+import Row from 'react-bootstrap/esm/Row'
+import Form from 'react-bootstrap/Form'
 import logo from "../../../Healistry.png"
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Col from 'react-bootstrap/esm/Col';
-// import Button from '@restart/ui/esm/Button';
-import Row from 'react-bootstrap/esm/Row';
-import Button from 'react-bootstrap/Button'
-import Form from 'react-bootstrap/Form';
-import Card from 'react-bootstrap/Card';
-import axios from "axios";
-const Camping_add = (props, errors) => {
 
-    // const useStyles = makeStyles((theme) => ({
-    //     root: {
-    //         flexGrow: 1,
-    //         margin: 50
-    //     },
-    //     paper: {
-    //         padding: theme.spacing(5),
-    //         margin: 'auto',
-    //         maxWidth: 1000,
-    //     },
-    // }));
-
-    const [orgName, setOrgName] = useState('')
-    const [cDate, setCDate] = useState('')
-    const [cTime, setCTime] = useState('')
-    const [cContact, setCContact] = useState('')
-    const [venue, setVenue] = useState('')
-    const [cImg, setImage] = useState('')
-    const [type, setType] = useState('')
-
-    const [error, setError] = useState(null);
-    const [loading, setLoading] = useState(false);
-
-    function CreateCamping() {
-        console.log("working");
-        let item = { orgName, cDate,cTime, cContact, venue, cImg, type }
-        console.log(item);
-
-        
-        axios.post("http://localhost:5000/camping",
-            {
-                orgName:orgName,
-                cDate:cDate,
-                cTime:cTime,
-                cContact:cContact,
-                venue:venue,
-                cImg:cImg,
-                type:type
-            }
-        ).then(response => {
-            alert("Registation Finished");
-        }).catch(error => {
-            alert("Registation Faild");
-        })
-    }
-
-// function Camping_add() {
+function Lab_Details_Update() {
     return (
         <div>
             <div className="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
@@ -173,7 +122,7 @@ const Camping_add = (props, errors) => {
                                             </div>
                                         </div>
                                         <div className="widget-content-left  ml-3 header-user-info">
-                                            <div className="widget-heading">Thuvaraka T.</div>
+                                            <div className="widget-heading">Melrian E.</div>
                                             <div className="widget-subheading">Full-Stack Developer</div>
                                         </div>
                                         <div className="widget-content-right header-user-info ml-3">
@@ -324,14 +273,14 @@ const Camping_add = (props, errors) => {
                                         </ul>
                                     </li>
                                     <li>
-                                        <a href="#" className="mm-active">
+                                        <a href="#" >
                                             <i className="metismenu-icon pe-7s-diamond" />
                                             Camping Details
                                             <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
                                         </a>
                                         <ul>
                                             <li>
-                                                <a href="/Camping_Add" className="mm-active">
+                                                <a href="/Camping_Add">
                                                     <i className="metismenu-icon" />
                                                     Camping | Add
                                                 </a>
@@ -364,7 +313,7 @@ const Camping_add = (props, errors) => {
                                         </ul>
                                     </li>
                                     <li>
-                                        <a href="#" >
+                                        <a href="#" className="mm-active">
                                             <i className="metismenu-icon pe-7s-diamond" />
                                             Laboratory Details
                                             <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
@@ -377,7 +326,7 @@ const Camping_add = (props, errors) => {
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="/Lab_Details_Update">
+                                                <a href="/Lab_Details_Update" className="mm-active">
                                                     <i className="metismenu-icon"></i> Laboratory detail | Edit,Delete
                                                 </a>
                                             </li>
@@ -402,93 +351,44 @@ const Camping_add = (props, errors) => {
                                             <i className="pe-7s-car icon-gradient bg-mean-fruit"></i>
                                         </div>
                                         <div>
-                                            <h1 >Camping | Add</h1>
-                                            <div className="page-title-subheading">
-
-                                            </div>
+                                            Update Laboratory Details
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            {/* Add Form Here */}
-
-                            <Card>
-
-                                <Form style={{ marginLeft: '5%', marginTop: '3%', marginBottom: '3%' }}>
-                                    <Form.Group as={Row} className="mb-3" controlId="" >
-                                        <Form.Label column sm={3}>
-                                            Organization Name
-                                        </Form.Label>
-                                        <Col sm={5}>
-                                            <Form.Control type="text" value={orgName} onChange={(e) => setOrgName(e.target.value)} />
-                                        </Col>
-                                    </Form.Group>
-                                    <Form.Group as={Row} className="mb-3" controlId="">
-                                        <Form.Label column sm={3}>
-                                            Time
-                                        </Form.Label>
-                                        <Col sm={5}>
-                                            <Form.Control type="time" value={cTime} onChange={(e) => setCTime(e.target.value)} />
-                                        </Col>
-                                    </Form.Group>
-                                    <Form.Group as={Row} className="mb-3" controlId="">
-                                        <Form.Label column sm={3}>
-                                            Date
-                                        </Form.Label>
-                                        <Col sm={5}>
-                                            <Form.Control type="Date" value={cDate} onChange={(e) => setCDate(e.target.value)} />
-                                        </Col>
-                                    </Form.Group>
-                                    <Form.Group as={Row} className="mb-3" controlId="">
-                                        <Form.Label column sm={3}>
-                                            Contact Number
-                                        </Form.Label>
-                                        <Col sm={5}>
-                                            <Form.Control type="number"  value={cContact} onChange={(e) => setCContact(e.target.value)}/>
-                                        </Col>
-                                    </Form.Group>
-                                    <Form.Group as={Row} className="mb-3" controlId="">
-                                        <Form.Label column sm={3}>
-                                            Venue
-                                        </Form.Label>
-                                        <Col sm={5}>
-                                            <Form.Control type="text" value={venue} onChange={(e) => setVenue(e.target.value)} />
-                                        </Col>
-                                    </Form.Group>
-
-                                    <Form.Group as={Row} className="mb-3" controlId="">
-                                        <Form.Label column sm={3}>
-                                            Type
-                                        </Form.Label>
-                                        <Col sm={5}>
-                                            <Form.Control type="text" value={type} onChange={(e) => setType(e.target.value)}/>
-                                        </Col>
-                                    </Form.Group>
-
-                                    <Form.Group as={Row} className="mb-3" controlId="">
-                                        <Form.Label column sm={3}>
-                                            Image
-                                        </Form.Label>
-                                        <Col sm={5}>
-                                            <Form.Control type="file" value={cImg} onChange={(e) => setImage(e.target.value)}/>
-                                        </Col>
-                                    </Form.Group>
-
-
-                                    <div style={{ marginTop: '5%', marginLeft: '65%' }}>
-
-                                        <div class="btn-group mr-2" role="group" aria-label="Second group">
-                                            <button type="button" onClick={CreateCamping} class="btn btn-secondary">SUBMIT</button>
-                                        </div>
-
+                            <h1>Lab Details | Update</h1>
+                            {/* style={{ maxWidth: 1024 }} */}
+                            <div className="card mb-3 melri_card">
+                                <div className="row no-gutters" width="100%">
+                                    <div className="col-md-4">
+                                        <img src="Image/909067.jpg" className="card-img meltri_card_img" alt="..." />
                                     </div>
+                                    <div className="col-md-8">
+                                        <div className="card-body">
+                                            <h5 className="card-title">Card title</h5>
+                                            <p className="card-text">
+                                                This is a wider card with supporting text below as a natural lead-in
+                                                to additional content. This content is a little bit longer.
+                                            </p>
+                                            <small className="text-muted">Last updated 3 mins ago</small>
+                                            <div class="bottomright">
+                                                <button variant="primary" className="subbtn" size="lg" >
+                                                    Edit
+                                                </button>{'      '}
+                                                <button variant="secondary" className="subbtn" size="lg">
+                                                    Delete
+                                                </button>
+                                            </div>
+                                            <p className="card-text">
 
-
-                                </Form></Card>
-
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             {/* Body Part */}
                         </div >
-                        <div className="app-wrapper-footer" style={{ marginTop: '3%' }}>
+                        <div className="app-wrapper-footer">
                             <div className="app-footer">
                                 <div className="app-footer__inner">
                                     <div className="app-footer-left">
@@ -533,4 +433,4 @@ const Camping_add = (props, errors) => {
     )
 }
 
-export default Camping_add
+export default Lab_Details_Update

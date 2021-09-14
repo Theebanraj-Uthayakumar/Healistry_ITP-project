@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from "react";
 import logo from "../../../Healistry.png"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Col from 'react-bootstrap/esm/Col';
@@ -8,9 +8,40 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card';
 import CardGroup from 'react-bootstrap/Card';
-import { MDBCard, MDBCardTitle, MDBCardText, MDBCardBody, MDBCardImage, MDBRow, MDBCol } from 'mdb-ui-kit';
+import axios from "axios";
+// import { MDBCard, MDBCardTitle, MDBCardText, MDBCardBody, MDBCardImage, MDBRow, MDBCol } from 'mdb-ui-kit';
 
-function campingupdate() {
+function Camping_update(props) {
+    const [campingID, setCampingID] = useState([]);
+    const [camping, setCamping] = useState([]);
+    const [searchTerm, setSearchTerm] = useState("");
+
+    const getRequest = () => {
+        axios
+            .get('http://localhost:5000/camping')
+            .then(response => {
+                setCamping(response.data);
+
+            });
+    }
+    useEffect(() => {
+        getRequest()
+    }, [camping]);
+    function deleteCamping(_id) {
+        alert("Are you confirm to delete?");
+        fetch(`http://localhost:5000/camping/${_id}`, {
+            method: 'DELETE'
+        }).then((response) => {
+            response.json();
+            alert("Your Date Successfully Deleted...!");
+        })
+    }
+
+    // function editDoctor(_id) {
+    //     console.log(_id);
+    //     props.history.push(`/Camping_add/${_id}`)
+//     // }
+// function campingupdate() {
     return (
         <div>
             <div className="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
@@ -63,6 +94,7 @@ function campingupdate() {
                                         type="text"
                                         className="search-input"
                                         placeholder="Type to search"
+                                        onChange={(e) => { setSearchTerm(e.target.value) }}
                                     />
                                     <button className="search-icon">
                                         <span />
@@ -366,57 +398,62 @@ function campingupdate() {
                             {/* Add Form Here */}
                             <Card>
 
-                                <div className="card mb-3 melri_card" style={{ margin: '3%' }}>
-                                    <div className="row no-gutters" width="100%">
-                                        <div className="col-md-4">
-                                            <img src="img/img-1.jpeg" className="card-img meltri_card_img" alt="..." />
-                                        </div>
-                                        <div className="col-md-8">
-                                            <div className="card-body">
-                                                <h5 className="card-title">Card title</h5>
-                                                <p className="card-text">
-                                                    This is a wider card with supporting text below as a natural lead-in
-                                                    to additional content. This content is a little bit longer.
-                                                </p>
-                                                <button variant="primary" className="subbtn" size="lg" >
-                                                    Edit
-                                                </button>{'      '}
-                                                <button variant="secondary" className="subbtn" size="lg">
-                                                    Delete
-                                                </button>
-                                                <p className="card-text">
-                                                    {/* <small className="text-muted">Last updated 3 mins ago</small> */}
-                                                </p>
+                                {camping.filter((val) => {
+                                        if (searchTerm == "") {
+                                            return val;
+                                        } else if (val.orgName.toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase())) {
+                                            return val;
+                                        }
+                                    }).map((item) => (
+                                    <div className="card mb-3 melri_card" style={{ margin: '3%', width:'95%' }}>
+                                    
+                                    
+                                        <div className="row no-gutters" width="100%">
+                                            <div className="col-md-4">
+                                                <img src={item.cImg} className="card-img meltri_card_img" alt="..." />
+                                            </div>
+                                            <div className="col-md-8">
+                                                <div className="card-body">
+                                                    <h5 className="card-title">{item.orgName}</h5>
+                                                    <table  className="ambtable">
+                                            <tr style={{padding:'25px'}}>
+                                                <td style={{paddingLeft:'10px', paddingTop:'10px;'}}>Contact Number</td>
+                                                <td style={{paddingLeft:'15px', paddingTop:'10px;'}}>{item.cContact}</td>
+                                            </tr >
+                                            <tr style={{padding:'25px'}}>
+                                                <td style={{paddingLeft:'10px', paddingTop:'10px;'}}>Time</td>
+                                                <td style={{paddingLeft:'15px', paddingTop:'10px;'}}>{item.cTime}</td>
+                                            </tr >
+                                            <tr style={{padding:'25px'}}>
+                                                <td style={{paddingLeft:'10px', paddingTop:'10px;'}}>Date</td>
+                                                <td style={{paddingLeft:'15px', paddingTop:'10px;'}}> {item.cDate}</td>
+                                            </tr>
+                                            <tr style={{padding:'25px'}}>
+                                                <td style={{paddingLeft:'10px', paddingTop:'10px;'}}>Venue</td>
+                                                <td style={{paddingLeft:'15px', paddingTop:'10px;'}}>  {item.venue}</td>
+                                            </tr>
+                                            <tr style={{padding:'25px'}}>
+                                                <td style={{paddingLeft:'10px', paddingTop:'10px;'}}>Type</td>
+                                                <td style={{paddingLeft:'15px', paddingTop:'10px;'}}> {item.type}</td>
+                                            </tr>
+                                        </table>
+                                                    <button variant="primary" className="subbtn" size="lg" >
+                                                        Edit
+                                                    </button>{'      '}
+                                                    <button variant="secondary" className="subbtn" size="lg" onClick={() => deleteCamping(item._id)}>
+                                                        Delete
+                                                    </button>
+                                                    <p className="card-text">
+                                                        {/* <small className="text-muted">Last updated 3 mins ago</small> */}
+                                                    </p>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                                <div className="card mb-3 melri_card" style={{ margin: '3%' }}>
-                                    <div className="row no-gutters" width="100%">
-                                        <div className="col-md-4">
-                                            <img src="img/img-1.jpeg" className="card-img meltri_card_img" alt="..." />
+                                        
                                         </div>
-                                        <div className="col-md-8">
-                                            <div className="card-body">
-                                                <h5 className="card-title">Card title</h5>
-                                                <p className="card-text">
-                                                    This is a wider card with supporting text below as a natural lead-in
-                                                    to additional content. This content is a little bit longer.
-                                                </p>
-                                                <button variant="primary" className="subbtn" size="lg" >
-                                                    Edit
-                                                </button>{'      '}
-                                                <button variant="secondary" className="subbtn" size="lg">
-                                                    Delete
-                                                </button>
-                                                <p className="card-text">
-                                                    {/* <small className="text-muted">Last updated 3 mins ago</small> */}
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </Card>
+                                ))}
+     
+</Card>
                         </div >
                         <div className="app-wrapper-footer" style={{ marginTop: '3%' }}>
                             <div className="app-footer">
@@ -463,4 +500,4 @@ function campingupdate() {
     )
 }
 
-export default campingupdate
+export default Camping_update
