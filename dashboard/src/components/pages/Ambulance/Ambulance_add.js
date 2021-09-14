@@ -430,7 +430,9 @@ const Ambulance_add = (props, errors) => {
                                     </div>
                                 </div>
                             </div>
+                            {/* add form */}
                             <Card>
+                                
                                 <Form style={{ marginLeft: '5%', marginTop: '3%', marginBottom: '3%' }}>
                                     <Form.Group as={Row} className="mb-3" controlId="" >
                                         <Form.Label column sm={3}>
