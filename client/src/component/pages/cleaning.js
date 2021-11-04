@@ -54,7 +54,7 @@ function Cleaning() {
                     <div className="shop-area gray-bg pt-10 pb-100">
                         <div className="custom-container-two">
                             <Breadcrumbs aria-label="breadcrumb" className="Breadcrumbs">
-                                <Link color="inherit" href="/" onClick={handleClick} className={classes.link}>
+                                <Link color="inherit" href="/" className={classes.link}>
                                     <HomeIcon className={classes.icon} />
                                     Home
                                 </Link>
@@ -129,7 +129,7 @@ function Cleaning() {
                                     }).map((item) => (
                                         <div className="pagination-wrap">
                                             <div className="pagination-wrap_column1">
-                                                <img src={item.Image} alt="Profile01" className="pagination-wrap_image" />
+                                                <img src={"http://localhost:5000/" + item.Image} alt="Profile01" className="pagination-wrap_image" />
                                             </div>
                                             <div className="pagination-wrap_column2">
                                                 <h2>{item.CName}</h2>

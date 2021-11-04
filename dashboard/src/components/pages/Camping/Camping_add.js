@@ -35,19 +35,19 @@ const Camping_add = (props, errors) => {
 
     function CreateCamping() {
         console.log("working");
-        let item = { orgName, cDate,cTime, cContact, venue, cImg, type }
+        let item = { orgName, cDate, cTime, cContact, venue, cImg, type }
         console.log(item);
 
-        
+
         axios.post("http://localhost:5000/camping",
             {
-                orgName:orgName,
-                cDate:cDate,
-                cTime:cTime,
-                cContact:cContact,
-                venue:venue,
-                cImg:cImg,
-                type:type
+                orgName: orgName,
+                cDate: cDate,
+                cTime: cTime,
+                cContact: cContact,
+                venue: venue,
+                cImg: cImg,
+                type: type
             }
         ).then(response => {
             alert("Registation Finished");
@@ -56,7 +56,7 @@ const Camping_add = (props, errors) => {
         })
     }
 
-// function Camping_add() {
+    // function Camping_add() {
     return (
         <div>
             <div className="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
@@ -237,7 +237,7 @@ const Camping_add = (props, errors) => {
                                 <ul className="vertical-nav-menu">
                                     <li className="app-sidebar__heading">Dashboards</li>
                                     <li>
-                                        <a href="#">
+                                        <a href="/">
                                             <i className="metismenu-icon pe-7s-rocket" />
                                             Dashboard
                                         </a>
@@ -444,7 +444,7 @@ const Camping_add = (props, errors) => {
                                             Contact Number
                                         </Form.Label>
                                         <Col sm={5}>
-                                            <Form.Control type="number"  value={cContact} onChange={(e) => setCContact(e.target.value)}/>
+                                            <Form.Control type="number" value={cContact} onChange={(e) => setCContact(e.target.value)} />
                                         </Col>
                                     </Form.Group>
                                     <Form.Group as={Row} className="mb-3" controlId="">
@@ -461,7 +461,7 @@ const Camping_add = (props, errors) => {
                                             Type
                                         </Form.Label>
                                         <Col sm={5}>
-                                            <Form.Control type="text" value={type} onChange={(e) => setType(e.target.value)}/>
+                                            <Form.Control type="text" value={type} onChange={(e) => setType(e.target.value)} />
                                         </Col>
                                     </Form.Group>
 
@@ -470,7 +470,7 @@ const Camping_add = (props, errors) => {
                                             Image
                                         </Form.Label>
                                         <Col sm={5}>
-                                            <Form.Control type="file" value={cImg} onChange={(e) => setImage(e.target.value)}/>
+                                            <Form.Control type="file" value={cImg} onChange={(e) => setImage(e.target.value)} />
                                         </Col>
                                     </Form.Group>
 

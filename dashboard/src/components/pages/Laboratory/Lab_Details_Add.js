@@ -187,7 +187,7 @@ function Lab_Details_Add() {
                                 <ul className="vertical-nav-menu">
                                     <li className="app-sidebar__heading">Dashboards</li>
                                     <li>
-                                        <a href="#">
+                                        <a href="/">
                                             <i className="metismenu-icon pe-7s-rocket" />
                                             Dashboard
                                         </a>

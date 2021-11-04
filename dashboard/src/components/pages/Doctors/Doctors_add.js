@@ -28,8 +28,6 @@ const Doctors_add = (props, errors) => {
     }));
 
     const classes = useStyles();
-
-
     const [name, setName] = useState('')
     const [specialization, setSpecialization] = useState('')
     const [slnc, setSlnc] = useState('')
@@ -39,9 +37,17 @@ const Doctors_add = (props, errors) => {
     const [whospital, setWhospital] = useState('')
     const [whistory, setWhistory] = useState('')
     const [image, setImage] = useState('')
-
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
+
+    let [errors_dname, seterrors_dname] = useState('')
+    let [errors_slnc, seterrors_slnc] = useState('')
+    let [errors_specialization, seterrors_specialization] = useState('')
+    let [errors_experiance, seterrors_experiance] = useState('')
+    let [errors_gender, seterrors_gender] = useState('')
+    let [errors_cposistion, seterrors_cposistion] = useState('')
+    let [errors_whospital, seterrors_whospital] = useState('')
+    let [errors_whistory, seterrors_whistory] = useState('')
 
     let fromDate = new FormData();
 
@@ -59,27 +65,68 @@ const Doctors_add = (props, errors) => {
         let item = { name, specialization, slnc, experiance, gender, cposistion, whospital, whistory, image }
         console.log(item);
 
-        axios.post("http://localhost:5000/doctors",
-            {
-                DName: name,
-                Speci: specialization,
-                SLNC: slnc,
-                Exper: experiance,
-                Gender: gender,
-                CPosistion: cposistion,
-                WHospital: whospital,
-                WHistory: whistory,
-                // selectedFile: fromDate
-                selectedFile: image
-            }
-        ).then(response => {
+        let errors = {};
+
+        //Form Validation
+        if (!name.trim()) {
+            errors.name = 'Username field required';
+            seterrors_dname(errors.name)
+        }
+        if (!slnc.trim()) {
+            errors.slnc = 'SLNC field required';
+            seterrors_slnc(errors.slnc)
+        }
+        if (!specialization.trim()) {
+            errors.specialization = 'Specialization field required';
+            seterrors_specialization(errors.specialization)
+        }
+        if (!experiance.trim()) {
+            errors.experiance = 'Experiance field required';
+            seterrors_experiance(errors.experiance)
+        }
+        if (!gender.trim()) {
+            errors.gender = 'Gender field required';
+            seterrors_gender(errors.gender)
+        }
+        if (!cposistion.trim()) {
+            errors.cposistion = 'Current Posistion field required';
+            seterrors_cposistion(errors.cposistion)
+        }
+        if (!whospital.trim()) {
+            errors.whospital = 'Working Hospital field required';
+            seterrors_whospital(errors.whospital)
+        }
+        if (!whistory.trim()) {
+            errors.whistory = 'Working History field required';
+            seterrors_whistory(errors.whistory)
+        }
+
+        if (name === "" || slnc === "" || specialization === "" || experiance === "" || gender === "" || cposistion === "" || whospital === "" || whistory === "") {
             setLoading(false);
-            alert("Your data has been successfully uploaded...");
-            window.location.reload();
-        }).catch(error => {
-            setLoading(false);
-            alert("Sorry, Something Error...");
-        })
+        }
+        else {
+            axios.post("http://localhost:5000/doctors",
+                {
+                    DName: name,
+                    Speci: specialization,
+                    SLNC: slnc,
+                    Exper: experiance,
+                    Gender: gender,
+                    CPosistion: cposistion,
+                    WHospital: whospital,
+                    WHistory: whistory,
+                    // selectedFile: fromDate
+                    // selectedFile: image
+                }
+            ).then(response => {
+                setLoading(false);
+                alert("Your data has been successfully added...");
+                window.location.reload();
+            }).catch(error => {
+                setLoading(false);
+                alert("Sorry, Something Error...");
+            })
+        }
     }
 
 
@@ -263,7 +310,7 @@ const Doctors_add = (props, errors) => {
                                 <ul className="vertical-nav-menu">
                                     <li className="app-sidebar__heading">Dashboards</li>
                                     <li>
-                                        <a href="#">
+                                        <a href="/">
                                             <i className="metismenu-icon pe-7s-rocket" />
                                             Dashboard
                                         </a>
@@ -344,13 +391,14 @@ const Doctors_add = (props, errors) => {
                                             </li>
                                             <li>
                                                 <a href="/Ambulance_update">
-                                                    <i className="metismenu-icon"></i> Ambulance | Edit,Delete
+                                                    <i className="metismenu-icon"></i> Ambulance |
+                                                    Edit,Delete
                                                 </a>
                                             </li>
                                         </ul>
                                     </li>
                                     <li>
-                                        <a href="#" >
+                                        <a href="#">
                                             <i className="metismenu-icon pe-7s-diamond" />
                                             Camping Details
                                             <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
@@ -363,8 +411,9 @@ const Doctors_add = (props, errors) => {
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="/Camping_update" >
-                                                    <i className="metismenu-icon"></i> Camping | Edit,Delete
+                                                <a href="/Camping_update">
+                                                    <i className="metismenu-icon"></i> Camping |
+                                                    Edit,Delete
                                                 </a>
                                             </li>
                                         </ul>
@@ -384,27 +433,133 @@ const Doctors_add = (props, errors) => {
                                             </li>
                                             <li>
                                                 <a href="/blood_bank_update">
-                                                    <i className="metismenu-icon"></i> Blood Bank | Edit,Delete
+                                                    <i className="metismenu-icon"></i> Blood Bank |
+                                                    Edit,Delete
                                                 </a>
                                             </li>
                                         </ul>
                                     </li>
                                     <li>
-                                        <a href="#" >
+                                        <a href="#">
                                             <i className="metismenu-icon pe-7s-diamond" />
                                             Laboratory Details
                                             <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
                                         </a>
                                         <ul>
                                             <li>
-                                                <a href="/Lab_Details_Add" >
+                                                <a href="/Lab_Details_Add">
                                                     <i className="metismenu-icon" />
                                                     Laboratory detail | Add
                                                 </a>
                                             </li>
                                             <li>
                                                 <a href="/Lab_Details_Update">
-                                                    <i className="metismenu-icon"></i> Laboratory detail | Edit,Delete
+                                                    <i className="metismenu-icon"></i> Laboratory detail |
+                                                    Edit,Delete
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i className="metismenu-icon pe-7s-diamond" />
+                                            Facility Details
+                                            <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
+                                        </a>
+                                        <ul>
+                                            <li>
+                                                <a href="/facility/add">
+                                                    <i className="metismenu-icon" />
+                                                    Facility | Add
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/facility/update">
+                                                    <i className="metismenu-icon"></i> Facility detail |
+                                                    Edit,Delete
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i className="metismenu-icon pe-7s-diamond" />
+                                            Technology Details
+                                            <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
+                                        </a>
+                                        <ul>
+                                            <li>
+                                                <a href="/technology/add">
+                                                    <i className="metismenu-icon" />
+                                                    Technology | Add
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/technology/update">
+                                                    <i className="metismenu-icon"></i> Technology detail |
+                                                    Edit,Delete
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i className="metismenu-icon pe-7s-diamond" />
+                                            Pharmacy Details
+                                            <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
+                                        </a>
+                                        <ul>
+                                            <li>
+                                                <a href="/Pharmacyadd">
+                                                    <i className="metismenu-icon" />
+                                                    Pharmacy detail | Add
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/Pharmacy_update">
+                                                    <i className="metismenu-icon"></i> Pharmacy detail |
+                                                    Edit,Delete
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i className="metismenu-icon pe-7s-diamond" />
+                                            Disease Details
+                                            <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
+                                        </a>
+                                        <ul>
+                                            <li>
+                                                <a href="/Disease_add">
+                                                    <i className="metismenu-icon" />
+                                                    Disease Details | Add
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/Lab_Details_Update">
+                                                    <i className="metismenu-icon"></i> Disease Details |
+                                                    Edit,Delete
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i className="metismenu-icon pe-7s-diamond" />
+                                            Operation History Details
+                                            <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
+                                        </a>
+                                        <ul>
+                                            <li>
+                                                <a href="/Operationadd">
+                                                    <i className="metismenu-icon" />
+                                                    Operation | Add
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/Operationupdate">
+                                                    <i className="metismenu-icon"></i> Operation | Update
                                                 </a>
                                             </li>
                                         </ul>
@@ -430,8 +585,7 @@ const Doctors_add = (props, errors) => {
                                         <div>
                                             Add Doctors Details
                                             <div className="page-title-subheading">
-                                                This is an example dashboard created using build-in elements
-                                                and components.
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis risus massa, tempor a imperdiet vel, faucibus sit amet arcu.
                                             </div>
                                         </div>
                                     </div>
@@ -440,7 +594,7 @@ const Doctors_add = (props, errors) => {
                             {/* Add Form Here */}
                             <div className={classes.root}>
                                 <Paper className={classes.paper}>
-                                    <h2 className="Login_heading">Add Details</h2>
+                                    {/* <h2 className="Login_heading">Add Details</h2> */}
                                     <Form encType='multipart/form-data'>
                                         <Form.Group as={Row} className="mb-3" controlId="" >
                                             <Form.Label column sm={3}>
@@ -448,14 +602,16 @@ const Doctors_add = (props, errors) => {
                                             </Form.Label>
                                             <Col sm={9}>
                                                 <Form.Control type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Full Name" />
+                                                {errors_dname && <span style={{ color: "red" }} className="errors">{errors_dname}</span>}
                                             </Col>
                                         </Form.Group>
                                         <Form.Group as={Row} className="mb-3" controlId="">
                                             <Form.Label column sm={3}>
-                                                SLNC Registation Number
+                                                SLMC Registation Number
                                             </Form.Label>
                                             <Col sm={9}>
                                                 <Form.Control type="number" value={slnc} onChange={(e) => setSlnc(e.target.value)} placeholder="SLNC Registation Number" />
+                                                {errors_slnc && <span style={{ color: "red" }} className="errors">{errors_slnc}</span>}
                                             </Col>
                                         </Form.Group>
                                         <Form.Group as={Row} className="mb-3" controlId="">
@@ -464,6 +620,7 @@ const Doctors_add = (props, errors) => {
                                             </Form.Label>
                                             <Col sm={9}>
                                                 <Form.Control type="text" value={specialization} onChange={(e) => setSpecialization(e.target.value)} placeholder="Specialization" />
+                                                {errors_specialization && <span style={{ color: "red" }} className="errors">{errors_specialization}</span>}
                                             </Col>
                                         </Form.Group>
                                         <Form.Group as={Row} className="mb-3" controlId="">
@@ -472,6 +629,7 @@ const Doctors_add = (props, errors) => {
                                             </Form.Label>
                                             <Col sm={9}>
                                                 <Form.Control type="text" value={cposistion} onChange={(e) => setCposistion(e.target.value)} placeholder="Current Position" />
+                                                {errors_cposistion && <span style={{ color: "red" }} className="errors">{errors_cposistion}</span>}
                                             </Col>
                                         </Form.Group>
                                         <Form.Group as={Row} className="mb-3" controlId="">
@@ -480,6 +638,7 @@ const Doctors_add = (props, errors) => {
                                             </Form.Label>
                                             <Col sm={9}>
                                                 <Form.Control type="text" value={whospital} onChange={(e) => setWhospital(e.target.value)} placeholder="Working Hospital" />
+                                                {errors_whospital && <span style={{ color: "red" }} className="errors">{errors_whospital}</span>}
                                             </Col>
                                         </Form.Group>
                                         <Form.Group as={Row} className="mb-3" controlId="">
@@ -491,6 +650,7 @@ const Doctors_add = (props, errors) => {
                                                     <FormControlLabel value="Male" control={<Radio color="primary" />} label="Male" />
                                                     <FormControlLabel value="Female" control={<Radio color="primary" />} label="Female" />
                                                 </RadioGroup>
+                                                {errors_gender && <span style={{ color: "red" }} className="errors">{errors_gender}</span>}
                                             </Col>
                                         </Form.Group>
                                         <Form.Group as={Row} className="mb-3" controlId="">
@@ -499,6 +659,7 @@ const Doctors_add = (props, errors) => {
                                             </Form.Label>
                                             <Col sm={9}>
                                                 <Form.Control type="text" value={whistory} onChange={(e) => setWhistory(e.target.value)} placeholder="Working History" />
+                                                {errors_whistory && <span style={{ color: "red" }} className="errors">{errors_whistory}</span>}
                                             </Col>
                                         </Form.Group>
                                         <Form.Group as={Row} className="mb-3" controlId="">
@@ -507,6 +668,7 @@ const Doctors_add = (props, errors) => {
                                             </Form.Label>
                                             <Col sm={9}>
                                                 <Form.Control type="text" value={experiance} onChange={(e) => setExperiance(e.target.value)} placeholder="Experience" />
+                                                {errors_experiance && <span style={{ color: "red" }} className="errors">{errors_experiance}</span>}
                                             </Col>
                                         </Form.Group>
                                         <Form.Group as={Row} className="mb-3" controlId="">
@@ -534,32 +696,19 @@ const Doctors_add = (props, errors) => {
                             <div className="app-footer">
                                 <div className="app-footer__inner">
                                     <div className="app-footer-left">
-                                        <ul className="nav">
-                                            <li className="nav-item">
-                                                <a href="javascript:void(0);" className="nav-link">
-                                                    Footer Link 1
-                                                </a>
-                                            </li>
-                                            <li className="nav-item">
-                                                <a href="javascript:void(0);" className="nav-link">
-                                                    Footer Link 2
-                                                </a>
-                                            </li>
-                                        </ul>
+                                        {/* <ul className="nav">
+                      <li className="nav-item">
+                        <a href="javascript:void(0);" className="nav-link">
+                          Copyright 2019-2021 Healistry.io. All rights reserved
+                        </a>
+                      </li>
+                    </ul> */}
                                     </div>
                                     <div className="app-footer-right">
                                         <ul className="nav">
                                             <li className="nav-item">
                                                 <a href="javascript:void(0);" className="nav-link">
-                                                    Footer Link 3
-                                                </a>
-                                            </li>
-                                            <li className="nav-item">
-                                                <a href="javascript:void(0);" className="nav-link">
-                                                    <div className="badge badge-success mr-1 ml-0">
-                                                        <small>NEW</small>
-                                                    </div>
-                                                    Footer Link 4
+                                                    Copyright 2019-2021 Healistry.io. All rights reserved
                                                 </a>
                                             </li>
                                         </ul>

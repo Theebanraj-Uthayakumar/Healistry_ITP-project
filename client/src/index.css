@@ -223,6 +223,8 @@ img {
 }
 .Home_1 {
   padding-top: 30px;
+  margin-bottom: 100px;
+  margin-top: 100px;
 }
 .home1_link {
   margin-left: 30px;
@@ -644,4 +646,19 @@ text-transform: capitalize;
 
 .MuiPagination-ul {
   justify-content: center;
+}
+.slider_height{
+  height: 400px;
+}
+.slider_height:hover{
+  background-color: #001730;
+  transition-delay:0.2s;
+}
+.home_slider_link:hover{
+  text-decoration: none;
+  color: #fff;
+}
+.home_slider_link_h5:hover{
+  transition-delay:0.2s;
+  color: #fff;
 }

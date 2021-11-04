@@ -40,8 +40,8 @@ function Camping_update(props) {
     // function editDoctor(_id) {
     //     console.log(_id);
     //     props.history.push(`/Camping_add/${_id}`)
-//     // }
-// function campingupdate() {
+    //     // }
+    // function campingupdate() {
     return (
         <div>
             <div className="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
@@ -223,7 +223,7 @@ function Camping_update(props) {
                                 <ul className="vertical-nav-menu">
                                     <li className="app-sidebar__heading">Dashboards</li>
                                     <li>
-                                        <a href="#">
+                                        <a href="/">
                                             <i className="metismenu-icon pe-7s-rocket" />
                                             Dashboard
                                         </a>
@@ -399,15 +399,15 @@ function Camping_update(props) {
                             <Card>
 
                                 {camping.filter((val) => {
-                                        if (searchTerm == "") {
-                                            return val;
-                                        } else if (val.orgName.toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase())) {
-                                            return val;
-                                        }
-                                    }).map((item) => (
-                                    <div className="card mb-3 melri_card" style={{ margin: '3%', width:'95%' }}>
-                                    
-                                    
+                                    if (searchTerm == "") {
+                                        return val;
+                                    } else if (val.orgName.toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase())) {
+                                        return val;
+                                    }
+                                }).map((item) => (
+                                    <div className="card mb-3 melri_card" style={{ margin: '3%', width: '95%' }}>
+
+
                                         <div className="row no-gutters" width="100%">
                                             <div className="col-md-4">
                                                 <img src={item.cImg} className="card-img meltri_card_img" alt="..." />
@@ -415,28 +415,28 @@ function Camping_update(props) {
                                             <div className="col-md-8">
                                                 <div className="card-body">
                                                     <h5 className="card-title">{item.orgName}</h5>
-                                                    <table  className="ambtable">
-                                            <tr style={{padding:'25px'}}>
-                                                <td style={{paddingLeft:'10px', paddingTop:'10px;'}}>Contact Number</td>
-                                                <td style={{paddingLeft:'15px', paddingTop:'10px;'}}>{item.cContact}</td>
-                                            </tr >
-                                            <tr style={{padding:'25px'}}>
-                                                <td style={{paddingLeft:'10px', paddingTop:'10px;'}}>Time</td>
-                                                <td style={{paddingLeft:'15px', paddingTop:'10px;'}}>{item.cTime}</td>
-                                            </tr >
-                                            <tr style={{padding:'25px'}}>
-                                                <td style={{paddingLeft:'10px', paddingTop:'10px;'}}>Date</td>
-                                                <td style={{paddingLeft:'15px', paddingTop:'10px;'}}> {item.cDate}</td>
-                                            </tr>
-                                            <tr style={{padding:'25px'}}>
-                                                <td style={{paddingLeft:'10px', paddingTop:'10px;'}}>Venue</td>
-                                                <td style={{paddingLeft:'15px', paddingTop:'10px;'}}>  {item.venue}</td>
-                                            </tr>
-                                            <tr style={{padding:'25px'}}>
-                                                <td style={{paddingLeft:'10px', paddingTop:'10px;'}}>Type</td>
-                                                <td style={{paddingLeft:'15px', paddingTop:'10px;'}}> {item.type}</td>
-                                            </tr>
-                                        </table>
+                                                    <table className="ambtable">
+                                                        <tr style={{ padding: '25px' }}>
+                                                            <td style={{ paddingLeft: '10px', paddingTop: '10px;' }}>Contact Number</td>
+                                                            <td style={{ paddingLeft: '15px', paddingTop: '10px;' }}>{item.cContact}</td>
+                                                        </tr >
+                                                        <tr style={{ padding: '25px' }}>
+                                                            <td style={{ paddingLeft: '10px', paddingTop: '10px;' }}>Time</td>
+                                                            <td style={{ paddingLeft: '15px', paddingTop: '10px;' }}>{item.cTime}</td>
+                                                        </tr >
+                                                        <tr style={{ padding: '25px' }}>
+                                                            <td style={{ paddingLeft: '10px', paddingTop: '10px;' }}>Date</td>
+                                                            <td style={{ paddingLeft: '15px', paddingTop: '10px;' }}> {item.cDate}</td>
+                                                        </tr>
+                                                        <tr style={{ padding: '25px' }}>
+                                                            <td style={{ paddingLeft: '10px', paddingTop: '10px;' }}>Venue</td>
+                                                            <td style={{ paddingLeft: '15px', paddingTop: '10px;' }}>  {item.venue}</td>
+                                                        </tr>
+                                                        <tr style={{ padding: '25px' }}>
+                                                            <td style={{ paddingLeft: '10px', paddingTop: '10px;' }}>Type</td>
+                                                            <td style={{ paddingLeft: '15px', paddingTop: '10px;' }}> {item.type}</td>
+                                                        </tr>
+                                                    </table>
                                                     <button variant="primary" className="subbtn" size="lg" >
                                                         Edit
                                                     </button>{'      '}
@@ -449,11 +449,11 @@ function Camping_update(props) {
                                                 </div>
                                             </div>
                                         </div>
-                                        
-                                        </div>
+
+                                    </div>
                                 ))}
-     
-</Card>
+
+                            </Card>
                         </div >
                         <div className="app-wrapper-footer" style={{ marginTop: '3%' }}>
                             <div className="app-footer">

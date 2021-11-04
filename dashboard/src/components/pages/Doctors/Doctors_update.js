@@ -259,7 +259,7 @@ function Doctors_update(props) {
                                 <ul className="vertical-nav-menu">
                                     <li className="app-sidebar__heading">Dashboards</li>
                                     <li>
-                                        <a href="#">
+                                        <a href="/">
                                             <i className="metismenu-icon pe-7s-rocket" />
                                             Dashboard
                                         </a>
@@ -340,13 +340,14 @@ function Doctors_update(props) {
                                             </li>
                                             <li>
                                                 <a href="/Ambulance_update">
-                                                    <i className="metismenu-icon"></i> Ambulance | Edit,Delete
+                                                    <i className="metismenu-icon"></i> Ambulance |
+                                                    Edit,Delete
                                                 </a>
                                             </li>
                                         </ul>
                                     </li>
                                     <li>
-                                        <a href="#" >
+                                        <a href="#">
                                             <i className="metismenu-icon pe-7s-diamond" />
                                             Camping Details
                                             <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
@@ -359,8 +360,9 @@ function Doctors_update(props) {
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="/Camping_update" >
-                                                    <i className="metismenu-icon"></i> Camping | Edit,Delete
+                                                <a href="/Camping_update">
+                                                    <i className="metismenu-icon"></i> Camping |
+                                                    Edit,Delete
                                                 </a>
                                             </li>
                                         </ul>
@@ -380,27 +382,133 @@ function Doctors_update(props) {
                                             </li>
                                             <li>
                                                 <a href="/blood_bank_update">
-                                                    <i className="metismenu-icon"></i> Blood Bank | Edit,Delete
+                                                    <i className="metismenu-icon"></i> Blood Bank |
+                                                    Edit,Delete
                                                 </a>
                                             </li>
                                         </ul>
                                     </li>
                                     <li>
-                                        <a href="#" >
+                                        <a href="#">
                                             <i className="metismenu-icon pe-7s-diamond" />
                                             Laboratory Details
                                             <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
                                         </a>
                                         <ul>
                                             <li>
-                                                <a href="/Lab_Details_Add" >
+                                                <a href="/Lab_Details_Add">
                                                     <i className="metismenu-icon" />
                                                     Laboratory detail | Add
                                                 </a>
                                             </li>
                                             <li>
                                                 <a href="/Lab_Details_Update">
-                                                    <i className="metismenu-icon"></i> Laboratory detail | Edit,Delete
+                                                    <i className="metismenu-icon"></i> Laboratory detail |
+                                                    Edit,Delete
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i className="metismenu-icon pe-7s-diamond" />
+                                            Facility Details
+                                            <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
+                                        </a>
+                                        <ul>
+                                            <li>
+                                                <a href="/facility/add">
+                                                    <i className="metismenu-icon" />
+                                                    Facility | Add
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/facility/update">
+                                                    <i className="metismenu-icon"></i> Facility detail |
+                                                    Edit,Delete
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i className="metismenu-icon pe-7s-diamond" />
+                                            Technology Details
+                                            <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
+                                        </a>
+                                        <ul>
+                                            <li>
+                                                <a href="/technology/add">
+                                                    <i className="metismenu-icon" />
+                                                    Technology | Add
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/technology/update">
+                                                    <i className="metismenu-icon"></i> Technology detail |
+                                                    Edit,Delete
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i className="metismenu-icon pe-7s-diamond" />
+                                            Pharmacy Details
+                                            <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
+                                        </a>
+                                        <ul>
+                                            <li>
+                                                <a href="/Pharmacyadd">
+                                                    <i className="metismenu-icon" />
+                                                    Pharmacy detail | Add
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/Pharmacy_update">
+                                                    <i className="metismenu-icon"></i> Pharmacy detail |
+                                                    Edit,Delete
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i className="metismenu-icon pe-7s-diamond" />
+                                            Disease Details
+                                            <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
+                                        </a>
+                                        <ul>
+                                            <li>
+                                                <a href="/Disease_add">
+                                                    <i className="metismenu-icon" />
+                                                    Disease Details | Add
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/Lab_Details_Update">
+                                                    <i className="metismenu-icon"></i> Disease Details |
+                                                    Edit,Delete
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i className="metismenu-icon pe-7s-diamond" />
+                                            Operation History Details
+                                            <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
+                                        </a>
+                                        <ul>
+                                            <li>
+                                                <a href="/Operationadd">
+                                                    <i className="metismenu-icon" />
+                                                    Operation | Add
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/Operationupdate">
+                                                    <i className="metismenu-icon"></i> Operation | Update
                                                 </a>
                                             </li>
                                         </ul>
@@ -424,10 +532,9 @@ function Doctors_update(props) {
                                             <i className="pe-7s-car icon-gradient bg-mean-fruit"></i>
                                         </div>
                                         <div>
-                                            Doctors Details Edit and Delete
+                                            Update Doctors Details
                                             <div className="page-title-subheading">
-                                                This is an example dashboard created using build-in elements
-                                                and components.
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis risus massa, tempor a imperdiet vel, faucibus sit amet arcu.
                                             </div>
                                         </div>
                                     </div>
@@ -461,7 +568,7 @@ function Doctors_update(props) {
                                                     <td> - {item.Speci}</td>
                                                 </tr>
                                                 <tr>
-                                                    <th>SLNC </th>
+                                                    <th>SLMC </th>
                                                     <td> - {item.SLNC}</td>
                                                 </tr>
                                                 <tr>
@@ -522,32 +629,19 @@ function Doctors_update(props) {
                             <div className="app-footer">
                                 <div className="app-footer__inner">
                                     <div className="app-footer-left">
-                                        <ul className="nav">
-                                            <li className="nav-item">
-                                                <a href="javascript:void(0);" className="nav-link">
-                                                    Footer Link 1
-                                                </a>
-                                            </li>
-                                            <li className="nav-item">
-                                                <a href="javascript:void(0);" className="nav-link">
-                                                    Footer Link 2
-                                                </a>
-                                            </li>
-                                        </ul>
+                                        {/* <ul className="nav">
+                      <li className="nav-item">
+                        <a href="javascript:void(0);" className="nav-link">
+                          Copyright 2019-2021 Healistry.io. All rights reserved
+                        </a>
+                      </li>
+                    </ul> */}
                                     </div>
                                     <div className="app-footer-right">
                                         <ul className="nav">
                                             <li className="nav-item">
                                                 <a href="javascript:void(0);" className="nav-link">
-                                                    Footer Link 3
-                                                </a>
-                                            </li>
-                                            <li className="nav-item">
-                                                <a href="javascript:void(0);" className="nav-link">
-                                                    <div className="badge badge-success mr-1 ml-0">
-                                                        <small>NEW</small>
-                                                    </div>
-                                                    Footer Link 4
+                                                    Copyright 2019-2021 Healistry.io. All rights reserved
                                                 </a>
                                             </li>
                                         </ul>

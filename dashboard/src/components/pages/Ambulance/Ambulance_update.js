@@ -224,7 +224,7 @@ function Ambulance_update(props) {
                                 <ul className="vertical-nav-menu">
                                     <li className="app-sidebar__heading">Dashboards</li>
                                     <li>
-                                        <a href="#">
+                                        <a href="/">
                                             <i className="metismenu-icon pe-7s-rocket" />
                                             Dashboard
                                         </a>
@@ -403,66 +403,66 @@ function Ambulance_update(props) {
 
                             <Card>
 
-                            {ambulance.filter((val) => {
+                                {ambulance.filter((val) => {
                                     if (searchTerm == "") {
                                         return val;
                                     } else if (val.organizationName.toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase())) {
                                         return val;
                                     }
                                 }).map((item) => (
-                                <div className="card mb-3 melri_card" style={{ margin: '3%', width:'95%' }}>
-                                
-                                
-                                    <div className="row no-gutters" width="100%">
-                                        <div className="col-md-4">
-                                            <img src={item.ambImg} className="card-img meltri_card_img" alt="..." />
-                                        </div>
-                                        <div className="col-md-8">
-                                            <div className="card-body">
-                                                <h5 className="card-title">{item.organizationName}</h5>
-                                                <table  className="ambtable">
-                                           <tr style={{padding:'25px'}}>
-                                               <td style={{paddingLeft:'10px', paddingTop:'10px;'}}>Contact Number</td>
-                                               <td style={{paddingLeft:'15px', paddingTop:'10px;'}}>{item.aContact}</td>
-                                           </tr >
-                                           <tr style={{padding:'25px'}}>
-                                               <td style={{paddingLeft:'10px', paddingTop:'10px;'}}>Address</td>
-                                               <td style={{paddingLeft:'15px', paddingTop:'10px;'}}>{item.Location}</td>
-                                           </tr >
-                                           <tr style={{padding:'25px'}}>
-                                               <td style={{paddingLeft:'10px', paddingTop:'10px;'}}>No of ambulance</td>
-                                               <td style={{paddingLeft:'15px', paddingTop:'10px;'}}> {item.noOfAmbulance}</td>
-                                           </tr>
-                                           <tr style={{padding:'25px'}}>
-                                               <td style={{paddingLeft:'10px', paddingTop:'10px;'}}>Registered since</td>
-                                               <td style={{paddingLeft:'15px', paddingTop:'10px;'}}>  {item.regSince}</td>
-                                           </tr>
-                                           <tr style={{padding:'25px'}}>
-                                               <td style={{paddingLeft:'10px', paddingTop:'10px;'}}>Duty hours</td>
-                                               <td style={{paddingLeft:'15px', paddingTop:'10px;'}}> {item.dutyHrs}</td>
-                                           </tr>
-                                           <tr style={{padding:'25px'}}>
-                                               <td style={{paddingLeft:'10px', paddingTop:'10px;'}}>Duty Hospitals</td>
-                                               <td style={{paddingLeft:'15px', paddingTop:'10px;'}}> {item.workingHos}</td>
-                                           </tr>
+                                    <div className="card mb-3 melri_card" style={{ margin: '3%', width: '95%' }}>
 
-                                       </table>
-                                                <button variant="primary" className="subbtn" size="lg" >
-                                                    Edit
-                                                </button>{'      '}
-                                                <button variant="secondary" className="subbtn" size="lg" onClick={() => deleteAmbulance(item._id)}>
-                                                    Delete
-                                                </button>
-                                                <p className="card-text">
-                                                    {/* <small className="text-muted">Last updated 3 mins ago</small> */}
-                                                </p>
+
+                                        <div className="row no-gutters" width="100%">
+                                            <div className="col-md-4">
+                                                <img src={item.ambImg} className="card-img meltri_card_img" alt="..." />
+                                            </div>
+                                            <div className="col-md-8">
+                                                <div className="card-body">
+                                                    <h5 className="card-title">{item.organizationName}</h5>
+                                                    <table className="ambtable">
+                                                        <tr style={{ padding: '25px' }}>
+                                                            <td style={{ paddingLeft: '10px', paddingTop: '10px;' }}>Contact Number</td>
+                                                            <td style={{ paddingLeft: '15px', paddingTop: '10px;' }}>{item.aContact}</td>
+                                                        </tr >
+                                                        <tr style={{ padding: '25px' }}>
+                                                            <td style={{ paddingLeft: '10px', paddingTop: '10px;' }}>Address</td>
+                                                            <td style={{ paddingLeft: '15px', paddingTop: '10px;' }}>{item.Location}</td>
+                                                        </tr >
+                                                        <tr style={{ padding: '25px' }}>
+                                                            <td style={{ paddingLeft: '10px', paddingTop: '10px;' }}>No of ambulance</td>
+                                                            <td style={{ paddingLeft: '15px', paddingTop: '10px;' }}> {item.noOfAmbulance}</td>
+                                                        </tr>
+                                                        <tr style={{ padding: '25px' }}>
+                                                            <td style={{ paddingLeft: '10px', paddingTop: '10px;' }}>Registered since</td>
+                                                            <td style={{ paddingLeft: '15px', paddingTop: '10px;' }}>  {item.regSince}</td>
+                                                        </tr>
+                                                        <tr style={{ padding: '25px' }}>
+                                                            <td style={{ paddingLeft: '10px', paddingTop: '10px;' }}>Duty hours</td>
+                                                            <td style={{ paddingLeft: '15px', paddingTop: '10px;' }}> {item.dutyHrs}</td>
+                                                        </tr>
+                                                        <tr style={{ padding: '25px' }}>
+                                                            <td style={{ paddingLeft: '10px', paddingTop: '10px;' }}>Duty Hospitals</td>
+                                                            <td style={{ paddingLeft: '15px', paddingTop: '10px;' }}> {item.workingHos}</td>
+                                                        </tr>
+
+                                                    </table>
+                                                    <button variant="primary" className="subbtn" size="lg" >
+                                                        Edit
+                                                    </button>{'      '}
+                                                    <button variant="secondary" className="subbtn" size="lg" onClick={() => deleteAmbulance(item._id)}>
+                                                        Delete
+                                                    </button>
+                                                    <p className="card-text">
+                                                        {/* <small className="text-muted">Last updated 3 mins ago</small> */}
+                                                    </p>
+                                                </div>
                                             </div>
                                         </div>
+
                                     </div>
-                                    
-                                    </div>
-                               ))}
-                                 
+                                ))}
+
                             </Card>
                         </div >
 

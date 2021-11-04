@@ -32,7 +32,7 @@ const Ambulance_add = (props, errors) => {
     const [dutyHrs, setDutyHrs] = useState('')
     const [noOfAmbulance, setNoOfAmbulance] = useState('')
     const [workingHos, setWorkingHos] = useState('')
-    const [ regSince, setRegSince] = useState('')
+    const [regSince, setRegSince] = useState('')
     const [image, setImage] = useState('')
 
     const [error, setError] = useState(null);
@@ -40,7 +40,7 @@ const Ambulance_add = (props, errors) => {
 
     function CreateAmbulance() {
         console.log("working");
-        let item = { orgname, location,aContact,dutyHrs, noOfAmbulance, regSince,workingHos, image }
+        let item = { orgname, location, aContact, dutyHrs, noOfAmbulance, regSince, workingHos, image }
         console.log(item);
 
         // setError(null);
@@ -62,11 +62,11 @@ const Ambulance_add = (props, errors) => {
                 organizationName: orgname,
                 Location: location,
                 aContact: aContact,
-                dutyHrs:dutyHrs,
-                noOfAmbulance:noOfAmbulance,
+                dutyHrs: dutyHrs,
+                noOfAmbulance: noOfAmbulance,
                 workingHos: workingHos,
-                ambImg:image,
-                regSince:regSince
+                ambImg: image,
+                regSince: regSince
             }
         ).then(response => {
             alert("Registation Finished");
@@ -75,8 +75,8 @@ const Ambulance_add = (props, errors) => {
         })
     }
 
-// function Ambulance_add() {
-   
+    // function Ambulance_add() {
+
     return (
         <div>
             <div className="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
@@ -257,7 +257,7 @@ const Ambulance_add = (props, errors) => {
                                 <ul className="vertical-nav-menu">
                                     <li className="app-sidebar__heading">Dashboards</li>
                                     <li>
-                                        <a href="#">
+                                        <a href="/">
                                             <i className="metismenu-icon pe-7s-rocket" />
                                             Dashboard
                                         </a>
@@ -432,7 +432,7 @@ const Ambulance_add = (props, errors) => {
                             </div>
                             {/* add form */}
                             <Card>
-                                
+
                                 <Form style={{ marginLeft: '5%', marginTop: '3%', marginBottom: '3%' }}>
                                     <Form.Group as={Row} className="mb-3" controlId="" >
                                         <Form.Label column sm={3}>
@@ -495,7 +495,7 @@ const Ambulance_add = (props, errors) => {
                                             Servicing Hospitals
                                         </Form.Label>
                                         <Col sm={5}>
-                                            <Form.Control type="text" value={workingHos} onChange={(e) => setWorkingHos(e.target.value)}/>
+                                            <Form.Control type="text" value={workingHos} onChange={(e) => setWorkingHos(e.target.value)} />
                                         </Col>
                                     </Form.Group>
                                     <Form.Group as={Row} className="mb-3" controlId="">
@@ -503,13 +503,13 @@ const Ambulance_add = (props, errors) => {
                                             Image
                                         </Form.Label>
                                         <Col sm={5}>
-                                            <Form.Control type="file" value={image} onChange={(e) => setImage(e.target.value)}/>
+                                            <Form.Control type="file" value={image} onChange={(e) => setImage(e.target.value)} />
                                         </Col>
                                     </Form.Group>
                                     <div style={{ marginTop: '5%', marginLeft: '65%' }}>
 
                                         <div class="btn-group mr-2" role="group" aria-label="Second group">
-                                            <button type="button"  onClick={CreateAmbulance} class="btn btn-secondary">SUBMIT</button>
+                                            <button type="button" onClick={CreateAmbulance} class="btn btn-secondary">SUBMIT</button>
                                         </div>
 
                                     </div>

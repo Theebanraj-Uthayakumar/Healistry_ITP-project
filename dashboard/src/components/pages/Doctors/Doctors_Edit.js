@@ -30,44 +30,71 @@ const Doctors_add = (props, errors) => {
     const classes = useStyles();
 
 
-    const [name, setName] = useState('')
-    const [specialization, setSpecialization] = useState('')
-    const [slnc, setSlnc] = useState('')
-    const [experiance, setExperiance] = useState('')
-    const [gender, setGender] = useState('')
-    const [cposistion, setCposistion] = useState('')
-    const [whospital, setWhospital] = useState('')
-    const [whistory, setWhistory] = useState('')
+    const [DName, setName] = useState('')
+    const [Speci, setSpecialization] = useState('')
+    const [SLNC, setSlnc] = useState('')
+    const [Exper, setExperiance] = useState('')
+    const [Gender, setGender] = useState('')
+    const [CPosistion, setCposistion] = useState('')
+    const [WHospital, setWhospital] = useState('')
+    const [WHistory, setWhistory] = useState('')
     const [image, setImage] = useState('')
 
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
 
-    let fromDate = new FormData();
-
-    const onFileChange = (e) => {
-        console.log(e.target.files[0]);
-        if (e.target && e.target.files[0]) {
-            fromDate.append('file', e.target.files[0]);
-        }
-    }
 
     const id = window.sessionStorage.getItem("ID");
     console.log("ID from update page", id);
 
+    const [doctors, setDoctors] = useState([]);
+
+    const getRequest = () => {
+        axios
+            .get(`http://localhost:5000/doctors/${id}`)
+            .then(response => {
+                // console.log(response.data)
+                // console.log(response.data.name)
+                // console.log(data.name)
+                setDoctors(response.data);
+            });
+    }
+
+    useEffect(() => {
+        getRequest()
+    }, [doctors]);
+
+    // console.log(doctors.DName);
     // CreateDoctor();
+
     function CreateDoctor() {
         setError(null);
         setLoading(true);
 
-        let item = { name, specialization, slnc, experiance, gender, cposistion, whospital, whistory, image }
-        console.log(item);
+        // let item = { name, specialization, slnc, experiance, gender, cposistion, whospital, whistory, image }
+        // console.log(item);
 
-        axios.patch(`http://localhost:5000/doctors/${id}`,
+        axios.put(`http://localhost:5000/doctors/${id}`,
             {
-                // setName()
+                DName: DName,
+                Speci: Speci,
+                SLNC: SLNC,
+                Exper: Exper,
+                Gender: Gender,
+                CPosistion: CPosistion,
+                WHospital: WHospital,
+                WHistory: WHistory,
+                // selectedFile: fromDate
+                // selectedFile: image
             }
-        )
+        ).then(response => {
+            setLoading(false);
+            alert("Your data has been successfully added...");
+            window.location.reload();
+        }).catch(error => {
+            setLoading(false);
+            alert("Sorry, Something Error...");
+        })
     }
 
 
@@ -251,7 +278,7 @@ const Doctors_add = (props, errors) => {
                                 <ul className="vertical-nav-menu">
                                     <li className="app-sidebar__heading">Dashboards</li>
                                     <li>
-                                        <a href="#">
+                                        <a href="/">
                                             <i className="metismenu-icon pe-7s-rocket" />
                                             Dashboard
                                         </a>
@@ -435,7 +462,7 @@ const Doctors_add = (props, errors) => {
                                                 Full Name
                                             </Form.Label>
                                             <Col sm={9}>
-                                                <Form.Control type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Full Name" />
+                                                <Form.Control type="text" value={doctors.DName} onChange={(e) => setName(e.target.value)} placeholder="Full Name" />
                                             </Col>
                                         </Form.Group>
                                         <Form.Group as={Row} className="mb-3" controlId="">
@@ -443,7 +470,7 @@ const Doctors_add = (props, errors) => {
                                                 SLNC Registation Number
                                             </Form.Label>
                                             <Col sm={9}>
-                                                <Form.Control type="number" value={slnc} onChange={(e) => setSlnc(e.target.value)} placeholder="SLNC Registation Number" />
+                                                <Form.Control type="number" value={doctors.SLNC} onChange={(e) => setSlnc(e.target.value)} placeholder="SLNC Registation Number" />
                                             </Col>
                                         </Form.Group>
                                         <Form.Group as={Row} className="mb-3" controlId="">
@@ -451,7 +478,7 @@ const Doctors_add = (props, errors) => {
                                                 Specialization
                                             </Form.Label>
                                             <Col sm={9}>
-                                                <Form.Control type="text" value={specialization} onChange={(e) => setSpecialization(e.target.value)} placeholder="Specialization" />
+                                                <Form.Control type="text" value={doctors.Speci} onChange={(e) => setSpecialization(e.target.value)} placeholder="Specialization" />
                                             </Col>
                                         </Form.Group>
                                         <Form.Group as={Row} className="mb-3" controlId="">
@@ -459,7 +486,7 @@ const Doctors_add = (props, errors) => {
                                                 Current Position
                                             </Form.Label>
                                             <Col sm={9}>
-                                                <Form.Control type="text" value={cposistion} onChange={(e) => setCposistion(e.target.value)} placeholder="Current Position" />
+                                                <Form.Control type="text" value={doctors.CPosistion} onChange={(e) => setCposistion(e.target.value)} placeholder="Current Position" />
                                             </Col>
                                         </Form.Group>
                                         <Form.Group as={Row} className="mb-3" controlId="">
@@ -467,7 +494,7 @@ const Doctors_add = (props, errors) => {
                                                 Working Hospital
                                             </Form.Label>
                                             <Col sm={9}>
-                                                <Form.Control type="text" value={whospital} onChange={(e) => setWhospital(e.target.value)} placeholder="Working Hospital" />
+                                                <Form.Control type="text" value={doctors.WHospital} onChange={(e) => setWhospital(e.target.value)} placeholder="Working Hospital" />
                                             </Col>
                                         </Form.Group>
                                         <Form.Group as={Row} className="mb-3" controlId="">
@@ -475,7 +502,7 @@ const Doctors_add = (props, errors) => {
                                                 Gender
                                             </Form.Label>
                                             <Col sm={9}>
-                                                <RadioGroup row aria-label="position" value={gender} onChange={(e) => setGender(e.target.value)} name="position" defaultValue="top">
+                                                <RadioGroup row aria-label="position" value={doctors.Gender} onChange={(e) => setGender(e.target.value)} name="position" defaultValue="top">
                                                     <FormControlLabel value="Male" control={<Radio color="primary" />} label="Male" />
                                                     <FormControlLabel value="Female" control={<Radio color="primary" />} label="Female" />
                                                 </RadioGroup>
@@ -486,7 +513,7 @@ const Doctors_add = (props, errors) => {
                                                 Working History
                                             </Form.Label>
                                             <Col sm={9}>
-                                                <Form.Control type="text" value={whistory} onChange={(e) => setWhistory(e.target.value)} placeholder="Working History" />
+                                                <Form.Control type="text" value={doctors.WHistory} onChange={(e) => setWhistory(e.target.value)} placeholder="Working History" />
                                             </Col>
                                         </Form.Group>
                                         <Form.Group as={Row} className="mb-3" controlId="">
@@ -494,7 +521,7 @@ const Doctors_add = (props, errors) => {
                                                 Experience
                                             </Form.Label>
                                             <Col sm={9}>
-                                                <Form.Control type="text" value={experiance} onChange={(e) => setExperiance(e.target.value)} placeholder="Experience" />
+                                                <Form.Control type="text" value={doctors.Exper} onChange={(e) => setExperiance(e.target.value)} placeholder="Experience" />
                                             </Col>
                                         </Form.Group>
                                         <Form.Group as={Row} className="mb-3" controlId="">
@@ -502,7 +529,7 @@ const Doctors_add = (props, errors) => {
                                                 Image
                                             </Form.Label>
                                             <Col sm={9}>
-                                                <Form.Control type="file" value={image} onChange={(e) => setImage(e.target.value)} />
+                                                {/* <Form.Control type="file" value={doctors.selectedFile} onChange={(e) => setImage(e.target.value)} /> */}
                                             </Col>
                                             {/* <Col sm={9}>
                                                 <Form.Control type="file" name="upload" onChange={onFileChange} />

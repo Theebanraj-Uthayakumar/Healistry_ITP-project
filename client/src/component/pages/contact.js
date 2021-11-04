@@ -1,9 +1,38 @@
-import React from 'react'
+import React, { useState, useEffect } from "react";
+import Typography from '@material-ui/core/Typography';
+import Breadcrumbs from '@material-ui/core/Breadcrumbs';
+import Link from '@material-ui/core/Link';
+import HomeIcon from '@material-ui/icons/Home';
+import GrainIcon from '@material-ui/icons/Grain';
+import { makeStyles } from '@material-ui/core/styles';
 
-function contact() {
+const useStyles2 = makeStyles((theme) => ({
+    link: {
+        display: 'flex',
+    },
+    icon: {
+        marginRight: theme.spacing(0.5),
+        width: 20,
+        height: 20,
+    },
+}));
+function Contact() {
+    const classes = useStyles2();
     return (
         <div>
             <>
+                <div className="container">
+                    <Breadcrumbs aria-label="breadcrumb" className="Breadcrumbs">
+                        <Link color="inherit" href="./" className={classes.link}>
+                            <HomeIcon className={classes.icon} />
+                            Home
+                        </Link>
+                        <Typography color="textPrimary" className={classes.link}>
+                            <GrainIcon className={classes.icon} />
+                            Contact
+                        </Typography>
+                    </Breadcrumbs>
+                </div>
                 <section className="contact-area primary-bg pt-100 pb-70">
                     <div className="container">
                         <div className="contact-wrap-padding">
@@ -126,4 +155,4 @@ function contact() {
     )
 }
 
-export default contact
+export default Contact

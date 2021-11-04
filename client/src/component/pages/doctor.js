@@ -6,12 +6,10 @@ import Typography from '@material-ui/core/Typography';
 import Breadcrumbs from '@material-ui/core/Breadcrumbs';
 import Link from '@material-ui/core/Link';
 import HomeIcon from '@material-ui/icons/Home';
-import WhatshotIcon from '@material-ui/icons/Whatshot';
 import GrainIcon from '@material-ui/icons/Grain';
 import axios from "axios";
 import SearchIcon from '@material-ui/icons/Search';
 import ReactPaginate from "react-paginate";
-
 
 const useStyles = makeStyles((theme) => ({
     link: {
@@ -39,7 +37,6 @@ function Doctor() {
             .get('http://localhost:5000/doctors')
             .then(response => {
                 setDoctors(response.data);
-
             });
     }
 
@@ -64,7 +61,7 @@ function Doctor() {
                     <div className="shop-area gray-bg pt-10 pb-100">
                         <div className="custom-container-two">
                             <Breadcrumbs aria-label="breadcrumb" className="Breadcrumbs">
-                                <Link color="inherit" href="/" onClick={handleClick} className={classes.link}>
+                                <Link color="inherit" href="./" className={classes.link}>
                                     <HomeIcon className={classes.icon} />
                                     Home
                                 </Link>
@@ -130,14 +127,14 @@ function Doctor() {
 
                                         <div className="pagination-wrap">
                                             <div className="pagination-wrap_column1">
-                                                <img src={item.selectedFile} alt="Profile01" className="pagination-wrap_image" height="350px" width="200px" />
+                                                <img src={"http://localhost:5000/" + item.selectedFile} alt="Profile01" className="pagination-wrap_image" height="350px" width="200px" />
                                             </div>
                                             <div className="pagination-wrap_column2">
                                                 <h2>{item.DName}</h2>
                                                 <p>{item.Speci}</p>
                                                 <table>
                                                     <tr>
-                                                        <th>SLNC</th>
+                                                        <th>SLMC</th>
                                                         <td>{item.SLNC}</td>
                                                         <th>Gender</th>
                                                         <td>{item.Gender}</td>
