@@ -24,9 +24,10 @@ app.use("/", CloudinaryRoutes);
 // app.use(bodyParser.json({ limit: "30mb", extended: true }));
 
 // const CONNECTION_URL = "mongodb://localhost:27017/sliit";
-const CONNECTION_URL ='mongodb+srv://Theebanraj:Theeban2021@cluster0.ig2tw.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
+const CONNECTION_URL =
+  "mongodb+srv://Theebanraj:Theeban2021@cluster0.ig2tw.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3000;
 
 mongoose
   .connect(CONNECTION_URL, {
